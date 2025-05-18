@@ -9,31 +9,15 @@ import Image from "next/image";
 import FeaturedPosts from "@/components/featured-posts";
 import FeaturedProjects from "@/components/featured-projects";
 import Script from "next/script";
+import StructuredData from "@/components/structured-data";
+import { generateWebsiteJsonLd } from "@/lib/jsonld/home";
 // Import is kept but commented out until testimonials are available
 // import Testimonials from "@/components/testimonials"
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
-      <Script
-        id="json-ld-home"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Chris Shockley",
-            url: "https://www.cshockley.com",
-            description:
-              "Portfolio of Chris Shockley, a software engineer, developer, and veteran.",
-            author: {
-              "@type": "Person",
-              name: "Chris Shockley",
-              url: "https://www.cshockley.com/about",
-            },
-          }),
-        }}
-      />
+      <StructuredData data={generateWebsiteJsonLd()} />
 
       {/* Hero Section */}
       <section className="container px-4 py-12 md:py-24 lg:py-32">

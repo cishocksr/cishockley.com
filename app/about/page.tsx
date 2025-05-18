@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Download, Mail } from "lucide-react";
 import type { Metadata } from "next";
 import Script from "next/script";
+import StructuredData from "@/components/structured-data";
+import { generatePersonJsonLd } from "@/lib/jsonld/about";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -33,24 +35,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageWrapper>
-      <Script
-        id="json-ld-about"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Chris Shockley",
-            jobTitle: "Software Engineer",
-            url: "https://www.cshockley.com/about",
-            image: "https://www.cshockley.com/images/profile-photo.jpeg",
-            sameAs: [
-              "https://github.com/chrisshockley",
-              "https://linkedin.com/in/chrisshockley",
-            ],
-          }),
-        }}
-      />
+      <StructuredData data={generatePersonJsonLd()} />
+
       <div className="container py-12 px-4">
         <h1 className="text-4xl font-serif font-bold mb-6">About Me</h1>
 

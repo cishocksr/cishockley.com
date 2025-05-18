@@ -9,6 +9,9 @@ import Image from "next/image";
 import Script from "next/script";
 import type { Metadata } from "next";
 import type { Post } from "@/types";
+import { generateBlogPostJsonLd } from "@/lib/jsonld/blog";
+import StructuredData from "@/components/structured-data";
+import { compilePost } from "@/lib/compile";
 
 type Params = { slug: string };
 
@@ -63,46 +66,12 @@ export default async function BlogPostPage({ params }: { params: Params }) {
 
   const { meta, content } = post;
 
-  const compiled = await compileMDX({
-    source: content,
-    components: useMDXComponents({}),
-    options: {
-      scope: meta,
-      mdxOptions: {
-        rehypePlugins: [
-          [
-            rehypePrettyCode,
-            {
-              theme: "github-dark",
-              keepBackground: false,
-            },
-          ],
-        ],
-      },
-    },
-  });
+  const compiled = await compilePost(content, meta);
 
   return (
     <article className="container py-12 px-4 max-w-3xl mx-auto prose dark:prose-invert">
-      {/* JSON-LD Structured Data */}
-      <Script
-        id="json-ld-post"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: meta.title,
-            description: meta.excerpt,
-            image: `https://www.cshockley.com${meta.image}`,
-            datePublished: meta.date,
-            author: {
-              "@type": "Person",
-              name: "Chris Shockley",
-            },
-            url: `https://www.cshockley.com/blog/${meta.slug}`,
-          }),
-        }}
+      <StructuredData
+        data={generateBlogPostJsonLd({ id: meta.slug, ...meta, content })}
       />
 
       <h1 className="mb-4">{meta.title}</h1>
