@@ -1,19 +1,40 @@
-"use client"
+"use client";
 
-import { Suspense } from "react"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import TypewriterComponent from "@/components/typewriter"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import FeaturedPosts from "@/components/featured-posts"
-import FeaturedProjects from "@/components/featured-projects"
+import { Suspense } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import TypewriterComponent from "@/components/typewriter";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import FeaturedPosts from "@/components/featured-posts";
+import FeaturedProjects from "@/components/featured-projects";
+import Script from "next/script";
 // Import is kept but commented out until testimonials are available
 // import Testimonials from "@/components/testimonials"
 
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
+      <Script
+        id="json-ld-home"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Chris Shockley",
+            url: "https://www.cshockley.com",
+            description:
+              "Portfolio of Chris Shockley, a software engineer, developer, and veteran.",
+            author: {
+              "@type": "Person",
+              name: "Chris Shockley",
+              url: "https://www.cshockley.com/about",
+            },
+          }),
+        }}
+      />
+
       {/* Hero Section */}
       <section className="container px-4 py-12 md:py-24 lg:py-32">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
@@ -27,11 +48,16 @@ export default function Home() {
               Hi, I'm <span className="text-accent">Chris Shockley</span>
             </h1>
             <div className="flex items-center text-2xl md:text-3xl font-medium">
-              I'm a <TypewriterComponent words={["Developer", "Veteran", "Philosopher"]} className="text-accent ml-2" />
+              I'm a{" "}
+              <TypewriterComponent
+                words={["Developer", "Veteran", "Philosopher"]}
+                className="text-accent ml-2"
+              />
             </div>
             <p className="text-muted-foreground text-lg md:text-xl max-w-[600px]">
-              Building digital experiences that make a difference. Focused on creating accessible, user-friendly
-              applications with modern technologies.
+              Building digital experiences that make a difference. Focused on
+              creating accessible, user-friendly applications with modern
+              technologies.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <Link
@@ -92,14 +118,25 @@ export default function Home() {
       >
         <div className="container px-4">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl font-serif font-bold tracking-tighter">Featured Projects</h2>
-            <Link href="/projects" className="text-accent hover:text-accent/80 inline-flex items-center">
+            <h2 className="text-3xl font-serif font-bold tracking-tighter">
+              Featured Projects
+            </h2>
+            <Link
+              href="/projects"
+              className="text-accent hover:text-accent/80 inline-flex items-center"
+            >
               View all projects <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
-          <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading projects...</div>}>
+          <Suspense
+            fallback={
+              <div className="h-96 flex items-center justify-center">
+                Loading projects...
+              </div>
+            }
+          >
             <FeaturedProjects />
-            </Suspense>
+          </Suspense>
         </div>
       </motion.section>
 
@@ -112,17 +149,27 @@ export default function Home() {
       >
         <div className="container px-4">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl font-serif font-bold tracking-tighter">Latest Articles</h2>
-            <Link href="/blog" className="text-accent hover:text-accent/80 inline-flex items-center">
+            <h2 className="text-3xl font-serif font-bold tracking-tighter">
+              Latest Articles
+            </h2>
+            <Link
+              href="/blog"
+              className="text-accent hover:text-accent/80 inline-flex items-center"
+            >
               View all posts <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
-            <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading blog posts...</div>}>
-             <FeaturedPosts />
-            </Suspense>
-          
+          <Suspense
+            fallback={
+              <div className="h-96 flex items-center justify-center">
+                Loading blog posts...
+              </div>
+            }
+          >
+            <FeaturedPosts />
+          </Suspense>
         </div>
       </motion.section>
     </main>
-  )
+  );
 }
