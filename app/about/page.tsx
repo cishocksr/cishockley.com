@@ -73,7 +73,10 @@ export default function AboutPage() {
 
             <div className="flex flex-wrap gap-4 mt-8">
               <Button asChild className="flex items-center gap-2">
-                <a href="/resume.pdf" download>
+                <a
+                  href="https://drive.google.com/file/d/19AAPzDc09v0wbHsjYfvuuoengx9oM0Mn/view?usp=drive_link"
+                  download
+                >
                   <Download size={16} />
                   Download Resume
                 </a>
@@ -84,7 +87,7 @@ export default function AboutPage() {
                 variant="outline"
                 className="flex items-center gap-2"
               >
-                <a href="mailto:chris@example.com">
+                <a href="mailto:cishockleysr@gmail.com">
                   <Mail size={16} />
                   Contact Me
                 </a>
@@ -163,35 +166,35 @@ export default function AboutPage() {
                 <p>
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:chris@example.com"
+                    href="mailto:cishockleysr@gmail.com"
                     className="underline hover:text-accent"
                   >
-                    chris@example.com
+                    cishockleysr@gmail.com
                   </a>
                 </p>
                 <p>
-                  <strong>Location:</strong> San Francisco, CA
+                  <strong>Location:</strong> Cleveland, OH
                 </p>
                 <p>
                   <strong>GitHub:</strong>{" "}
                   <a
-                    href="https://github.com/chrisshockley"
+                    href="https://github.com/cishocksr"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:text-accent"
                   >
-                    github.com/chrisshockley
+                    github.com/cishocksr
                   </a>
                 </p>
                 <p>
                   <strong>LinkedIn:</strong>{" "}
                   <a
-                    href="https://linkedin.com/in/chrisshockley"
+                    href="https://linkedin.com/in/christopherishockley"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:text-accent"
                   >
-                    linkedin.com/in/chrisshockley
+                    linkedin.com/in/christopherishockley
                   </a>
                 </p>
               </div>

@@ -1,49 +1,69 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 interface TypewriterProps {
-  words: string[]
-  className?: string
+  words: string[];
+  className?: string;
+  cursorClassName?: string;
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pauseDuration?: number;
 }
 
-export default function TypewriterComponent({ words, className = "" }: TypewriterProps) {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
-  const [currentText, setCurrentText] = useState("")
-  const [isDeleting, setIsDeleting] = useState(false)
+export default function TypewriterComponent({
+  words,
+  className = "",
+  cursorClassName = "animate-blink",
+  typingSpeed = 150,
+  deletingSpeed = 50,
+  pauseDuration = 1500,
+}: TypewriterProps) {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    const word = words[currentWordIndex]
+    if (isPaused) return;
 
-    const typeSpeed = isDeleting ? 50 : 150
+    const word = words[currentWordIndex];
+    const speed = isDeleting ? deletingSpeed : typingSpeed;
 
-    const timer = setTimeout(() => {
+    const handleTyping = () => {
       if (!isDeleting && currentText === word) {
-        // Pause at complete word
+        setIsPaused(true);
         setTimeout(() => {
-          setIsDeleting(true)
-        }, 1500)
+          setIsPaused(false);
+          setIsDeleting(true);
+        }, pauseDuration);
       } else if (isDeleting && currentText === "") {
-        setIsDeleting(false)
-        setCurrentWordIndex((prev) => (prev + 1) % words.length)
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
       } else {
-        setCurrentText((prev) => {
-          if (isDeleting) {
-            return prev.substring(0, prev.length - 1)
-          } else {
-            return word.substring(0, prev.length + 1)
-          }
-        })
+        setCurrentText((prev) =>
+          isDeleting ? prev.slice(0, -1) : word.slice(0, prev.length + 1)
+        );
       }
-    }, typeSpeed)
+    };
 
-    return () => clearTimeout(timer)
-  }, [currentText, currentWordIndex, isDeleting, words])
+    const timer = setTimeout(handleTyping, speed);
+    return () => clearTimeout(timer);
+  }, [
+    currentText,
+    isDeleting,
+    currentWordIndex,
+    isPaused,
+    words,
+    typingSpeed,
+    deletingSpeed,
+    pauseDuration,
+  ]);
 
   return (
-    <span className={className}>
+    <span className={className} role="status" aria-live="polite">
       {currentText}
-      <span className="animate-blink">|</span>
+      <span className={cursorClassName}>|</span>
     </span>
-  )
+  );
 }

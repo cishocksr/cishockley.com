@@ -32,10 +32,14 @@ export default function Home() {
               Hi, I'm <span className="text-accent">Chris Shockley</span>
             </h1>
             <div className="flex items-center text-2xl md:text-3xl font-medium">
-              I'm a{" "}
+              <span className="mr-1">I'm a</span>
               <TypewriterComponent
                 words={["Developer", "Veteran", "Philosopher"]}
-                className="text-accent ml-2"
+                className="font-bold text-primary"
+                cursorClassName="text-primary animate-blink"
+                typingSpeed={100}
+                deletingSpeed={40}
+                pauseDuration={1200}
               />
             </div>
             <p className="text-muted-foreground text-lg md:text-xl max-w-[600px]">

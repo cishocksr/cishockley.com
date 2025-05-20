@@ -1,51 +1,38 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-// Sample featured blog posts data
-const featuredPosts = [
-  {
-    id: 1,
-    title: "TypeScript 5.6 Beta is Awesome",
-    excerpt:
-      "The new TypeScript update fixes some common dev headaches, and adds emojis?",
-    date: "August 11, 2024",
-    readingTime: "2 min",
-    slug: "typescript-5-6-beta",
-    tags: ["typescript", "javascript", "blog"],
-  },
-  {
-    id: 2,
-    title: "Create Your own ChatGPT Clone in Next.js with Just One Command",
-    excerpt:
-      "In this video I showcase a really cool project to bootstrap a ChatGPT like application that can be used to query and index your own data.",
-    date: "November 16, 2023",
-    readingTime: "1 min",
-    slug: "create-chatgpt-clone-nextjs",
-    tags: ["video", "nextjs", "ChatGPT", "AI", "LlamaIndex"],
-  },
-  {
-    id: 3,
-    title: "Building Accessible Web Components",
-    excerpt:
-      "Learn how to create web components that everyone can use, regardless of their abilities or disabilities.",
-    date: "July 3, 2024",
-    readingTime: "4 min",
-    slug: "building-accessible-web-components",
-    tags: ["accessibility", "web components", "HTML", "CSS"],
-  },
-];
+type Post = {
+  id: string;
+  title: string;
+  slug: string;
+  date: string;
+  tags: string[];
+  excerpt: string;
+  readingTime: string;
+};
 
 export default function FeaturedPosts() {
+  const [posts, setPosts] = useState<Post[]>([]);
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  useEffect(() => {
+    fetch("/api/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data.slice(0, 2)));
+  }, []);
+
   return (
-    <div ref={ref} className=" rounded-3xl bg-card p-8 md:p-10 mb-8">
-      {featuredPosts.slice(0, 2).map((post, index) => (
+    <div ref={ref} className="rounded-3xl bg-card p-8 md:p-10 mb-8">
+      {posts.map((post, index) => (
         <motion.div
           key={post.id}
           className={index === 0 ? "mb-12" : "mb-8"}
@@ -90,13 +77,12 @@ export default function FeaturedPosts() {
               href={`/blog/${post.slug}`}
               className="text-accent hover:text-accent/80 inline-flex items-center"
             >
-              Read more
-              <ArrowRight className="ml-1 h-4 w-4" />
+              Read more <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
 
-          {index < featuredPosts.slice(0, 2).length - 1 && (
-            <div className="border-t border-border my-8"></div>
+          {index < posts.length - 1 && (
+            <div className="border-t border-border my-8" />
           )}
         </motion.div>
       ))}
