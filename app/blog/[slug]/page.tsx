@@ -8,12 +8,17 @@ import { Calendar, Clock } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
 import type { Metadata } from "next";
-import type { Post } from "@/types";
+import type { PostMeta } from "@/types";
 import { generateBlogPostJsonLd } from "@/lib/jsonld/blog";
 import StructuredData from "@/components/structured-data";
 import { compilePost } from "@/lib/compile";
 
 type Params = { slug: string };
+
+type PostData = {
+  meta: PostMeta;
+  content: string;
+};
 
 export async function generateMetadata({
   params,
@@ -61,7 +66,7 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: { params: Params }) {
-  const post = await getPostBySlug(params.slug);
+  const post: PostData | null = await getPostBySlug(params.slug);
   if (!post) notFound();
 
   const { meta, content } = post;

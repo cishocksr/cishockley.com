@@ -6,4 +6,6 @@ export type Project = {
   liveUrl: string
   technologies: string[]
   slug: string
+  featured?: boolean
+  priority?: number
 }

@@ -1,5 +1,5 @@
 import { generateProjectJsonLd } from "@/lib/jsonld/projects";
-import { projects } from "@/content/projects";
+import projects from "@/content/projects.json";
 import ProjectsClient from "@/components/projects-client";
 import Script from "next/script";
 
@@ -17,15 +17,17 @@ export const generateMetadata = async () => ({
 });
 
 export default function ProjectsPage() {
-  const jsonLd = generateProjectJsonLd();
+  const jsonLd = projects?.length ? generateProjectJsonLd(projects) : null;
 
   return (
     <>
-      <Script
-        id="json-ld-projects"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd && (
+        <Script
+          id="json-ld-projects"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
 
       <div className="container py-12 px-4">
         <h1 className="text-4xl font-serif font-bold mb-6 text-charcoal dark:text-foreground">

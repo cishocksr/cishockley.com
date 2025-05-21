@@ -1,6 +1,8 @@
-import { projects } from "@/content/projects"
+import type { Project } from "@/types";
 
-export function generateProjectJsonLd(baseUrl = "https://cshockley.com") {
+export function generateProjectJsonLd(projects: Project[]) {
+  if (!projects?.length) return null;
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -8,14 +10,7 @@ export function generateProjectJsonLd(baseUrl = "https://cshockley.com") {
       "@type": "SoftwareSourceCode",
       position: index + 1,
       name: project.title,
-      description: project.description,
-      codeRepository: project.githubUrl,
-      programmingLanguage: {
-        "@type": "ComputerLanguage",
-        name: project.technologies.join(", "),
-      },
-      image: `${baseUrl}${project.image}`,
       url: project.liveUrl,
     })),
-  }
+  };
 }

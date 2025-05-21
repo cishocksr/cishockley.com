@@ -1,45 +1,19 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock } from "lucide-react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import type { PostMeta } from "@/types";
 
-type Post = {
-  id: string;
-  title: string;
-  slug: string;
-  date: string;
-  tags: string[];
-  excerpt: string;
-  readingTime: string;
+type Props = {
+  posts?: PostMeta[];
 };
 
-export default function FeaturedPosts() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
-  useEffect(() => {
-    fetch("/api/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data.slice(0, 2)));
-  }, []);
+export default function FeaturedPosts({ posts }: Props) {
+  const featured = (posts ?? []).slice(0, 2);
 
   return (
-    <div ref={ref} className="rounded-3xl bg-card p-8 md:p-10 mb-8">
-      {posts.map((post, index) => (
-        <motion.div
-          key={post.id}
-          className={index === 0 ? "mb-12" : "mb-8"}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
-        >
+    <div className="rounded-3xl bg-card p-8 md:p-10 mb-8">
+      {featured.map((post, index) => (
+        <div key={post.slug} className={index === 0 ? "mb-12" : "mb-8"}>
           <Link
             href={`/blog/${post.slug}`}
             aria-label={`Read more about ${post.title}`}
@@ -81,10 +55,10 @@ export default function FeaturedPosts() {
             </Link>
           </div>
 
-          {index < posts.length - 1 && (
+          {index < featured.length - 1 && (
             <div className="border-t border-border my-8" />
           )}
-        </motion.div>
+        </div>
       ))}
     </div>
   );

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import SkillsMarquee from "@/components/skills-marquee";
 import { PageWrapper } from "@/components/ui/animation-provider";
@@ -7,6 +9,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import StructuredData from "@/components/structured-data";
 import { generatePersonJsonLd } from "@/lib/jsonld/about";
+import type { User } from "@/types";
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -35,47 +38,59 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageWrapper>
-      <StructuredData data={generatePersonJsonLd()} />
+      <StructuredData data={generatePersonJsonLd() ?? {}} />
 
       <div className="container py-12 px-4">
+        <h1 className="sr-only">About Chris Shockley</h1>
         <h1 className="text-4xl font-serif font-bold mb-6">About Me</h1>
 
         <div className="grid gap-12 md:grid-cols-[2fr_1fr] lg:gap-16 items-start">
+          {/* Left Column */}
           <div>
-            <p className="text-lg mb-6 text-muted-foreground">
-              Hello! I'm a passionate developer with expertise in building
-              modern web applications. With a background in both frontend and
-              backend development, I enjoy creating seamless user experiences
-              with clean, efficient code.
+            <p className="text-lg mb-6 text-muted-foreground max-w-prose">
+              I'm Chris Shockley — a Software Developer, U.S. Navy Veteran, and
+              passionate problem solver. My journey has taken me from managing
+              operations under pressure to building scalable full-stack
+              applications that solve real-world problems.
             </p>
 
-            <p className="text-lg mb-6 text-muted-foreground">
-              I'm a veteran who served in the military for several years, where
-              I developed strong leadership skills, discipline, and the ability
-              to work under pressure. These experiences have shaped my approach
-              to problem-solving and teamwork in the tech industry.
+            <p className="text-lg mb-6 text-muted-foreground max-w-prose">
+              I'm currently enrolled in the Java Developer Bootcamp at Tech
+              Elevator, completing over 800 hours of intensive training in Java,
+              Spring Boot, SQL, and PostgreSQL. I’ve built full-stack apps with
+              Vue.js and REST APIs, practiced Agile methodologies, and applied
+              TDD with JUnit in real-world projects.
             </p>
 
-            <p className="text-lg mb-6 text-muted-foreground">
-              As a philosopher at heart, I'm constantly exploring new ideas and
-              perspectives. I believe in the power of technology to improve
-              lives and create meaningful connections. My goal is to build
-              applications that are not only functional but also thoughtful and
-              accessible.
+            <p className="text-lg mb-6 text-muted-foreground max-w-prose">
+              At Amazon, I’ve optimized fulfillment processes, mentored
+              associates, and improved team productivity by over 40%. Before
+              that, I led operations at Starbucks, maintaining service
+              excellence during pandemic surges and handling $2K+ daily in
+              transactions.
             </p>
 
-            <p className="text-lg mb-6 text-muted-foreground">
-              When I'm not coding, you can find me reading philosophy books,
-              hiking in nature, or experimenting with new technologies. I'm
-              always open to new opportunities and collaborations, so feel free
-              to reach out!
+            <p className="text-lg mb-6 text-muted-foreground max-w-prose">
+              As a developer, I specialize in building intuitive, accessible
+              applications using tools like Next.js, PostgreSQL, Tailwind CSS,
+              and Framer Motion. My portfolio includes a dynamic guestbook app
+              and a live Pathfinder Visualizer that renders BFS/DFS algorithms
+              in real time.
+            </p>
+
+            <p className="text-lg mb-6 text-muted-foreground max-w-prose">
+              I'm deeply motivated by continuous learning and believe in
+              creating software that empowers people. Whether it's improving
+              user experience or mentoring others, I'm here to build solutions
+              that make a difference.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8">
               <Button asChild className="flex items-center gap-2">
                 <a
                   href="https://drive.google.com/file/d/19AAPzDc09v0wbHsjYfvuuoengx9oM0Mn/view?usp=drive_link"
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Download size={16} />
                   Download Resume
@@ -99,18 +114,14 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <h3 className="text-xl font-medium">
-                  Bachelor of Science in Computer Science
-                </h3>
+                <h3 className="text-xl font-medium">Java Developer Bootcamp</h3>
                 <p className="text-muted-foreground">
-                  University of Technology • 2015-2019
+                  Tech Elevator • Apr 2024 – Present
                 </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-medium">
-                  Full Stack Web Development Bootcamp
-                </h3>
-                <p className="text-muted-foreground">Code Academy • 2020</p>
+                <p className="text-muted-foreground text-sm max-w-prose">
+                  800+ hours of training in Java, Spring Boot, Vue.js, SQL, REST
+                  APIs, and test-driven development using Agile practices.
+                </p>
               </div>
             </div>
 
@@ -119,35 +130,34 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-medium">
-                  Senior Frontend Developer
-                </h3>
+                <h3 className="text-xl font-medium">Process Assistant</h3>
                 <p className="text-muted-foreground">
-                  Tech Solutions Inc. • 2021-Present
+                  Amazon • Jun 2021 – Present
                 </p>
-                <p className="mt-2 text-muted-foreground">
-                  Leading frontend development for enterprise applications,
-                  implementing best practices, and mentoring junior developers.
+                <p className="mt-2 text-muted-foreground max-w-prose">
+                  Led and mentored a team of 10 associates, optimized workflows
+                  increasing efficiency by 40%, and resolved high-priority
+                  escalations reducing downtime by 25%.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-medium">Full Stack Developer</h3>
+                <h3 className="text-xl font-medium">Shift Supervisor</h3>
                 <p className="text-muted-foreground">
-                  Digital Innovations • 2019-2021
+                  Starbucks • Jul 2017 – Jan 2021
                 </p>
-                <p className="mt-2 text-muted-foreground">
-                  Developed and maintained web applications using React,
-                  Node.js, and MongoDB. Collaborated with design and product
-                  teams to deliver high-quality software.
+                <p className="mt-2 text-muted-foreground max-w-prose">
+                  Managed operations and staff, maintained inventory accuracy,
+                  and ensured service quality during pandemic-related surges
+                  with a reduced team.
                 </p>
               </div>
             </div>
           </div>
 
+          {/* Right Column */}
           <div className="space-y-8">
             <div className="flex justify-center">
               <div className="relative w-72 md:w-full max-w-md border-2 border-accent/20 rounded-lg shadow-md overflow-hidden">
-                {/* Using a fixed aspect ratio container to prevent cropping */}
                 <div className="pt-[125%] relative">
                   <Image
                     src="/images/profile-photo.jpeg"
@@ -202,6 +212,7 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Skills Section */}
         <div className="mt-16">
           <h2 className="text-2xl font-serif font-bold mb-6 text-center">
             Skills & Technologies

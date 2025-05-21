@@ -6,6 +6,7 @@ import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import ScrollProgress from "@/components/scroll-progress";
 import AppWrapper from "@/components/app-wrapper";
+import { AnimationProvider } from "@/components/ui/animation-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -40,13 +41,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col">
-            <Nav />
-            <main className="container flex-1">
-              <AppWrapper>{children}</AppWrapper>
-            </main>
-            <Footer />
-          </div>
+          <AnimationProvider>
+            <div className="flex min-h-screen flex-col">
+              <Nav />
+              <main className="container flex-1">
+                <AppWrapper>{children}</AppWrapper>
+              </main>
+              <Footer />
+            </div>
+          </AnimationProvider>
         </ThemeProvider>
       </body>
     </html>

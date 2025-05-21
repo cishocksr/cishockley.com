@@ -1,4 +1,4 @@
-export type Post = {
+export type PostMeta = {
   title: string
   excerpt: string
   date: string
@@ -8,4 +8,6 @@ export type Post = {
   tags: string[]
 }
 
-export type PostMeta = Post
+export type Post = PostMeta & {
+  content: string
+}

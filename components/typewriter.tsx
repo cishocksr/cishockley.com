@@ -27,15 +27,19 @@ export default function TypewriterComponent({
   useEffect(() => {
     if (isPaused) return;
 
+    let isMounted = true;
     const word = words[currentWordIndex];
     const speed = isDeleting ? deletingSpeed : typingSpeed;
 
     const handleTyping = () => {
+      if (!isMounted) return;
       if (!isDeleting && currentText === word) {
         setIsPaused(true);
         setTimeout(() => {
-          setIsPaused(false);
-          setIsDeleting(true);
+          if (isMounted) {
+            setIsPaused(false);
+            setIsDeleting(true);
+          }
         }, pauseDuration);
       } else if (isDeleting && currentText === "") {
         setIsDeleting(false);
@@ -48,7 +52,10 @@ export default function TypewriterComponent({
     };
 
     const timer = setTimeout(handleTyping, speed);
-    return () => clearTimeout(timer);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, [
     currentText,
     isDeleting,
@@ -61,7 +68,12 @@ export default function TypewriterComponent({
   ]);
 
   return (
-    <span className={className} role="status" aria-live="polite">
+    <span
+      className={className}
+      role="status"
+      aria-live="polite"
+      aria-label={currentText}
+    >
       {currentText}
       <span className={cursorClassName}>|</span>
     </span>
