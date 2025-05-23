@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "slug": "ecommerce-platform",
-    "title": "E-commerce Platform",
-    "description": "A full-stack e-commerce platform...",
-    "image": "/e-commerce-platform.png",
-    "liveUrl": "https://example.com",
-    "githubUrl": "https://github.com/example/ecommerce",
-    "technologies": ["React", "Node.js", "MongoDB", "Stripe"]
+    "slug": "pathfinder",
+    "title": "Pathfinder Visualizer",
+    "description": "A visualized examle of BFS and DFS algorithms.",
+    "image": "",
+    "liveUrl": "pathfinder-2fjltas5o-cishocksr-builder.vercel.app",
+    "githubUrl": "https://github.com/cishocksr/pathfinder",
+    "technologies": ["React"]
   },
   {
     "id": 2,
