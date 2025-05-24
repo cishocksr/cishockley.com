@@ -53,7 +53,7 @@ export default function GuestbookPage() {
 
     setSubmitting(true);
 
-    await fetch("/api/guestbook", {
+    const res = await fetch("/api/guestbook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -64,15 +64,24 @@ export default function GuestbookPage() {
       }),
     });
 
+    if (!res.ok) {
+      const error = await res.json().catch(() => ({ error: "Unknown error" }));
+      console.error("Failed to submit:", error);
+      alert("Error submitting your message: " + error.error);
+      setSubmitting(false);
+      return;
+    }
+
     setName("");
     setMessage("");
     setAvatarUrl("");
-    setSubmitting(false);
 
-    // Re-fetch entries
-    const res = await fetch("/api/guestbook");
-    const data = await res.json();
+    // ✅ Now safely fetch updated entries
+    const entriesRes = await fetch("/api/guestbook");
+    const data = await entriesRes.json();
     setEntries(data);
+
+    setSubmitting(false);
   };
 
   const handleDelete = async (id: string) => {

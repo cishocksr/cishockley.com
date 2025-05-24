@@ -26,7 +26,12 @@ export default function AuthButton() {
   }, []);
 
   const login = (provider: "google" | "github") => {
-    supabase.auth.signInWithOAuth({ provider });
+    supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${location.origin}/guestbook`,
+      },
+    });
   };
 
   const logout = () => supabase.auth.signOut();
