@@ -3,6 +3,7 @@ import { fontVariables } from "@/lib/fonts"
 import "@/app/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AnimationProvider, PageWrapper } from "@/components/ui/animations"
+import Nav from "@/components/nav/nav"
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +39,7 @@ export default function RootLayout({
         >
           <AnimationProvider>
             <div className="flex min-h-screen flex-col">
-              {/* <Nav /> */}
+              <Nav />
               <main className="container flex-1">
                 <PageWrapper>{children}</PageWrapper>
               </main>
