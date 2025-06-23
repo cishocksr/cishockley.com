@@ -1,3 +1,4 @@
+// components/icons/tech/index.ts
 import type { FC, SVGProps } from "react"
 import JavaScriptIcon from "./javascript-icon"
 import TypeScriptIcon from "./typescript-icon"
@@ -12,15 +13,28 @@ import ReduxIcon from "./redux-icon"
 import VercelIcon from "./vercel-icon"
 import JavaIcon from "./java-icon"
 
-/**
- * SVG icon component type that supports an optional `title` prop.
- */
-type SVGIconComponent = FC<SVGProps<SVGSVGElement> & { title?: string }>
+// 1) Define & export the union of valid keys:
+export type IconKey =
+  | "javascript"
+  | "typescript"
+  | "react"
+  | "nextjs"
+  | "nodejs"
+  | "tailwindcss"
+  | "git"
+  | "github"
+  | "postgres"
+  | "redux"
+  | "vercel"
+  | "java"
 
-/**
- * Map of technology names (normalized) to their SVG icon components.
- */
-const techIcons: Record<string, SVGIconComponent> = {
+// 2) Define & export your shared IconProps:
+export type IconProps = SVGProps<SVGSVGElement> & {
+  title?: string
+}
+
+// 3) Build the strongly-typed map:
+const techIcons: Record<IconKey, FC<IconProps>> = {
   javascript: JavaScriptIcon,
   typescript: TypeScriptIcon,
   react: ReactIcon,
