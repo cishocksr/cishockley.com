@@ -16,7 +16,9 @@ const aliasMap: Record<string, IconKey> = {
   git: "git",
   github: "github",
   postgres: "postgres",
-  /* …etc… */
+  redux: "redux",
+  vercel: "vercel",
+  java: "java",
 }
 
 export default function TechBrandIcon({
@@ -25,7 +27,6 @@ export default function TechBrandIcon({
   className,
 }: { name: string; size?: number } & IconProps) {
   const normalized = name.toLowerCase().replace(/[\s.]+/g, "")
-  // lookup an IconKey, or fall back by casting if it happens to already match
   const key = aliasMap[normalized] ?? (normalized as IconKey)
 
   const Icon = techIcons[key]
