@@ -2,7 +2,7 @@ import { FlatCompat } from "@eslint/eslintrc";
 import path from "path";
 
 // Create a compat instance pointing at this project root
-const compat = new FlatCompat({ baseDirectory: __dirname });
+const compat = new FlatCompat({ baseDirectory:  });
 
 /**
  * Flat ESLint configuration (eslint.config.js)

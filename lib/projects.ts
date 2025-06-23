@@ -1,4 +1,5 @@
-// lib/projects.ts
+import { ProjectStatus } from "@/types/project"
+
 export interface Project {
   id: string
   title: string
@@ -8,7 +9,7 @@ export interface Project {
   githubUrl: string
   liveUrl: string
   featured: boolean
-  status?: "In Progress" | "Completed" | "Planned"
+  status?: ProjectStatus
 }
 
 // your static array (or JSON import, or fetched at build time)
@@ -23,7 +24,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/johndoe/portfolio",
     liveUrl: "https://johndoe-portfolio.vercel.app",
     featured: false,
-    status: "In Progress",
+    status: "in-progress",
   },
   {
     id: "",
