@@ -4,6 +4,7 @@ import "@/app/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { AnimationProvider, PageWrapper } from "@/components/ui/animations"
 import Nav from "@/components/nav/nav"
+import Footer from "@/components/footer/footer"
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +44,7 @@ export default function RootLayout({
               <main className="container flex-1">
                 <PageWrapper>{children}</PageWrapper>
               </main>
-              {/* <Footer /> */}
+              <Footer />
             </div>
           </AnimationProvider>
         </ThemeProvider>
