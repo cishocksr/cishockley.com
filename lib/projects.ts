@@ -36,6 +36,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/johndoe/chat-app",
     liveUrl: "https://chat-app-demo.vercel.app",
     featured: false,
+    status: "in-progress",
   },
 ]
 
