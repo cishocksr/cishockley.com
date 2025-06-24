@@ -1,42 +1,45 @@
-import { ProjectStatus } from "@/types/project"
-
-export interface Project {
-  id: string
-  title: string
-  description: string
-  image: string
-  technologies: string[]
-  githubUrl: string
-  liveUrl: string
-  featured: boolean
-  status?: ProjectStatus
-}
+import type { Project } from "@/types/project"
 
 // your static array (or JSON import, or fetched at build time)
 const projects: Project[] = [
   {
     id: "1",
-    title: "Portfolio Website",
-    description:
-      "A responsive portfolio website showcasing projects and blog posts, built with modern web technologies.",
-    image: "/images/projects/portfolio-thumbnail.png",
-    technologies: ["Next.js", "MDX", "Tailwind CSS", "Framer Motion"],
-    githubUrl: "https://github.com/johndoe/portfolio",
-    liveUrl: "https://johndoe-portfolio.vercel.app",
-    featured: false,
-    status: "in-progress",
+    title: "E-commerce Platform",
+    description: "A full-stack e-commerce platform built with Next.js…",
+    image: "/placeholder.svg?width=500&height=300",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Stripe",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
+    liveUrl: "https://ecommerce-demo.vercel.app",
+    githubUrl: "https://github.com/johndoe/ecommerce-platform",
+    featured: true,
+    status: "completed",
+    highlights: [
+      "User authentication",
+      "Payment processing integration",
+      "Admin dashboard",
+    ],
   },
   {
-    id: "",
-    title: "Chat Application",
+    id: "2",
+    title: "Task Management App",
     description:
-      "Real-time chat application with multiple rooms, file sharing, and emoji support.",
-    image: "/images/projects/pathfinder-visualizer-thumbnail.png",
-    technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
-    githubUrl: "https://github.com/johndoe/chat-app",
-    liveUrl: "https://chat-app-demo.vercel.app",
-    featured: false,
+      "A collaborative task management application with real-time updates…",
+    image: "/placeholder.svg?width=500&height=300",
+    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Material-UI"],
+    liveUrl: "https://taskmanager-demo.vercel.app",
+    githubUrl: "https://github.com/johndoe/task-manager",
+    featured: true,
     status: "in-progress",
+    highlights: [
+      "Drag-and-drop tasks",
+      "Team collaboration",
+      "Real-time notifications",
+    ],
   },
 ]
 

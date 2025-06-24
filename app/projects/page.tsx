@@ -1,5 +1,6 @@
 // app/projects/page.tsx
-import { getAllProjects, type Project } from "@/lib/projects"
+import { getAllProjects } from "@/lib/projects"
+import type { Project } from "@/types/project"
 import { ProjectCard } from "@/components/projects/project-card"
 
 export default async function ProjectsPage() {
