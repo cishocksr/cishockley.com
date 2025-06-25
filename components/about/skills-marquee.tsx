@@ -1,7 +1,7 @@
 "use client"
 import { useState, useMemo, useCallback } from "react"
 import { useReducedMotion } from "framer-motion"
-import TechBrandIcon from "@/components/about/tech-brand-icon"
+import TechBrandIcon from "@/components/icons/tech/tech-brand-icon"
 import {
   Tooltip,
   TooltipTrigger,
