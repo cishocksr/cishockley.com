@@ -1,17 +1,18 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import path from "path";
-import { fileURLToPath } from "url";
+// eslint.config.mjs
+import { FlatCompat } from "@eslint/eslintrc"
+import path from "path"
+import { fileURLToPath } from "url"
+// Pull in the actual recommended config object
+import recommended from "eslint/conf/eslint-recommended"
 
-// emulate __dirname in an ES module:
-const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
+// emulate __dirname in ESM
+const __filename = fileURLToPath(import.meta.url)
+const __dirname  = path.dirname(__filename)
 
-// now point FlatCompat at your project root
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-  recommendedConfig: "recommended",   // ← add this
-});
-
+  recommendedConfig: recommended,  // ← use the imported object here
+})
 
 export default [
   {
@@ -50,4 +51,4 @@ export default [
       "tailwindcss/classnames-order": "error",
     },
   },
-];
+]
