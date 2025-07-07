@@ -15,7 +15,7 @@ const aliasMap: Record<string, IconKey> = {
   "node.js": "nodejs",
   git: "git",
   github: "github",
-  postgres: "postgres",
+  postgresql: "postgres",
   redux: "redux",
   vercel: "vercel",
   java: "java",
