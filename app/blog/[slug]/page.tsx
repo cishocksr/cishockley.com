@@ -5,17 +5,16 @@ import { compileMDX } from "next-mdx-remote/rsc"
 import { getPostSlugs } from "@/lib/posts"
 import { blogPostSchema } from "@/lib/schema"
 
-type Props = { params: { slug: string } }
-
 export async function generateStaticParams() {
   const slugs = await getPostSlugs()
   return slugs.map((slug) => ({ slug }))
 }
 
-export default async function BlogPost({ params }: Props) {
-  // await params before using
-  const { slug } = params
-
+export default async function BlogPost({
+  params: { slug },
+}: {
+  params: { slug: string }
+}) {
   const filePath = path.join(process.cwd(), "content", "posts", `${slug}.mdx`)
   let raw: string
   try {

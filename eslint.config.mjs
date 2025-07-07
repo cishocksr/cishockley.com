@@ -7,7 +7,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 
 // now point FlatCompat at your project root
-const compat = new FlatCompat({ baseDirectory: __dirname });
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: "recommended",   // ← add this
+});
+
 
 export default [
   {
