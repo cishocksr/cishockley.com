@@ -9,5 +9,6 @@ export const blogPostSchema = z.object({
   excerpt: z.string().optional(),
   // accept any string (URL or local path)
   image: z.string().optional(),
+  featured: z.boolean().optional(),
 })
 export type BlogPostFrontmatter = z.infer<typeof blogPostSchema>

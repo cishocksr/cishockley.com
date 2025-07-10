@@ -4,7 +4,8 @@ import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
 import type { PostMeta } from "@/types/post"
-import { blogPostSchema } from "@/lib/schema" // your Zod schema
+import { blogPostSchema } from "@/lib/schema"
+import readingTime from "reading-time"
 
 export const BLOG_DIR = path.join(process.cwd(), "content", "posts")
 
@@ -38,7 +39,13 @@ export const getAllPosts = cache(
           return null
         }
 
-        return { ...(parsed.data as Omit<PostMeta, "slug">), slug }
+        const stats = readingTime(raw)
+
+        return {
+          ...(parsed.data as Omit<PostMeta, "slug">),
+          slug,
+          readingTime: stats.text,
+        }
       })
     )
 

@@ -4,4 +4,7 @@ export interface PostMeta {
   date: string
   excerpt?: string
   image?: string
+  featured?: boolean
+  tags?: string[]
+  readingTime: string
 }
