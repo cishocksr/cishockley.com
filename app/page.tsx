@@ -1,6 +1,6 @@
 // app/page.tsx
 import type { Metadata } from "next"
-import Hero from "@/components/hero"
+import Hero from "@/components/home/hero"
 import { getAllProjects } from "@/lib/projects"
 import { getAllPosts } from "@/lib/posts"
 import FeaturedProjects from "@/components/home/featured-projects"

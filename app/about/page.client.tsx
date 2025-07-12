@@ -71,9 +71,8 @@ export default function AboutPageClient() {
             w-full
             aspect-[3/4]
             max-w-[300px]   
-           border-4
-            border-[#8C7851]
-           dark:border-[#B2A17F]
+           border-4 
+           border-accent
             shadow-md
             mx-auto
           "

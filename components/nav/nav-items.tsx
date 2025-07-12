@@ -12,5 +12,5 @@ export const NAV_ITEMS: NavItem[] = [
   { name: "About", path: "/about" },
   { name: "Projects", path: "/projects" },
   { name: "Blog", path: "/blog" },
-  // …etc
+  { name: "Guestbook", path: "/guestbook" },
 ]

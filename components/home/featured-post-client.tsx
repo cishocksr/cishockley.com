@@ -24,7 +24,7 @@ export default function FeaturedPostsClient({ posts }: { posts: PostMeta[] }) {
           }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Card className="w-full border-l-4 border-[#8C7851] dark:border-[#B2A17F] transition-all hover:shadow-md hover:-translate-y-1">
+          <Card className="w-full border-l-4 border-border transition-all hover:shadow-md hover:-translate-y-1">
             <CardContent className="p-6">
               <Link
                 href={`/blog/${post.slug}`}
