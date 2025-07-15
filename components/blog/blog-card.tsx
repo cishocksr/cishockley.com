@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Clock, Calendar } from "lucide-react"
 import type { PostMeta } from "@/types/post"
+import { format } from "date-fns"
 
 export default function BlogCard({ post }: { post: PostMeta }) {
   return (
@@ -26,7 +27,9 @@ export default function BlogCard({ post }: { post: PostMeta }) {
       <CardFooter className="flex items-center justify-between">
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           <Calendar className="h-4 w-4" />
-          <time dateTime={post.date}>{post.date}</time>
+          <time dateTime={format(new Date(post.date), "LLLL d, yyyy")}>
+            {format(new Date(post.date), "LLLL d, yyyy")}
+          </time>
         </div>
         <Link
           href={`/blog/${post.slug}`}
