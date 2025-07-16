@@ -81,6 +81,9 @@ importers:
       '@eslint/markdown':
         specifier: ^6.6.0
         version: 6.6.0
+      '@jest/globals':
+        specifier: ^30.0.4
+        version: 30.0.4
       '@lhci/cli':
         specifier: ^0.15.1
         version: 0.15.1
@@ -5869,7 +5872,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.28.0
       '@jest/types': 30.0.1
-      '@jridgewell/trace-mapping': 0.3.25
+      '@jridgewell/trace-mapping': 0.3.29
       babel-plugin-istanbul: 7.0.0
       chalk: 4.1.2
       convert-source-map: 2.0.0
