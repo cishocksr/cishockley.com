@@ -1,11 +1,8 @@
-// app/blog/page.tsx
 import BlogCard from "@/components/blog/blog-card"
 import { getAllPosts } from "@/lib/posts"
 
-// ISR: rebuild at most once per minute
 export const revalidate = 60
 
-// Tell TS that searchParams is asynchronous
 type Props = {
   searchParams: Promise<{
     page?: string
@@ -13,7 +10,6 @@ type Props = {
 }
 
 export default async function BlogIndex({ searchParams }: Props) {
-  // await the searchParams object before accessing its properties
   const { page } = await searchParams
   const pageNum = parseInt(page ?? "1", 10)
 

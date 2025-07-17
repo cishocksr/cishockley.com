@@ -1,4 +1,3 @@
-// app/projects/page.tsx
 import { getAllProjects } from "@/lib/projects"
 import type { Project } from "@/types/project"
 import { ProjectCard } from "@/components/projects/project-card"

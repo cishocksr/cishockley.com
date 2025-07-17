@@ -1,6 +1,6 @@
 "use client"
 
-import { NavList } from "./nav-list"
+import NavList from "./nav-list"
 import { NAV_ITEMS } from "./nav-items"
 import { ThemeToggle } from "../theme-toggle"
 

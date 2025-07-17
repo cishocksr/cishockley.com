@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { createBrowserClient } from "@/lib/supabase"
-import { GuestbookForm } from "@/components/guestbook/guestbook-form"
+import GuestbookForm from "@/components/guestbook/guestbook-form"
 import { GuestbookEntry } from "@/components/guestbook/guestbook-entry"
 import AuthButton from "@/components/guestbook/auth-button"
 

@@ -1,4 +1,3 @@
-// app/blog/layout.tsx
 import { ReactNode } from "react"
 import Link from "next/link"
 
@@ -17,7 +16,6 @@ export default function BlogLayout({ children }: { children: ReactNode }) {
         </div>
       </header>
 
-      {/* Everything under /blog/* will render here */}
       {children}
     </section>
   )
