@@ -24,12 +24,16 @@ export default function BlogCard({ post }: { post: PostMeta }) {
           <p className="text-sm text-muted-foreground">{post.excerpt}</p>
         </div>
       </CardContent>
-      <CardFooter className="flex items-center justify-between">
+      <CardFooter className="p-6 pt-0 flex items-center justify-between">
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           <Calendar className="h-4 w-4" />
           <time dateTime={format(new Date(post.date), "LLLL d, yyyy")}>
             {format(new Date(post.date), "LLLL d, yyyy")}
           </time>
+          {/* separator dot */}
+          <span aria-hidden="true">•</span>
+          {/* the reading time */}
+          <span>{post.readingTime}</span>
         </div>
         <Link
           href={`/blog/${post.slug}`}

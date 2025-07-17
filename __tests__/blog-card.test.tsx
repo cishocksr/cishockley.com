@@ -23,8 +23,8 @@ describe("BlogCard", () => {
     )
 
     // Compute exactly what the component shows:
-    const expectedDate = format(new Date(mockPost.date), "LLLL d, yyyy")
-    expect(screen.getByText(expectedDate)).toBeInTheDocument()
+    const expected = format(new Date(mockPost.date), "LLLL d, yyyy")
+    expect(screen.getByText(expected)).toBeInTheDocument()
 
     // Reading time
     expect(screen.getByText("5 min read")).toBeInTheDocument()

@@ -1,51 +1,51 @@
-// __tests__/GuestbookForm.test.tsx
-import { render, screen, fireEvent, waitFor } from "@testing-library/react"
-import "@testing-library/jest-dom"
-import GuestbookForm from "@/components/guestbook/guestbook-form"
+// __tests__/theme-toggle.test.tsx
+import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { useTheme } from "next-themes"
 
-describe("GuestbookForm", () => {
-  const mockUser = { id: "1", name: "Test User" }
-  let mockOnSubmit: jest.Mock<Promise<void>, [string]>
+// 1️⃣ Tell Jest to mock the entire next-themes module
+jest.mock("next-themes")
+
+describe("ThemeToggle", () => {
+  const setThemeMock = jest.fn()
 
   beforeEach(() => {
-    mockOnSubmit = jest.fn().mockResolvedValue(undefined)
+    // 2️⃣ Before each test, have useTheme() return:
+    //    - theme = "light"  ⇒ initial state
+    //    - setTheme = our spy
+    ;(useTheme as jest.Mock).mockReturnValue({
+      theme: "light",
+      setTheme: setThemeMock,
+    })
   })
 
-  it("renders the message textarea and submit button", () => {
-    render(<GuestbookForm user={mockUser} onSubmit={mockOnSubmit} />)
-
-    const textarea = screen.getByRole("textbox", {
-      name: /message text area/i,
-    })
-    expect(textarea).toBeInTheDocument()
-
-    const button = screen.getByRole("button", {
-      name: /sign guestbook/i,
-    })
-    expect(button).toBeInTheDocument()
+  afterEach(() => {
+    jest.clearAllMocks()
   })
 
-  it("calls onSubmit with the message text when submitted", async () => {
-    render(<GuestbookForm user={mockUser} onSubmit={mockOnSubmit} />)
+  it("calls setTheme('dark') when clicked while in light mode", () => {
+    render(<ThemeToggle />)
 
-    const textarea = screen.getByRole("textbox", {
-      name: /message text area/i,
-    })
-    const button = screen.getByRole("button", {
-      name: /sign guestbook/i,
+    // The button's aria-label should reflect the light→dark action
+    const btn = screen.getByRole("button", { name: /switch to dark mode/i })
+    userEvent.click(btn)
+
+    // 3️⃣ Assert we've asked the theme store to switch to "dark"
+    expect(setThemeMock).toHaveBeenCalledWith("dark")
+  })
+
+  it("calls setTheme('light') when clicked while in dark mode", () => {
+    // Simulate starting in dark mode
+    ;(useTheme as jest.Mock).mockReturnValueOnce({
+      theme: "dark",
+      setTheme: setThemeMock,
     })
 
-    // Type a message
-    fireEvent.change(textarea, {
-      target: { value: "Hello Guestbook!" },
-    })
+    render(<ThemeToggle />)
+    const btn = screen.getByRole("button", { name: /switch to light mode/i })
+    userEvent.click(btn)
 
-    // Submit the form
-    fireEvent.click(button)
-
-    // Wait for onSubmit to be called
-    await waitFor(() => {
-      expect(mockOnSubmit).toHaveBeenCalledWith("Hello Guestbook!")
-    })
+    expect(setThemeMock).toHaveBeenCalledWith("light")
   })
 })

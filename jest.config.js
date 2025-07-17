@@ -8,7 +8,8 @@ const customJestConfig = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
   },
-  testEnvironment: "jsdom", // ← only this line is needed
+  testEnvironment: "jsdom",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
   testMatch: ["<rootDir>/**/*.(spec|test).{js,jsx,ts,tsx}"],
 }
 
