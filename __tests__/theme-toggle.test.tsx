@@ -1,50 +1,55 @@
 // __tests__/theme-toggle.test.tsx
+
+/**
+ * 1️⃣ This must come *before* we import ThemeToggle,
+ *    so Jest replaces the real module.
+ */
+jest.mock("next-themes", () => ({
+  __esModule: true,
+  useTheme: jest.fn(),
+}))
+
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { useTheme } from "next-themes"
-
-// 1️⃣ Tell Jest to mock the entire next-themes module
-jest.mock("next-themes")
+import { ThemeToggle } from "@/components/theme-toggle"
 
 describe("ThemeToggle", () => {
   const setThemeMock = jest.fn()
 
   beforeEach(() => {
-    // 2️⃣ Before each test, have useTheme() return:
-    //    - theme = "light"  ⇒ initial state
-    //    - setTheme = our spy
+    setThemeMock.mockReset()
+    // default to light mode for each test
     ;(useTheme as jest.Mock).mockReturnValue({
       theme: "light",
       setTheme: setThemeMock,
     })
   })
 
-  afterEach(() => {
-    jest.clearAllMocks()
-  })
-
-  it("calls setTheme('dark') when clicked while in light mode", () => {
+  it("calls setTheme('dark') when clicked in light mode", async () => {
     render(<ThemeToggle />)
-
-    // The button's aria-label should reflect the light→dark action
+    // After hydration, the button appears with this label:
     const btn = screen.getByRole("button", { name: /switch to dark mode/i })
-    userEvent.click(btn)
 
-    // 3️⃣ Assert we've asked the theme store to switch to "dark"
+    // 🔑 use the async setup click so the event propagates:
+    const user = userEvent.setup()
+    await user.click(btn)
+
     expect(setThemeMock).toHaveBeenCalledWith("dark")
   })
 
-  it("calls setTheme('light') when clicked while in dark mode", () => {
-    // Simulate starting in dark mode
-    ;(useTheme as jest.Mock).mockReturnValueOnce({
+  it("calls setTheme('light') when clicked in dark mode", async () => {
+    // override default: start in dark mode
+    ;(useTheme as jest.Mock).mockReturnValue({
       theme: "dark",
       setTheme: setThemeMock,
     })
 
     render(<ThemeToggle />)
     const btn = screen.getByRole("button", { name: /switch to light mode/i })
-    userEvent.click(btn)
+
+    const user = userEvent.setup()
+    await user.click(btn)
 
     expect(setThemeMock).toHaveBeenCalledWith("light")
   })

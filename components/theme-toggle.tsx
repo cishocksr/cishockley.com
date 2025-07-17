@@ -13,6 +13,7 @@ export function ThemeToggle() {
     setMounted(true)
   }, [])
 
+  // Don’t render on server or before hydration
   if (!mounted) return null
 
   const isDark = theme === "dark"
