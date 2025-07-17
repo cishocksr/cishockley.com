@@ -1,6 +1,6 @@
 // app/page.tsx
 import type { Metadata } from "next"
-import Hero from "@/components/hero"
+import Hero from "@/components/home/hero"
 import { getAllProjects } from "@/lib/projects"
 import { getAllPosts } from "@/lib/posts"
 import FeaturedProjects from "@/components/home/featured-projects"
@@ -16,16 +16,21 @@ export default async function HomePage() {
   const { posts: allPosts } = await getAllPosts()
 
   return (
-    <main className="container mx-auto px-4">
+    <main className="container mx-auto px-4 flex flex-col gap-12 pb-16">
       <Hero />
-      <section className="mt-16">
+
+      <section className="flex flex-col">
         <h2 className="text-2xl font-bold mb-6">Featured Projects</h2>
-        <FeaturedProjects />
+        <div className="flex-1">
+          <FeaturedProjects />
+        </div>
       </section>
 
-      <section className="mt-16">
+      <section className="flex flex-col">
         <h2 className="text-2xl font-bold mb-6">From the Blog</h2>
-        <FeaturedPosts />
+        <div className="flex-1">
+          <FeaturedPosts />
+        </div>
       </section>
     </main>
   )

@@ -29,7 +29,7 @@ export default function FeaturedProjectsClient({
         return (
           <Card
             key={project.id}
-            className="group border-l-4 border-[#626262] dark:border-[#B7B7B7]
+            className="group border-l-4 border-border 
                        transition-all hover:shadow-md hover:-translate-y-1"
           >
             {/* ─── IMAGE WITH OVERLAY ────────────────────────────────────── */}

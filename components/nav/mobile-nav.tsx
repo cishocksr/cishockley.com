@@ -25,9 +25,6 @@ export function MobileNav() {
           size="icon"
           aria-label="Toggle menu"
           onClick={toggle}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") toggle()
-          }}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
@@ -38,15 +35,37 @@ export function MobileNav() {
         {open && (
           <motion.div
             key="mobile-menu"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden border-b border-border"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="
+              md:hidden
+              fixed top-0 left-0
+              w-full
+              bg-background
+              shadow-lg
+              border-b border-border
+              z-50
+              overflow-hidden
+            "
           >
-            <div className="container py-4 flex flex-col space-y-4">
-              {/* Every link click fires `close()` */}
-              <NavList items={NAV_ITEMS} onItemClick={close} />
+            <div className="relative pt-20 pb-6 px-4">
+              {/* Close button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Close menu"
+                onClick={close}
+                className="absolute top-4 right-4"
+              >
+                <X className="h-5 w-5" />
+              </Button>
+
+              {/* Navigation links */}
+              <div className="flex flex-col space-y-4">
+                <NavList items={NAV_ITEMS} onItemClick={close} />
+              </div>
             </div>
           </motion.div>
         )}

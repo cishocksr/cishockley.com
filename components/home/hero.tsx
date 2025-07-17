@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="container px-4 py-12 md:py-24 lg:py-32">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-        <div className="space-y-6">
+        <div className="space-y-6 order-2 lg:order-1">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold tracking-tighter leading-tight mb-4">
             Hi, I'm <span className="text-accent">Chris Shockley</span>
           </h1>
@@ -50,7 +50,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex justify-center lg:justify-end">
+        <div className="flex justify-center lg:justify-end order-1 lg:order-2">
           <div className="relative w-[280px] h-[280px] md:w-[350px] md:h-[350px] overflow-hidden rounded-full border-4 border-secondary shadow-lg">
             <Image
               src="/images/profile.png"

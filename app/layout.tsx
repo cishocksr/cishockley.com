@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { AnimationProvider, PageWrapper } from "@/components/ui/animations"
 import Nav from "@/components/nav/nav"
 import Footer from "@/components/footer/footer"
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: {
@@ -42,7 +43,10 @@ export default function RootLayout({
             <div className="flex min-h-screen flex-col">
               <Nav />
               <main className="container flex-1">
-                <PageWrapper>{children}</PageWrapper>
+                <PageWrapper>
+                  {children}
+                  <Analytics />
+                </PageWrapper>
               </main>
               <Footer />
             </div>
