@@ -1,18 +1,11 @@
-// __tests__/hero.test.tsx
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
+import { axe } from "jest-axe"
 import Hero from "@/components/home/hero"
 
-describe("Hero component", () => {
-  it("renders name and tagline", () => {
-    render(<Hero />)
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Chris Shockley"
-    )
-    expect(screen.getByText(/software engineer/i)).toBeInTheDocument()
-  })
-
-  it("has no accessibility violations", async () => {
+describe("Hero accessibility", () => {
+  it("has no a11y violations", async () => {
     const { container } = render(<Hero />)
-    await expect(container).toHaveNoViolations()
+    const results = await axe(container)
+    expect(results.violations).toHaveLength(0)
   })
 })

@@ -1,21 +1,32 @@
+// __tests__/BlogCard.test.tsx
 import { render, screen } from "@testing-library/react"
+import "@testing-library/jest-dom"
 import BlogCard from "@/components/blog/blog-card"
 import type { PostMeta } from "@/types/post"
+import { format } from "date-fns"
 
 const mockPost: PostMeta = {
   title: "Test Post",
   slug: "test-post",
   date: "2025-07-17",
   image: "",
-  readingTime: "",
+  readingTime: "5 min read",
 }
 
 describe("BlogCard", () => {
-  it("renders title and date", () => {
+  it("renders title, date, and reading time", () => {
     render(<BlogCard post={mockPost} />)
+
+    // Title
     expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
       "Test Post"
     )
-    expect(screen.getByText(/Jul 17, 2025/)).toBeInTheDocument()
+
+    // Compute exactly what the component shows:
+    const expectedDate = format(new Date(mockPost.date), "LLLL d, yyyy")
+    expect(screen.getByText(expectedDate)).toBeInTheDocument()
+
+    // Reading time
+    expect(screen.getByText("5 min read")).toBeInTheDocument()
   })
 })

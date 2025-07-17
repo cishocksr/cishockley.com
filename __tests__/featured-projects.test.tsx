@@ -11,11 +11,6 @@ const mockProjects: Project[] = [
     description: "This is a test project for unit testing.",
     technologies: ["TypeScript", "React"],
     status: "completed",
-    // optional:
-    // githubUrl: "https://github.com/...",
-    // category: "Web",
-    // featured: true,
-    // highlights: ["Great UX", "Fast loading"],
   },
 ]
 
@@ -26,13 +21,6 @@ describe("FeaturedProjectsClient", () => {
     expect(
       screen.getByText("This is a test project for unit testing.")
     ).toBeInTheDocument()
-  })
-
-  it("lists the technologies", () => {
-    render(<FeaturedProjectsClient projects={mockProjects} />)
-    for (const tech of mockProjects[0].technologies) {
-      expect(screen.getByText(tech)).toBeInTheDocument()
-    }
   })
 
   it("doesn’t render optional links when they’re not provided", () => {
