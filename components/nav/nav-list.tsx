@@ -5,13 +5,12 @@ import { usePathname } from "next/navigation"
 import type { NavItem } from "./nav-items"
 
 interface NavListProps {
-  /** Array of `{ name, path }` objects to render */
   items: NavItem[]
   /** Optional callback to fire (e.g. to close a mobile menu) */
   onItemClick?: () => void
 }
 
-export function NavList({ items, onItemClick }: NavListProps) {
+export default function NavList({ items, onItemClick }: NavListProps) {
   const pathname = usePathname()
 
   // Treat “/” as a special case, everything else matches via startsWith

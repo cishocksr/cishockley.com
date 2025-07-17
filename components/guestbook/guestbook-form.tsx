@@ -8,7 +8,7 @@ interface GuestbookFormProps {
   onSubmit: (message: string) => Promise<void>
 }
 
-export function GuestbookForm({ user, onSubmit }: GuestbookFormProps) {
+export default function GuestbookForm({ user, onSubmit }: GuestbookFormProps) {
   const [error, setError] = useState<string | null>(null)
 
   const [message, setMessage] = useState("")

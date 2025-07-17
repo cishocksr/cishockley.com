@@ -12,6 +12,10 @@
       ],
       "numberOfRuns": 1
     },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "lhci-reports"
+    },
     "assert": {
       "assertions": {
         "categories:accessibility": ["error", { "minScore": 1 }],

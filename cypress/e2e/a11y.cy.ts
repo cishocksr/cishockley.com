@@ -1,4 +1,4 @@
-describe("Full‑page accessibility", () => {
+describe("Accessibility checks", () => {
   const pages = ["/", "/about", "/projects", "/blog", "/guestbook"]
 
   beforeEach(() => {
@@ -8,9 +8,7 @@ describe("Full‑page accessibility", () => {
   pages.forEach((path) => {
     it(`no WCAG violations on ${path}`, () => {
       cy.visit(path)
-      cy.checkA11y(undefined, {
-        runOnly: ["wcag2a", "wcag2aa"],
-      })
+      cy.checkA11y(undefined, { runOnly: ["wcag2a", "wcag2aa"] })
     })
   })
 })

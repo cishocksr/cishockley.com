@@ -10,6 +10,8 @@
     "prepare": "husky",
     "lhci:collect": "lhci collect --config=lighthouserc.json",
     "lhci:assert": "lhci assert  --config=lighthouserc.json",
+    "lhci:upload": "lhci upload  --config=lighthouserc.json",
+    "lhci:autorun": "lhci autorun --config=lighthouserc.json",
     "test": "jest",
     "test:watch": "jest --watch"
   },
