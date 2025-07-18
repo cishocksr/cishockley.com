@@ -1,9 +1,9 @@
 // jest.setup.ts
 import React from "react"
+import { expect } from "@jest/globals" // ← pull in Jest’s typed expect
 import "@testing-library/jest-dom"
 import { toHaveNoViolations } from "jest-axe"
 
-// 1️⃣ axe matcher
 expect.extend(toHaveNoViolations)
 
 // 2️⃣ Mock next/link as a plain <a> with children typed correctly
