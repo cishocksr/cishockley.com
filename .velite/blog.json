@@ -22,6 +22,7 @@
   },
   {
     "title": "This is a test post",
+    "slug": "test-post",
     "date": "2026-10-01T04:00:00.000Z",
     "description": "Testing the difference of using slug, and it beinn optional",
     "published": true,
@@ -32,6 +33,6 @@
       "wordCount": 20
     },
     "toc": [],
-    "permalink": "/blog/undefined"
+    "permalink": "/blog/test-post"
   }
 ]

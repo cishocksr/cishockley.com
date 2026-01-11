@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "velite --watch & next dev",
+    "build": "velite && next build",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write"
