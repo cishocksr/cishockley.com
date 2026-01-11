@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Hello World",
+    "slug": "hello-world",
+    "date": "2026-01-10T00:00:00.000Z",
+    "description": "First Blog Test",
+    "published": true,
+    "body": "<h3>Hello World!</h3>",
+    "excerpt": "Hello World!",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 2
+    },
+    "toc": [
+      {
+        "title": "Hello World!",
+        "url": "#hello-world",
+        "items": []
+      }
+    ],
+    "permalink": "/blog/hello-world"
+  },
+  {
+    "title": "This is a test post",
+    "slug": "test-post",
+    "date": "2026-10-01T04:00:00.000Z",
+    "description": "Testing the difference of using slug, and it beinn optional",
+    "published": true,
+    "body": "<p>This is the post that i did not add a slug to, and will see if velite adds it itself.</p>",
+    "excerpt": "This is the post that i did not add a slug to, and will see if velite adds it itself.",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 20
+    },
+    "toc": [],
+    "permalink": "/blog/test-post"
+  }
+]
