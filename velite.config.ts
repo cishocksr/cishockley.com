@@ -1,12 +1,12 @@
-import { defineConfig, defineCollection, s } from "velite";
+import { defineConfig, defineCollection, s } from 'velite';
 
 const blog = defineCollection({
-  name: "blog",
-  pattern: "blog/**/*.mdx",
+  name: 'blog',
+  pattern: 'blog/**/*.mdx',
   schema: s
     .object({
       title: s.string().max(99),
-      slug: s.slug("blog"),
+      slug: s.slug('blog'),
       date: s.isodate(),
       updated: s.isodate().optional(),
       description: s.string().max(999).optional(),
@@ -24,13 +24,13 @@ const blog = defineCollection({
 });
 
 export default defineConfig({
-  root: "content",
+  root: 'content',
 
   output: {
-    data: ".velite",
-    assets: "public/static",
-    base: "/static/",
-    name: "[name]-[hash].[ext]",
+    data: '.velite',
+    assets: 'public/static',
+    base: '/static/',
+    name: '[name]-[hash].[ext]',
     clean: true,
   },
 

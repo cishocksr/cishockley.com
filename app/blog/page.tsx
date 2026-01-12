@@ -1,13 +1,13 @@
 // Import blog posts from .velite
-import { blog } from "@/.velite";
-import Link from "next/link";
+import { blog } from '@/.velite';
+import Link from 'next/link';
 
 // 2. Create a component that returns JSX.
 export default function BlogPage() {
-  console.log("Blog posts: ", blog);
+  console.log('Blog posts: ', blog);
   console.log(
-    "Slugs:",
-    blog.map((p) => p.slug)
+    'Slugs:',
+    blog.map((p) => p.slug),
   );
   return (
     <div>
@@ -18,7 +18,7 @@ export default function BlogPage() {
           <Link href={post.permalink}>{post.title}</Link>
           <p>{post.date}</p>
           <p>{post.description}</p>
-          <p>{post.tags?.join(", ")} </p>
+          <p>{post.tags?.join(', ')} </p>
         </div>
       ))}
     </div>

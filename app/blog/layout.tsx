@@ -3,11 +3,5 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body>
-        <section>{children}</section>
-      </body>
-    </html>
-  );
+  return <section>{children}</section>;
 }

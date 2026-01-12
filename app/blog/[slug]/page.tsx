@@ -1,7 +1,7 @@
 // Import blog post from .velite
-import { blog } from "@/.velite";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import { blog } from '@/.velite';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 // create component that renders blog post based on slug
 
@@ -51,7 +51,7 @@ export default async function BlogPostPage({
       <div dangerouslySetInnerHTML={{ __html: post.body }} />
 
       {/* Footer */}
-      <Link href="/blog">← Back to Blog</Link>
+      <Link href='/blog'>← Back to Blog</Link>
     </article>
   );
 }
