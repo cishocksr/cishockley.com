@@ -5,7 +5,7 @@
     "date": "2026-01-10T00:00:00.000Z",
     "description": "First Blog Test",
     "published": true,
-    "body": "<h3>Hello World!</h3>",
+    "body": "<h3 id=\"hello-world\">Hello World!</h3>",
     "excerpt": "Hello World!",
     "metadata": {
       "readingTime": 1,
@@ -19,6 +19,147 @@
       }
     ],
     "permalink": "/blog/hello-world"
+  },
+  {
+    "title": "Complete Guide to Modern Web Development",
+    "slug": "test-long-post",
+    "date": "2026-01-12T00:00:00.000Z",
+    "description": "A comprehensive test post with multiple sections and headings",
+    "published": true,
+    "tags": [
+      "testing",
+      "web-dev"
+    ],
+    "body": "<h2 id=\"introduction\">Introduction</h2>\n<p>Web development has evolved dramatically over the past decade. This guide covers everything you need to know about modern web development practices, from frontend frameworks to backend architectures.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>\n<h2 id=\"frontend-development\">Frontend Development</h2>\n<p>The frontend landscape has changed significantly with the introduction of modern frameworks and libraries. Let's explore the key concepts and tools that define modern frontend development.</p>\n<h3 id=\"react-and-modern-frameworks\">React and Modern Frameworks</h3>\n<p>React has revolutionized how we build user interfaces. Its component-based architecture allows developers to create reusable UI elements that maintain their own state and compose together to form complex applications.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel nisi vitae eros tincidunt consectetur. Nullam euismod, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.</p>\n<h3 id=\"state-management\">State Management</h3>\n<p>Managing state in large applications requires careful consideration. Modern solutions include Context API, Redux, Zustand, and Jotai, each with their own strengths and use cases.</p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n<h3 id=\"css-and-styling\">CSS and Styling</h3>\n<p>Modern CSS has become incredibly powerful with features like Grid, Flexbox, and CSS Variables. Tailwind CSS has also emerged as a popular utility-first framework.</p>\n<h4 id=\"css-in-js-solutions\">CSS-in-JS Solutions</h4>\n<p>Styled-components and Emotion provide ways to write CSS directly in your JavaScript files, offering dynamic styling based on props and state.</p>\n<h4 id=\"utility-first-frameworks\">Utility-First Frameworks</h4>\n<p>Tailwind CSS takes a different approach, providing low-level utility classes that you compose to build custom designs.</p>\n<h2 id=\"backend-architecture\">Backend Architecture</h2>\n<p>Backend development involves designing systems that are scalable, maintainable, and secure. Let's explore modern backend architectures and patterns.</p>\n<h3 id=\"restful-apis\">RESTful APIs</h3>\n<p>REST remains the most common architectural style for building web APIs. It uses standard HTTP methods and status codes to create predictable interfaces.</p>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>\n<h3 id=\"graphql\">GraphQL</h3>\n<p>GraphQL offers a more flexible alternative to REST, allowing clients to request exactly the data they need in a single query.</p>\n<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>\n<h3 id=\"database-design\">Database Design</h3>\n<p>Choosing the right database is crucial for your application's performance and scalability. Options include relational databases like PostgreSQL, document stores like MongoDB, and graph databases like Neo4j.</p>\n<h2 id=\"devops-and-deployment\">DevOps and Deployment</h2>\n<p>Modern web development requires understanding deployment pipelines, containerization, and cloud infrastructure.</p>\n<h3 id=\"continuous-integration\">Continuous Integration</h3>\n<p>CI/CD pipelines automate testing and deployment, ensuring code quality and reducing manual errors. Tools like GitHub Actions, GitLab CI, and Jenkins are commonly used.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n<h3 id=\"docker-and-containerization\">Docker and Containerization</h3>\n<p>Docker allows you to package applications with their dependencies, ensuring consistency across development, testing, and production environments.</p>\n<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>\n<h3 id=\"cloud-platforms\">Cloud Platforms</h3>\n<p>AWS, Google Cloud, and Azure provide scalable infrastructure for deploying web applications. Understanding these platforms is essential for modern developers.</p>\n<h2 id=\"performance-optimization\">Performance Optimization</h2>\n<p>Performance is critical for user experience and SEO. Let's explore key optimization techniques.</p>\n<h3 id=\"frontend-performance\">Frontend Performance</h3>\n<p>Optimizing bundle sizes, lazy loading, and code splitting can dramatically improve load times. Tools like Lighthouse help identify performance bottlenecks.</p>\n<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>\n<h3 id=\"backend-performance\">Backend Performance</h3>\n<p>Database query optimization, caching strategies, and efficient API design are crucial for backend performance.</p>\n<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\n<h2 id=\"security-best-practices\">Security Best Practices</h2>\n<p>Security should be a priority throughout the development process, not an afterthought.</p>\n<h3 id=\"authentication-and-authorization\">Authentication and Authorization</h3>\n<p>Implementing secure authentication using OAuth, JWT tokens, and proper session management protects user data and application resources.</p>\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>\n<h3 id=\"data-protection\">Data Protection</h3>\n<p>Encrypting sensitive data, using HTTPS, and following OWASP guidelines helps protect against common vulnerabilities.</p>\n<p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>\n<h2 id=\"testing-strategies\">Testing Strategies</h2>\n<p>Comprehensive testing ensures code quality and prevents regressions.</p>\n<h3 id=\"unit-testing\">Unit Testing</h3>\n<p>Unit tests verify individual functions and components work correctly in isolation. Jest and Vitest are popular testing frameworks.</p>\n<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>\n<h3 id=\"integration-testing\">Integration Testing</h3>\n<p>Integration tests verify that different parts of your application work together correctly. Tools like Cypress and Playwright enable end-to-end testing.</p>\n<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>\n<h2 id=\"conclusion\">Conclusion</h2>\n<p>Modern web development requires mastering a wide range of technologies and practices. By understanding these concepts and continuously learning, you can build robust, scalable web applications.</p>\n<p>The field continues to evolve, so staying current with new tools and best practices is essential for success in web development.</p>",
+    "excerpt": "Introduction\nWeb development has evolved dramatically over the past decade. This guide covers everything you need to know about modern web development practices, from frontend frameworks to backend architectures.\nLorem ipsum dolor sit amet, consectetur adipisc",
+    "metadata": {
+      "readingTime": 3,
+      "wordCount": 858
+    },
+    "toc": [
+      {
+        "title": "Introduction",
+        "url": "#introduction",
+        "items": []
+      },
+      {
+        "title": "Frontend Development",
+        "url": "#frontend-development",
+        "items": [
+          {
+            "title": "React and Modern Frameworks",
+            "url": "#react-and-modern-frameworks",
+            "items": []
+          },
+          {
+            "title": "State Management",
+            "url": "#state-management",
+            "items": []
+          },
+          {
+            "title": "CSS and Styling",
+            "url": "#css-and-styling",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Backend Architecture",
+        "url": "#backend-architecture",
+        "items": [
+          {
+            "title": "RESTful APIs",
+            "url": "#restful-apis",
+            "items": []
+          },
+          {
+            "title": "GraphQL",
+            "url": "#graphql",
+            "items": []
+          },
+          {
+            "title": "Database Design",
+            "url": "#database-design",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "DevOps and Deployment",
+        "url": "#devops-and-deployment",
+        "items": [
+          {
+            "title": "Continuous Integration",
+            "url": "#continuous-integration",
+            "items": []
+          },
+          {
+            "title": "Docker and Containerization",
+            "url": "#docker-and-containerization",
+            "items": []
+          },
+          {
+            "title": "Cloud Platforms",
+            "url": "#cloud-platforms",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Performance Optimization",
+        "url": "#performance-optimization",
+        "items": [
+          {
+            "title": "Frontend Performance",
+            "url": "#frontend-performance",
+            "items": []
+          },
+          {
+            "title": "Backend Performance",
+            "url": "#backend-performance",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Security Best Practices",
+        "url": "#security-best-practices",
+        "items": [
+          {
+            "title": "Authentication and Authorization",
+            "url": "#authentication-and-authorization",
+            "items": []
+          },
+          {
+            "title": "Data Protection",
+            "url": "#data-protection",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Testing Strategies",
+        "url": "#testing-strategies",
+        "items": [
+          {
+            "title": "Unit Testing",
+            "url": "#unit-testing",
+            "items": []
+          },
+          {
+            "title": "Integration Testing",
+            "url": "#integration-testing",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Conclusion",
+        "url": "#conclusion",
+        "items": []
+      }
+    ],
+    "permalink": "/blog/test-long-post"
   },
   {
     "title": "This is a test post",
