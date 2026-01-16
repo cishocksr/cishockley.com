@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { Menu } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Menu } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   Drawer,
   DrawerContent,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { ScrollArea } from "@/components/ui/scroll-area";
+} from '@/components/ui/drawer';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type TOCItem = {
   title: string;
@@ -24,26 +24,28 @@ type TOCProps = {
 const renderTOCItems = (
   items: TOCItem[],
   activeId: string,
-  isFirstLevel = true
+  isFirstLevel = true,
+  onClose?: () => void
 ) => {
   return (
     <ul
       className={`space-y-2 pl-4 ${
-        isFirstLevel ? "border-l border-border" : ""
+        isFirstLevel ? 'border-border border-l' : ''
       }`}
     >
       {items.map((item) => {
-        const headingId = item.url.replace("#", "");
+        const headingId = item.url.replace('#', '');
         const isActive = activeId === headingId;
 
         return (
           <li key={item.url}>
             <a
               href={item.url}
-              className={`text-sm transition-colors block py-1 ${
+              onClick={() => onClose?.()}
+              className={`block py-1 text-sm transition-colors ${
                 isActive
-                  ? "text-primary font-medium"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? 'text-primary font-medium'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {item.title}
@@ -59,25 +61,25 @@ const renderTOCItems = (
 
 export default function TableOfContents({ toc }: TOCProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeId, setActiveId] = useState<string>("");
+  const [activeId, setActiveId] = useState<string>('');
 
   useEffect(() => {
     const headings = document.querySelectorAll(
-      "article h1, article h2, article h3, article h4, article h5, article h6"
+      'article h1, article h2, article h3, article h4, article h5, article h6'
     );
-    console.log("Found headings: ", headings.length);
+    console.log('Found headings: ', headings.length);
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log("Active Heading ID: ", entry.target.id);
+            console.log('Active Heading ID: ', entry.target.id);
             setActiveId(entry.target.id);
           }
         });
       },
       {
-        rootMargin: "-100px 0px -66%",
+        rootMargin: '-100px 0px -66%',
         threshold: 1.0,
       }
     );
@@ -95,19 +97,19 @@ export default function TableOfContents({ toc }: TOCProps) {
   return (
     <>
       {/* Desktop: always visible sidebar */}
-      <nav className="hidden lg:block sticky top-20 h-fit w-64">
-        <h2 className="text-sm font-semibold mb-4">Table Of Contents</h2>
+      <nav className="sticky top-20 hidden h-fit w-64 lg:block">
+        <h2 className="mb-4 text-sm font-semibold">Table Of Contents</h2>
         <ScrollArea className="h-[calc(100vh-8rem)]">
           {renderTOCItems(toc, activeId)}
         </ScrollArea>
       </nav>
 
       {/* Mobile: button + drawer */}
-      <div className="lg:hidden fixed top-4 right-4 z-50">
+      <div className="fixed top-4 right-4 z-50 lg:hidden">
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild>
             <Button>
-              <Menu className="h-4 w-4 mr-2" />
+              <Menu className="mr-2 h-4 w-4" />
               TOC
             </Button>
           </DrawerTrigger>
@@ -115,7 +117,7 @@ export default function TableOfContents({ toc }: TOCProps) {
           <DrawerContent>
             <DrawerTitle>Table of Contents</DrawerTitle>
             <ScrollArea className="h-100 p-4">
-              {renderTOCItems(toc, activeId)}
+              {renderTOCItems(toc, activeId, true, () => setIsOpen(false))}
             </ScrollArea>
           </DrawerContent>
         </Drawer>

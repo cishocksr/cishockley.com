@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { ThemeToggle } from './theme-toggle';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,7 @@ export default function Header() {
           Chris Shockley
         </Link>
 
-        {/* Desktop Navigation - right */}
+        {/* Desktop Navigation */}
         <div className="hidden gap-6 md:flex">
           <Link href="/" className={linkClass}>
             Home
@@ -38,9 +39,10 @@ export default function Header() {
           <Link href="/contact" className={linkClass}>
             Contact
           </Link>
+          <ThemeToggle />
         </div>
 
-        {/* Mobile Navigation - left */}
+        {/* Mobile Navigation */}
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -79,6 +81,9 @@ export default function Header() {
                 >
                   Contact
                 </Link>
+                <div className="border-t border-zinc-200 pt-4 dark:border-zinc-800">
+                  <ThemeToggle />
+                </div>
               </div>
             </SheetContent>
           </Sheet>
