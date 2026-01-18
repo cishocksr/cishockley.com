@@ -15,8 +15,8 @@ import { getStatusBadge } from '@/lib/project-utils';
 
 export type ProjectCardProps = {
   title: string;
-  description: string;
-  tags: string[];
+  description?: string;
+  tags?: string[];
   status: 'planning' | 'in-progress' | 'completed';
   githubLink?: string;
   projectUrl?: string;
@@ -29,7 +29,9 @@ export default function ProjectCard(props: ProjectCardProps) {
     <Card>
       <CardHeader>
         <CardTitle>{props.title}</CardTitle>
-        <CardDescription>{props.description}</CardDescription>
+        {props.description && (
+          <CardDescription>{props.description}</CardDescription>
+        )}
         <CardAction>{getStatusBadge(props.status)}</CardAction>
       </CardHeader>
       <CardContent>
