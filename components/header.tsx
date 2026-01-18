@@ -30,6 +30,9 @@ export default function Header() {
           <Link href="/" className={linkClass}>
             Home
           </Link>
+          <Link href="/about" className={linkClass}>
+            About
+          </Link>
           <Link href="/blog" className={linkClass}>
             Blog
           </Link>
