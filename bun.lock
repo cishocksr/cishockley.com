@@ -14,7 +14,9 @@
         "@types/mdx": "^2.0.13",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
+        "framer-motion": "^12.27.0",
         "lucide-react": "^0.562.0",
+        "motion": "^12.27.0",
         "next": "16.1.1",
         "next-themes": "^0.4.6",
         "postcss": "^8.5.6",
@@ -383,6 +385,8 @@
 
     "extend": ["extend@3.0.2", "", {}, "sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g=="],
 
+    "framer-motion": ["framer-motion@12.27.0", "", { "dependencies": { "motion-dom": "^12.27.0", "motion-utils": "^12.24.10", "tslib": "^2.4.0" }, "peerDependencies": { "@emotion/is-prop-valid": "*", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@emotion/is-prop-valid", "react", "react-dom"] }, "sha512-gJtqOKEDJH/jrn0PpsWp64gdOjBvGX8hY6TWstxjDot/85daIEtJHl1UsiwHSXiYmJF2QXUoXP6/3gGw5xY2YA=="],
+
     "get-nonce": ["get-nonce@1.0.1", "", {}, "sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q=="],
 
     "github-slugger": ["github-slugger@2.0.0", "", {}, "sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw=="],
@@ -518,6 +522,12 @@
     "micromark-util-symbol": ["micromark-util-symbol@2.0.1", "", {}, "sha512-vs5t8Apaud9N28kgCrRUdEed4UJ+wWNvicHLPxCa9ENlYuAY31M0ETy5y1vA33YoNPDFTghEbnh6efaE8h4x0Q=="],
 
     "micromark-util-types": ["micromark-util-types@2.0.2", "", {}, "sha512-Yw0ECSpJoViF1qTU4DC6NwtC4aWGt1EkzaQB8KPPyCRR8z9TWeV0HbEFGTO+ZY1wB22zmxnJqhPyTpOVCpeHTA=="],
+
+    "motion": ["motion@12.27.0", "", { "dependencies": { "framer-motion": "^12.27.0", "tslib": "^2.4.0" }, "peerDependencies": { "@emotion/is-prop-valid": "*", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@emotion/is-prop-valid", "react", "react-dom"] }, "sha512-5/WbUMUV0QPOlgimOKJRhKwE+/pIHBI38SVgEpsfadOa5lYDgkgJAEav7KqNahdX3i3xkvogD5JR4K41w+9Hzw=="],
+
+    "motion-dom": ["motion-dom@12.27.0", "", { "dependencies": { "motion-utils": "^12.24.10" } }, "sha512-oDjl0WoAsWIWKl3GCDxmh7GITrNjmLX+w5+jwk4+pzLu3VnFvsOv2E6+xCXeH72O65xlXsr84/otiOYQKW/nQA=="],
+
+    "motion-utils": ["motion-utils@12.24.10", "", {}, "sha512-x5TFgkCIP4pPsRLpKoI86jv/q8t8FQOiM/0E8QKBzfMozWHfkKap2gA1hOki+B5g3IsBNpxbUnfOum1+dgvYww=="],
 
     "ms": ["ms@2.1.3", "", {}, "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="],
 
