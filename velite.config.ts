@@ -43,14 +43,12 @@ const projects = defineCollection({
         .enum(['planning', 'in-progress', 'completed'])
         .default('planning'),
       featured: s.boolean().default(false),
-      body: s
-        .markdown({
-          rehypePlugins: [rehypeSlug],
-        })
-        .optional(),
-      excerpt: s.excerpt().optional(),
+      body: s.markdown({
+        rehypePlugins: [rehypeSlug],
+      }),
+      excerpt: s.excerpt(),
       metadata: s.metadata(),
-      toc: s.toc({ maxDepth: 3 }).optional(),
+      toc: s.toc({ maxDepth: 3 }),
     })
     .transform((data) => ({
       ...data,
