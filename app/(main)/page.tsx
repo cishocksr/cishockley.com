@@ -87,7 +87,17 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {featuredProjects.map((project) => (
-                <ProjectCard key={project.slug} {...project} />
+                <ProjectCard
+                  key={project.slug}
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags}
+                  status={project.status}
+                  githubLink={project.githubLink}
+                  projectUrl={project.projectUrl}
+                  image={project.image?.src}
+                  slug={project.slug}
+                />
               ))}
             </div>
 
