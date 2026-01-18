@@ -18,5 +18,27 @@
       "wordCount": 15
     },
     "permalink": "/projects/test-project"
+  },
+  {
+    "title": "VetConnect - Veterans Resource Hub",
+    "slug": "vetconnect",
+    "date": "2024-01-15T00:00:00.000Z",
+    "description": "A comprehensive platform connecting veterans with essential resources, services, and community support.",
+    "projectUrl": "https://vetconnect.example.com",
+    "githubLink": "https://github.com/yourusername/vetconnect",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Spring Boot",
+      "PostgreSQL",
+      "Turborepo"
+    ],
+    "status": "completed",
+    "featured": true,
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 161
+    },
+    "permalink": "/projects/vetconnect"
   }
 ]
