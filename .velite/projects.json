@@ -1,0 +1,109 @@
+[
+  {
+    "title": "My Awesome Test Project",
+    "slug": "test-project",
+    "date": "2024-01-15T00:00:00.000Z",
+    "description": "A quick test to verify the schema works",
+    "projectUrl": "https://example.com",
+    "githubLink": "https://github.com/yourusername/test-project",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Next.js"
+    ],
+    "status": "completed",
+    "featured": true,
+    "body": "<h2 id=\"overview\">Overview</h2>\n<p>This is a test project to make sure everything works!</p>\n<h3 id=\"features\">Features</h3>\n<ul>\n<li>Feature 1</li>\n<li>Feature 2</li>\n<li>Feature 3</li>\n</ul>",
+    "excerpt": "Overview\nThis is a test project to make sure everything works!\nFeatures\n\nFeature 1\nFeature 2\nFeature 3\n",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 15
+    },
+    "toc": [
+      {
+        "title": "Overview",
+        "url": "#overview",
+        "items": [
+          {
+            "title": "Features",
+            "url": "#features",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "permalink": "/projects/test-project"
+  },
+  {
+    "title": "VetConnect - Veterans Resource Hub",
+    "slug": "vetconnect",
+    "date": "2024-01-15T00:00:00.000Z",
+    "description": "A comprehensive platform connecting veterans with essential resources, services, and community support.",
+    "projectUrl": "https://vetconnect.example.com",
+    "githubLink": "https://github.com/yourusername/vetconnect",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Spring Boot",
+      "PostgreSQL",
+      "Turborepo"
+    ],
+    "status": "completed",
+    "featured": true,
+    "body": "<h2 id=\"project-overview\">Project Overview</h2>\n<p>VetConnect is a full-stack web application designed to help veterans easily find and access resources, services, and community support. The platform addresses the challenge of fragmented veteran services by providing a centralized, user-friendly hub.</p>\n<h2 id=\"key-features\">Key Features</h2>\n<ul>\n<li><strong>Resource Directory</strong>: Searchable database of veteran services and benefits</li>\n<li><strong>User Authentication</strong>: Secure login and profile management</li>\n<li><strong>Real-time Search</strong>: Fast, responsive search functionality</li>\n<li><strong>Responsive Design</strong>: Works seamlessly on desktop and mobile devices</li>\n</ul>\n<h2 id=\"technical-implementation\">Technical Implementation</h2>\n<h3 id=\"architecture\">Architecture</h3>\n<p>The project uses a monorepo structure with Turborepo, separating frontend and backend concerns while maintaining code sharing capabilities.</p>\n<h3 id=\"frontend\">Frontend</h3>\n<ul>\n<li><strong>React</strong> with <strong>TypeScript</strong> for type-safe component development</li>\n<li><strong>Tailwind CSS</strong> for responsive styling</li>\n<li><strong>React Query</strong> for efficient data fetching and caching</li>\n</ul>\n<h3 id=\"backend\">Backend</h3>\n<ul>\n<li><strong>Spring Boot</strong> REST API</li>\n<li><strong>PostgreSQL</strong> database with JPA/Hibernate</li>\n<li><strong>JWT</strong> authentication</li>\n<li>Comprehensive test coverage (60%+)</li>\n</ul>\n<h2 id=\"challenges--solutions\">Challenges &#x26; Solutions</h2>\n<p>One major challenge was achieving high test coverage...</p>\n<h2 id=\"results\">Results</h2>\n<ul>\n<li>✅ Achieved 60%+ test coverage</li>\n<li>✅ Deployed with CI/CD pipeline</li>\n<li>✅ Responsive design across all devices</li>\n</ul>\n<h2 id=\"what-i-learned\">What I Learned</h2>\n<p>This project taught me...</p>\n<pre><code></code></pre>",
+    "excerpt": "Project Overview\nVetConnect is a full-stack web application designed to help veterans easily find and access resources, services, and community support. The platform addresses the challenge of fragmented veteran services by providing a centralized, user-friend",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 161
+    },
+    "toc": [
+      {
+        "title": "Project Overview",
+        "url": "#project-overview",
+        "items": []
+      },
+      {
+        "title": "Key Features",
+        "url": "#key-features",
+        "items": []
+      },
+      {
+        "title": "Technical Implementation",
+        "url": "#technical-implementation",
+        "items": [
+          {
+            "title": "Architecture",
+            "url": "#architecture",
+            "items": []
+          },
+          {
+            "title": "Frontend",
+            "url": "#frontend",
+            "items": []
+          },
+          {
+            "title": "Backend",
+            "url": "#backend",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Challenges & Solutions",
+        "url": "#challenges--solutions",
+        "items": []
+      },
+      {
+        "title": "Results",
+        "url": "#results",
+        "items": []
+      },
+      {
+        "title": "What I Learned",
+        "url": "#what-i-learned",
+        "items": []
+      }
+    ],
+    "permalink": "/projects/vetconnect"
+  }
+]

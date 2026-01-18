@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { blog } from "@/.velite";
-import TableOfContents from "@/app/blog/components/toc";
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { blog } from '@/.velite';
+import TableOfContents from '@/app/blog/components/toc';
 
 // create component that renders blog post based on slug
 
@@ -19,9 +19,9 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
+    <div className="container mx-auto max-w-7xl px-4 py-8">
       <div className="flex gap-8">
-        <article className="flex-1 max-w-3xl">
+        <article className="max-w-3xl flex-1">
           {/* Post Header */}
           <header>
             <h1>{post.title}</h1>
@@ -59,7 +59,7 @@ export default async function BlogPostPage({
           {/* Footer */}
           <Link href="/blog">← Back to Blog</Link>
         </article>
-        <aside className="w-64 shrink-0 ">
+        <aside className="w-64 shrink-0">
           <TableOfContents toc={post.toc} />
         </aside>
       </div>
