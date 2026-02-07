@@ -3,10 +3,10 @@ import ProjectCard from './components/project-card';
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="container-section max-w-7xl py-12">
       <div className="mb-12">
         <h1 className="mb-4 text-4xl font-bold">Projects</h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400">
+        <p className="text-lg text-muted-foreground">
           A collection of my personal and professional projects showcasing my
           skills and experience.
         </p>

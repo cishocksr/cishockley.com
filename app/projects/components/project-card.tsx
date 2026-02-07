@@ -47,11 +47,11 @@ export default function ProjectCard(props: ProjectCardProps) {
             />
           ) : (
             <div
-              className="flex h-full w-full items-center justify-center bg-gray-200 dark:bg-gray-700"
+              className="flex h-full w-full items-center justify-center bg-muted"
               role="img"
               aria-label="No image available"
             >
-              <span className="text-gray-500 dark:text-gray-400">No Image</span>
+              <span className="text-muted-foreground">No Image</span>
             </div>
           )}
         </div>
@@ -60,7 +60,7 @@ export default function ProjectCard(props: ProjectCardProps) {
             {props.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-zinc-100 px-2 py-1 text-xs dark:bg-zinc-800"
+                className="rounded-full bg-muted px-2 py-1 text-xs text-muted-foreground"
               >
                 {tag}
               </span>

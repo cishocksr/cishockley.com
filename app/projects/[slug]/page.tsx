@@ -19,7 +19,7 @@ export default async function ProjectDetailPage({
   }
 
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-8">
+    <div className="container-section max-w-7xl py-8">
       <div className="flex gap-8">
         {/* Main Content */}
         <article className="max-w-3xl flex-1">
@@ -45,7 +45,7 @@ export default async function ProjectDetailPage({
 
             {/* Description */}
             {project.description && (
-              <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400">
+              <p className="mb-6 text-xl text-muted-foreground">
                 {project.description}
               </p>
             )}
@@ -56,7 +56,7 @@ export default async function ProjectDetailPage({
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-zinc-100 px-3 py-1.5 text-sm dark:bg-zinc-800"
+                    className="rounded-full bg-muted px-3 py-1.5 text-sm text-muted-foreground"
                   >
                     {tag}
                   </span>
@@ -65,7 +65,7 @@ export default async function ProjectDetailPage({
             )}
 
             {/* Date */}
-            <p className="mb-6 text-sm text-zinc-500">
+            <p className="mb-6 text-sm text-muted-foreground">
               Built:{' '}
               {new Date(project.date).toLocaleDateString('en-US', {
                 year: 'numeric',

@@ -1,18 +1,17 @@
-import Link from "next/link";
-import { blog } from "@/.velite";
+import Link from 'next/link';
+import { blog } from '@/.velite';
 
-// 2. Create a component that returns JSX.
 export default function BlogPage() {
   const posts = blog
     .filter((post) => post.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
+    <div className="container-section max-w-3xl py-12">
       {/* Page Header */}
       <div className="mb-12">
         <h1 className="mb-4 text-4xl font-bold">Blog</h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400">
+        <p className="text-muted-foreground text-lg">
           Thoughts, tutorials, and updates
         </p>
       </div>
@@ -20,23 +19,23 @@ export default function BlogPage() {
         {posts.map((post) => (
           <article
             key={post.slug}
-            className="group border-b border-zinc-200 pb-8 last:border-0 dark:border-zinc-800"
+            className="group border-border border-b pb-8 last:border-0"
           >
             {/* Post Title */}
             <Link href={post.permalink} className="block">
-              <h2 className="mb-2 text-2xl font-semibold transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
+              <h2 className="group-hover:text-primary mb-2 text-2xl font-semibold transition-colors">
                 {post.title}
               </h2>
             </Link>
 
             {/* Post Metadata */}
-            <div className="mb-3 flex items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400">
+            <div className="text-muted-foreground mb-3 flex items-center gap-4 text-sm">
               {/* Date */}
               <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
+                {new Date(post.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
                 })}
               </time>
               <span>•</span>
@@ -50,7 +49,7 @@ export default function BlogPage() {
                   {post.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-zinc-100 px-2 py-1 text-xs dark:bg-zinc-800"
+                      className="bg-muted rounded-full px-2 py-1 text-xs"
                     >
                       {tag}
                     </span>
@@ -60,7 +59,7 @@ export default function BlogPage() {
             </div>
 
             {/* Post Description or Excerpt */}
-            <p className="text-zinc-600 dark:text-zinc-400">
+            <p className="text-muted-foreground">
               {post.description || post.excerpt}
             </p>
 
@@ -68,7 +67,7 @@ export default function BlogPage() {
             <Link
               href={post.permalink}
               aria-label={`Read more about ${post.title}`}
-              className="mt-3 inline-block text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+              className="text-primary mt-3 inline-block text-sm font-medium hover:underline"
             >
               Read more →
             </Link>
