@@ -23,7 +23,9 @@ export default function BlogPage() {
           >
             {/* Post Title */}
             <Link href={post.permalink} className="block">
+
               <h2 className="group-hover:text-primary mb-2 text-2xl font-semibold transition-colors">
+
                 {post.title}
               </h2>
             </Link>
@@ -68,6 +70,7 @@ export default function BlogPage() {
               href={post.permalink}
               aria-label={`Read more about ${post.title}`}
               className="text-primary mt-3 inline-block text-sm font-medium hover:underline"
+
             >
               Read more →
             </Link>

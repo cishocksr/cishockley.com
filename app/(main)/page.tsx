@@ -4,6 +4,7 @@ import { blog, projects } from '@/.velite';
 import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/lib/config/social';
+import Typewriter from '@/components/typewriter';
 
 export default function HomePage() {
   // Get featured projects
@@ -22,14 +23,17 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="container-section flex min-h-[80vh] max-w-6xl flex-col items-center justify-center py-20 text-center">
         <div className="mb-6">
-          <h1 className="mb-4 bg-gradient-to-r from-foreground via-muted-foreground to-foreground bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl">
-            Hi, I'm Chris
+
+
+          <h1 className="mb-4 bg-linear-to-r from-blue-900 via-blue-600 to-blue-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl dark:from-blue-100 dark:via-blue-300 dark:to-blue-100">
+            Hi, I'm Chris!
           </h1>
-          <p className="mb-2 text-2xl font-semibold text-foreground md:text-3xl">
-            Developer | Learner
-          </p>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
-            Building modern solutions for the benefit of all users.
+          <Typewriter
+            phrases={['Software Developer', 'Problem Solver', 'Tech Enthusiast']}
+            className="mb-2 h-[2.25rem] text-2xl font-semibold text-zinc-800 md:h-[2.5rem] md:text-3xl dark:text-zinc-200"
+          />
+          <p className="mx-auto max-w-2xl text-lg text-zinc-600 md:text-xl dark:text-zinc-400">
+            Building modern web applications with a focus on user experience and clean code.
           </p>
         </div>
 
@@ -49,11 +53,7 @@ export default function HomePage() {
         <div className="mt-8 flex gap-6">
           {socialLinks.map((link) => {
             const Icon =
-              link.name === 'GitHub'
-                ? FiGithub
-                : link.name === 'LinkedIn'
-                  ? FiLinkedin
-                  : FiMail;
+              link.icon;
             return (
               <a
                 key={link.name}

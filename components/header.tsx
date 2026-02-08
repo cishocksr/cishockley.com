@@ -15,7 +15,7 @@ import { ThemeToggle } from './theme-toggle';
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  const linkClass = 'transition-colors hover:text-primary';
+  const linkClass = 'transition-colors hover:text-[var(--primary)] dark:hover:text-[var(--primary)]';
 
   return (
     <header className="border-border bg-background/80 sticky top-0 z-50 border-b backdrop-blur-sm">
@@ -53,6 +53,7 @@ export default function Header() {
             <SheetContent side="right">
               <SheetTitle className="sr-only">Menu</SheetTitle>
               <div className="mx-auto mt-8 flex flex-col gap-6">
+
                 <div className="border-border border-t pt-4">
                   {siteConfig.nav.map((item) => {
                     return (
@@ -60,18 +61,21 @@ export default function Header() {
                         key={item.name}
                         href={item.href}
                         className={linkClass}
+                        onClick={() => setOpen(false)}
                       >
                         {item.name}
                       </Link>
                     );
                   })}
+
+
                   <ThemeToggle />
                 </div>
               </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </nav>
-    </header>
+            </SheetContent >
+          </Sheet >
+        </div >
+      </nav >
+    </header >
   );
 }
