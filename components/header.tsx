@@ -15,7 +15,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const linkClass =
-    'transition-colors hover:text-blue-600 dark:hover:text-blue-400';
+    'transition-colors hover:text-amber-700 dark:hover:text-amber-500';
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur-sm dark:bg-zinc-950/80">
@@ -62,6 +62,13 @@ export default function Header() {
                   onClick={() => setOpen(false)}
                 >
                   Home
+                </Link>
+                <Link
+                  href="/about"
+                  className={linkClass}
+                  onClick={() => setOpen(false)}
+                >
+                  About
                 </Link>
                 <Link
                   href="/blog"

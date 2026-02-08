@@ -26,7 +26,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ href, children }) => (
       <Link
         href={href as string}
-        className="text-blue-600 hover:underline dark:text-blue-400"
+        className="text-amber-700 hover:underline dark:text-amber-500"
       >
         {children}
       </Link>

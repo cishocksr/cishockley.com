@@ -51,7 +51,7 @@ export default async function BlogPostPage({
           {/* Content */}
 
           <div
-            className="prose prose-gray dark:prose-invert max-w-none"
+            className="prose prose-zinc dark:prose-invert max-w-none"
             // biome-ignore lint/security/noDangerouslySetInnerHtml: content from our own MDX files
             dangerouslySetInnerHTML={{ __html: post.body }}
           />

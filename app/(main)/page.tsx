@@ -3,6 +3,7 @@ import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { blog, projects } from '@/.velite';
 import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
+import Typewriter from '@/components/typewriter';
 
 export default function HomePage() {
   // Get featured projects
@@ -22,14 +23,14 @@ export default function HomePage() {
       <section className="container mx-auto flex min-h-[80vh] max-w-6xl flex-col items-center justify-center px-4 py-20 text-center">
         <div className="mb-6">
           <h1 className="mb-4 bg-linear-to-r from-zinc-900 via-zinc-700 to-zinc-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100">
-            Hi, I'm [Your Name]
+            Hi, I'm Chris!
           </h1>
-          <p className="mb-2 text-2xl font-semibold text-zinc-800 md:text-3xl dark:text-zinc-200">
-            [Your Title]
-          </p>
+          <Typewriter
+            phrases={['Software Developer', 'Problem Solver', 'Tech Enthusiast']}
+            className="mb-2 h-[2.25rem] text-2xl font-semibold text-zinc-800 md:h-[2.5rem] md:text-3xl dark:text-zinc-200"
+          />
           <p className="mx-auto max-w-2xl text-lg text-zinc-600 md:text-xl dark:text-zinc-400">
-            [Your compelling tagline - Veteran | Full-Stack Developer | Building
-            solutions for the veteran community]
+            
           </p>
         </div>
 

@@ -26,37 +26,43 @@ export type ProjectCardProps = {
 
 export default function ProjectCard(props: ProjectCardProps) {
   return (
-    <Card>
-      <CardHeader>
+    <Card className="flex h-full flex-col overflow-hidden py-0">
+      {/* Fixed aspect-ratio image area at the top */}
+      <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+        {props.image ? (
+          <Image
+            src={props.image}
+            alt={props.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover"
+          />
+        ) : (
+          <div
+            className="flex h-full w-full items-center justify-center"
+            role="img"
+            aria-label="No image available"
+          >
+            <span className="text-sm text-zinc-400 dark:text-zinc-500">
+              No Image
+            </span>
+          </div>
+        )}
+      </div>
+
+      <CardHeader className="pt-4">
         <CardTitle>{props.title}</CardTitle>
         {props.description && (
-          <CardDescription>{props.description}</CardDescription>
+          <CardDescription className="line-clamp-2">
+            {props.description}
+          </CardDescription>
         )}
         <CardAction>{getStatusBadge(props.status)}</CardAction>
       </CardHeader>
-      <CardContent>
-        {/* Image container */}
-        <div className="mb-4 aspect-video w-full overflow-hidden rounded-lg">
-          {props.image ? (
-            <Image
-              src={props.image}
-              alt={props.title}
-              width={400}
-              height={225}
-              className="h-full w-full rounded-lg object-cover"
-            />
-          ) : (
-            <div
-              className="flex h-full w-full items-center justify-center bg-gray-200 dark:bg-gray-700"
-              role="img"
-              aria-label="No image available"
-            >
-              <span className="text-gray-500 dark:text-gray-400">No Image</span>
-            </div>
-          )}
-        </div>
+
+      <CardContent className="flex-1">
         {props.tags && props.tags.length > 0 && (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {props.tags.map((tag) => (
               <span
                 key={tag}
@@ -68,7 +74,8 @@ export default function ProjectCard(props: ProjectCardProps) {
           </div>
         )}
       </CardContent>
-      <CardFooter className="flex items-center justify-between">
+
+      <CardFooter className="flex items-center justify-between pb-4">
         <div className="flex gap-3">
           {props.githubLink && (
             <Button variant="outline" size="icon-sm" asChild>
