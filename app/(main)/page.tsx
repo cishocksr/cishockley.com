@@ -52,8 +52,7 @@ export default function HomePage() {
         {/* Social Links */}
         <div className="mt-8 flex gap-6">
           {socialLinks.map((link) => {
-            const Icon =
-              link.icon;
+            const Icon = link.icon;
             return (
               <a
                 key={link.name}
@@ -67,6 +66,7 @@ export default function HomePage() {
               </a>
             );
           })}
+
         </div>
       </section>
 

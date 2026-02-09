@@ -33,12 +33,12 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className={linkClass}
-                onClick={() => setOpen(false)}
               >
                 {item.name}
               </Link>
             );
           })}
+
           <ThemeToggle />
         </div>
 
