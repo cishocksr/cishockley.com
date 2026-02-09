@@ -49,7 +49,7 @@ export default function HomePage() {
         {/* Social Links */}
         <div className="mt-8 flex gap-6">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/cishocksr"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
@@ -57,7 +57,7 @@ export default function HomePage() {
             <FiGithub className="h-6 w-6" />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/christopherishockley"
             target="_blank"
             rel="noopener noreferrer"
             className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
@@ -65,7 +65,7 @@ export default function HomePage() {
             <FiLinkedin className="h-6 w-6" />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:cishocksr@cishockley.com"
             className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
           >
             <FiMail className="h-6 w-6" />

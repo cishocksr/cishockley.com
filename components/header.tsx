@@ -26,7 +26,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden gap-6 md:flex">
+        <div className="hidden items-center gap-6 md:flex">
           <Link href="/" className={linkClass}>
             Home
           </Link>
