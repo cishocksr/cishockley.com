@@ -1,9 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
+<<<<<<< HEAD
 import { socialLinks } from '@/lib/config/social';
+=======
+import { socialLinks } from '@/config/site';
+
+
+>>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -145,19 +150,49 @@ export default function ContactPage() {
         )}
       </form>
 
+      <div className="flex flex-col items-center gap-4">
+        {socialLinks
+          .filter(link => link.name === 'Email')
+          .map((link) => {
+            const Icon = link.icon;
+            const emailText = link.name === 'Email'
+              ? link.url.slice(7)
+              : link.url;
+            return (
+              <a
+                key={link.name}
+                href={link.url}
+                aria-label={link.label}
+                target='_blank'
+                rel='noopener noreferrer'
+                className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              >
+                <Icon className="h-5 w-5" />
+                <span>{emailText}</span>
+              </a>
+            );
+          })}
+      </div>
+
       {/* Divider */}
       <div className="relative mb-12">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-sm">
+<<<<<<< HEAD
           <span className="bg-background px-4 text-muted-foreground">
             Or reach out directly
+=======
+          <span className="bg-white px-4 text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
+            Connect on Social Media
+>>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
           </span>
         </div>
       </div>
 
       {/* Contact Info */}
+<<<<<<< HEAD
       <div className="flex flex-col items-center gap-4">
         <a
           href={socialLinks.find((link) => link.name === 'Email')?.url ?? ''}
@@ -188,6 +223,28 @@ export default function ContactPage() {
               );
             })}
         </div>
+=======
+      <div className="flex items-center gap-6 justify-center">
+        {socialLinks
+          .filter(link => link.name !== 'Email')
+          .map((link) => {
+            const Icon = link.icon;
+
+            return (
+              <a
+                key={link.name}
+                href={link.url}
+                aria-label={link.label}
+                target='_blank'
+                rel='noopener noreferrer'
+                className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              >
+                <Icon className="h-5 w-5" />
+                {/* <span>{link.name}</span> */}
+              </a>
+            )
+          })}
+>>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
       </div>
     </div>
   );

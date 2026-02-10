@@ -5,6 +5,7 @@ import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/lib/config/social';
 import Typewriter from '@/components/typewriter';
+import { socialLinks } from '@/config/site';
 
 export default function HomePage() {
   // Get featured projects
@@ -33,7 +34,11 @@ export default function HomePage() {
             className="mb-2 h-[2.25rem] text-2xl font-semibold text-zinc-800 md:h-[2.5rem] md:text-3xl dark:text-zinc-200"
           />
           <p className="mx-auto max-w-2xl text-lg text-zinc-600 md:text-xl dark:text-zinc-400">
+<<<<<<< HEAD
             Building modern web applications with a focus on user experience and clean code.
+=======
+
+>>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
           </p>
         </div>
 
@@ -57,6 +62,7 @@ export default function HomePage() {
               <a
                 key={link.name}
                 href={link.url}
+<<<<<<< HEAD
                 target={link.name === 'Email' ? undefined : '_blank'}
                 rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
                 aria-label={link.label}
@@ -65,6 +71,16 @@ export default function HomePage() {
                 <Icon className="h-6 w-6" />
               </a>
             );
+=======
+                aria-label={link.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              >
+                <Icon className="h-6 w-6" />
+              </a>)
+
+>>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
           })}
 
         </div>

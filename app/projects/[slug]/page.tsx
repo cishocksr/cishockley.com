@@ -5,6 +5,27 @@ import { projects } from '@/.velite';
 import TableOfContents from '@/app/blog/components/toc';
 import { Button } from '@/components/ui/button';
 import { getStatusBadge } from '@/lib/project-utils';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((project) => project.slug === slug);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.description,
+  };
+}
 
 export default async function ProjectDetailPage({
   params,

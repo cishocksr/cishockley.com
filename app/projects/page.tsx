@@ -1,6 +1,12 @@
 import { projects } from '@/.velite';
 import ProjectCard from './components/project-card';
 
+export const metadata = {
+  title: 'Projects',
+  description:
+    'A collection of my personal and professional projects showcasing my skills and experience.',
+};
+
 export default function ProjectsPage() {
   return (
     <div className="container-section max-w-7xl py-12">
