@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
+import { socialLinks } from '@/config/site';
+
+
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -139,6 +141,30 @@ export default function ContactPage() {
         )}
       </form>
 
+      <div className="flex flex-col items-center gap-4">
+        {socialLinks
+          .filter(link => link.name === 'Email')
+          .map((link) => {
+            const Icon = link.icon;
+            const emailText = link.name === 'Email'
+              ? link.url.slice(7)
+              : link.url;
+            return (
+              <a
+                key={link.name}
+                href={link.url}
+                aria-label={link.label}
+                target='_blank'
+                rel='noopener noreferrer'
+                className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              >
+                <Icon className="h-5 w-5" />
+                <span>{emailText}</span>
+              </a>
+            );
+          })}
+      </div>
+
       {/* Divider */}
       <div className="relative mb-12">
         <div className="absolute inset-0 flex items-center">
@@ -146,40 +172,32 @@ export default function ContactPage() {
         </div>
         <div className="relative flex justify-center text-sm">
           <span className="bg-white px-4 text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
-            Or reach out directly
+            Connect on Social Media
           </span>
         </div>
       </div>
 
       {/* Contact Info */}
-      <div className="flex flex-col items-center gap-4">
-        <a
-          href="mailto:your.email@example.com"
-          className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          <FiMail className="h-5 w-5" />
-          your.email@example.com
-        </a>
+      <div className="flex items-center gap-6 justify-center">
+        {socialLinks
+          .filter(link => link.name !== 'Email')
+          .map((link) => {
+            const Icon = link.icon;
 
-        <div className="flex gap-6">
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            <FiGithub className="h-6 w-6" />
-          </a>
-
-          <a
-            href="https://linkedin.com/in/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            <FiLinkedin className="h-6 w-6" />
-          </a>
-        </div>
+            return (
+              <a
+                key={link.name}
+                href={link.url}
+                aria-label={link.label}
+                target='_blank'
+                rel='noopener noreferrer'
+                className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              >
+                <Icon className="h-5 w-5" />
+                {/* <span>{link.name}</span> */}
+              </a>
+            )
+          })}
       </div>
     </div>
   );

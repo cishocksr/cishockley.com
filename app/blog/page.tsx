@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { blog } from "@/.velite";
 
-// 2. Create a component that returns JSX.
+export const metadata = {
+  title: 'Blog',
+  description:
+    'Collection of thoughts, and writing in the world of technology. Part of my attempt tot learn in public',
+};
+
 export default function BlogPage() {
   const posts = blog
     .filter((post) => post.published)

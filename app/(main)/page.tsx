@@ -4,6 +4,7 @@ import { blog, projects } from '@/.velite';
 import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
 import Typewriter from '@/components/typewriter';
+import { socialLinks } from '@/config/site';
 
 export default function HomePage() {
   // Get featured projects
@@ -30,7 +31,7 @@ export default function HomePage() {
             className="mb-2 h-[2.25rem] text-2xl font-semibold text-zinc-800 md:h-[2.5rem] md:text-3xl dark:text-zinc-200"
           />
           <p className="mx-auto max-w-2xl text-lg text-zinc-600 md:text-xl dark:text-zinc-400">
-            
+
           </p>
         </div>
 
@@ -48,28 +49,22 @@ export default function HomePage() {
 
         {/* Social Links */}
         <div className="mt-8 flex gap-6">
-          <a
-            href="https://github.com/cishocksr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            <FiGithub className="h-6 w-6" />
-          </a>
-          <a
-            href="https://linkedin.com/in/christopherishockley"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            <FiLinkedin className="h-6 w-6" />
-          </a>
-          <a
-            href="mailto:cishocksr@cishockley.com"
-            className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            <FiMail className="h-6 w-6" />
-          </a>
+          {socialLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a
+                key={link.name}
+                href={link.url}
+                aria-label={link.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              >
+                <Icon className="h-6 w-6" />
+              </a>)
+
+          })}
+
         </div>
       </section>
 
