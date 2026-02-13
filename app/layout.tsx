@@ -17,16 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-<<<<<<< HEAD
   title: siteConfig.title,
   description: siteConfig.description,
-=======
-  title: {
-    template: '%s | Chris Shockley',
-    default: 'Chris Shockley',
-  },
-  description: 'Personal website of Chris Shockley, a software engineer and technology enthusiast.',
->>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
 };
 
 export default function RootLayout({

@@ -2,13 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-<<<<<<< HEAD
 import { socialLinks } from '@/lib/config/social';
-=======
-import { socialLinks } from '@/config/site';
-
-
->>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -180,50 +174,13 @@ export default function ContactPage() {
           <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-sm">
-<<<<<<< HEAD
           <span className="bg-background px-4 text-muted-foreground">
             Or reach out directly
-=======
-          <span className="bg-white px-4 text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
-            Connect on Social Media
->>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
           </span>
         </div>
       </div>
 
       {/* Contact Info */}
-<<<<<<< HEAD
-      <div className="flex flex-col items-center gap-4">
-        <a
-          href={socialLinks.find((link) => link.name === 'Email')?.url ?? ''}
-          aria-label={socialLinks.find((link) => link.name === 'Email')?.label ?? 'Send email'}
-          className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-        >
-          <FiMail className="h-5 w-5" />
-          {socialLinks.find((link) => link.name === 'Email')?.label ?? ''}
-        </a>
-
-        <div className="flex gap-6">
-          {socialLinks
-            .filter((link) => link.name !== 'Email')
-            .map((link) => {
-              const Icon =
-                link.name === 'GitHub' ? FiGithub : FiLinkedin;
-              return (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-                >
-                  <Icon className="h-6 w-6" />
-                </a>
-              );
-            })}
-        </div>
-=======
       <div className="flex items-center gap-6 justify-center">
         {socialLinks
           .filter(link => link.name !== 'Email')
@@ -244,7 +201,6 @@ export default function ContactPage() {
               </a>
             )
           })}
->>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
       </div>
     </div>
   );

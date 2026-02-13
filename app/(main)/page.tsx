@@ -3,9 +3,8 @@ import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { blog, projects } from '@/.velite';
 import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
-import { socialLinks } from '@/lib/config/social';
-import Typewriter from '@/components/typewriter';
 import { socialLinks } from '@/config/site';
+import Typewriter from '@/components/typewriter';
 
 export default function HomePage() {
   // Get featured projects
@@ -75,191 +74,156 @@ export default function HomePage() {
 
       {/* Featured Projects Section */}
       {featuredProjects.length > 0 && (
-<<<<<<< HEAD
         <section className="border-t border-border bg-muted/50 py-20">
           <div className="container-section max-w-7xl">
-=======
-        <section className="border-t border-stone-200 bg-stone-50 py-20 dark:border-stone-800 dark:bg-stone-900/50">
-              <div className="container mx-auto max-w-7xl px-4">
->>>>>>> 784ce62 (updated globl.css)
-                <div className="mb-12 text-center">
-                  <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                    Featured Projects
-                  </h2>
-<<<<<<< HEAD
-              <p className="text-lg text-muted-foreground">
-=======
-              <p className="text-lg text-stone-600 dark:text-stone-400">
->>>>>>> 784ce62 (updated globl.css)
-      Some of my recent work
-    </p>
-  </div>
-
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {featuredProjects.map((project) => (
-        <ProjectCard
-          key={project.slug}
-          title={project.title}
-          description={project.description}
-          tags={project.tags}
-          status={project.status}
-          githubLink={project.githubLink}
-          projectUrl={project.projectUrl}
-          image={project.image?.src}
-          slug={project.slug}
-        />
-      ))}
-    </div>
-
-    <div className="mt-12 text-center">
-      <Button variant="outline" asChild className="bg-accent text-accent-foreground hover:bg-accent/90"
-      >
-        <Link href="/projects">
-          View All Projects
-          <FiArrowRight className="ml-2 h-4 w-4" />
-        </Link>
-      </Button>
-    </div>
-          </div >
-        </section >
-      )
-}
-
-{/* Recent Blog Posts Section */ }
-{
-  recentPosts.length > 0 && (
-    <section className="py-20">
-      <div className="container-section max-w-7xl">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Latest Posts
-          </h2>
-<<<<<<< HEAD
-              <p className="text-lg text-muted-foreground">
-=======
-              <p className="text-lg text-stone-600 dark:text-stone-400">
->>>>>>> 784ce62 (updated globl.css)
-      Thoughts on development, learning, and more
-    </p>
-  </div>
-
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {recentPosts.map((post) => (
-        <Link
-          key={post.slug}
-          href={post.permalink}
-<<<<<<< HEAD
-          className="group rounded-lg border border-border p-6 transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          aria-label={`Read article: ${post.title}`}
-        >
-          <h3 className="mb-2 text-xl font-semibold group-hover:text-primary transition-colors">
-            {post.title}
-          </h3>
-          {post.description && (
-            <p className="mb-4 text-muted-foreground">
-              {post.description}
-            </p>
-          )}
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
-=======
-                  className="group rounded-lg border border-stone-200 p-6 transition-colors hover:border-rose-300 dark:border-stone-800 dark:hover:border-rose-800"
-                >
-                  <h3 className="mb-2 text-xl font-semibold group-hover:text-rose-800 dark:group-hover:text-rose-300">
-              {post.title}
-            </h3>
-            {post.description && (
-              <p className="mb-4 text-stone-600 dark:text-stone-400">
-                {post.description}
-              </p>
-            )}
-            <div className="flex items-center justify-between text-sm text-stone-500">
->>>>>>> 784ce62 (updated globl.css)
-              <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </div>
-        </Link>
-      ))}
-    </div>
-
-    <div className="mt-12 text-center">
-      <Button variant="outline" asChild>
-        <Link href="/blog">
-          View All Posts
-          <FiArrowRight className="ml-2 h-4 w-4" />
-        </Link>
-      </Button>
-    </div>
-          </div >
-        </section >
-      )
-}
-
-{/* Tech Stack Section */ }
-<<<<<<< HEAD
-<section className="border-t border-border bg-muted/50 py-20">
-  <div className="container-section max-w-6xl">
-    <div className="mb-12 text-center">
-      <h2 className="mb-4 text-3xl font-bold md:text-4xl">Tech Stack</h2>
-      <p className="text-lg text-muted-foreground">
-=======
-      <section className="border-t border-stone-200 bg-stone-50 py-20 dark:border-stone-800 dark:bg-stone-900/50">
-          <div className="container mx-auto max-w-6xl px-4">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">Tech Stack</h2>
-              <p className="text-lg text-stone-600 dark:text-stone-400">
->>>>>>> 784ce62 (updated globl.css)
-                Technologies I work with
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Featured Projects
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Some of my recent work
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-              {[
-                'React',
-                'TypeScript',
-                'Next.js',
-                'Tailwind CSS',
-                'Java',
-                'Spring Boot',
-                'PostgreSQL',
-                'Git',
-              ].map((tech) => (
-                <div
-                  key={tech}
-                  className="flex items-center justify-center rounded-lg border border-border bg-card p-6 text-center font-semibold text-card-foreground"
-                >
-                  {tech}
-                </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {featuredProjects.map((project) => (
+                <ProjectCard
+                  key={project.slug}
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags}
+                  status={project.status}
+                  githubLink={project.githubLink}
+                  projectUrl={project.projectUrl}
+                  image={project.image?.src}
+                  slug={project.slug}
+                />
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="py-20">
-          <div className="container-section max-w-4xl text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Let's Work Together
-            </h2>
-            <p className="mb-8 text-lg text-muted-foreground">
-              I'm always open to discussing new projects, opportunities, or how I
-              can help bring your ideas to life.
+            <div className="mt-12 text-center">
+              <Button variant="outline" asChild className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
+                <Link href="/projects">
+                  View All Projects
+                  <FiArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+          </div >
+        </section >
+      )
+      }
+
+      {/* Recent Blog Posts Section */}
+      {
+        recentPosts.length > 0 && (
+          <section className="py-20">
+            <div className="container-section max-w-7xl">
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                  Latest Posts
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Thoughts on development, learning, and more
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {recentPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={post.permalink}
+                    className="group rounded-lg border border-border p-6 transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    aria-label={`Read article: ${post.title}`}
+                  >
+                    <h3 className="mb-2 text-xl font-semibold group-hover:text-primary transition-colors">
+                      {post.title}
+                    </h3>
+                    {post.description && (
+                      <p className="mb-4 text-muted-foreground">
+                        {post.description}
+                      </p>
+                    )}
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <time dateTime={post.date}>
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </time>
+                      <span className="transition-transform group-hover:translate-x-1">
+                        →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-12 text-center">
+                <Button variant="outline" asChild>
+                  <Link href="/blog">
+                    View All Posts
+                    <FiArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div >
+          </section >
+        )
+      }
+
+      {/* Tech Stack Section */}
+      <section className="border-t border-border bg-muted/50 py-20">
+        <div className="container-section max-w-6xl">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Tech Stack</h2>
+            <p className="text-lg text-muted-foreground">
+              Technologies I work with
             </p>
-            <Button size="lg" asChild>
-              <Link href="/contact">
-                Get In Touch
-                <FiArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
           </div>
-        </section>
+
+          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+            {[
+              'React',
+              'TypeScript',
+              'Next.js',
+              'Tailwind CSS',
+              'Java',
+              'Spring Boot',
+              'PostgreSQL',
+              'Git',
+            ].map((tech) => (
+              <div
+                key={tech}
+                className="flex items-center justify-center rounded-lg border border-border bg-card p-6 text-center font-semibold text-card-foreground"
+              >
+                {tech}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container-section max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+            Let's Work Together
+          </h2>
+          <p className="mb-8 text-lg text-muted-foreground">
+            I'm always open to discussing new projects, opportunities, or how I
+            can help bring your ideas to life.
+          </p>
+          <Button size="lg" asChild>
+            <Link href="/contact">
+              Get In Touch
+              <FiArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
     </div>
-    );
+  );
 }

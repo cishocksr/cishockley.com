@@ -1,15 +1,12 @@
 import Link from 'next/link';
 import { blog } from '@/.velite';
 
-<<<<<<< HEAD
-=======
 export const metadata = {
   title: 'Blog',
   description:
     'Collection of thoughts, and writing in the world of technology. Part of my attempt tot learn in public',
 };
 
->>>>>>> 3201d94 (ref: made sitegofig. removed hardcoded soical and email)
 export default function BlogPage() {
   const posts = blog
     .filter((post) => post.published)
