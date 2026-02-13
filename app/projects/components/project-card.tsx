@@ -60,9 +60,7 @@ export default function ProjectCard(props: ProjectCardProps) {
         <CardAction>{getStatusBadge(props.status)}</CardAction>
       </CardHeader>
 
-
       <CardContent className="flex-1">
-
         {props.tags && props.tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {props.tags.map((tag) => (
