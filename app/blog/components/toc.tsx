@@ -67,13 +67,11 @@ export default function TableOfContents({ toc }: TOCProps) {
     const headings = document.querySelectorAll(
       'article h1, article h2, article h3, article h4, article h5, article h6'
     );
-    console.log('Found headings: ', headings.length);
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('Active Heading ID: ', entry.target.id);
             setActiveId(entry.target.id);
           }
         });

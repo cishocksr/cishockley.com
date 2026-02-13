@@ -17,7 +17,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Style paragraphs
     p: ({ children }) => (
-      <p className="mb-4 leading-7 text-zinc-700 dark:text-zinc-300">
+      <p className="mb-4 leading-7 text-foreground">
         {children}
       </p>
     ),
@@ -26,7 +26,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ href, children }) => (
       <Link
         href={href as string}
-        className="text-amber-700 hover:underline dark:text-amber-500"
+        className="text-primary hover:underline transition-colors"
       >
         {children}
       </Link>
@@ -50,7 +50,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Style code blocks
     code: ({ children }) => (
-      <code className="rounded bg-zinc-100 px-1 py-0.5 text-sm dark:bg-zinc-800">
+      <code className="rounded bg-muted px-1 py-0.5 text-sm text-foreground">
         {children}
       </code>
     ),

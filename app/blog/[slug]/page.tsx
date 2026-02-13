@@ -38,31 +38,55 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-8">
+    <div className="container-section max-w-7xl py-8">
       <div className="flex gap-8">
         <article className="max-w-3xl flex-1">
           {/* Post Header */}
-          <header>
-            <h1>{post.title}</h1>
+          <header className="mb-8">
+            <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
 
             {/* Metadata */}
-            <div>
-              <time dateTime={post.date}>{post.date}</time>
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
 
               {/* Update Info */}
               {post.updated && (
-                <span>
-                  (Updated: <time dateTime={post.updated}>{post.updated}</time>)
-                </span>
+                <>
+                  <span>•</span>
+                  <span>
+                    Updated:{' '}
+                    <time dateTime={post.updated}>
+                      {new Date(post.updated).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                  </span>
+                </>
               )}
 
               {/* Tags */}
               {post.tags && post.tags.length > 0 && (
-                <div>
-                  {post.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
+                <>
+                  <span>•</span>
+                  <div className="flex gap-2">
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-muted rounded-full px-2 py-1 text-xs"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </>
               )}
             </div>
           </header>
@@ -76,7 +100,14 @@ export default async function BlogPostPage({
           />
 
           {/* Footer */}
-          <Link href="/blog">← Back to Blog</Link>
+          <div className="mt-12 border-t border-border pt-8">
+            <Link
+              href="/blog"
+              className="text-primary hover:underline inline-flex items-center gap-2"
+            >
+              ← Back to Blog
+            </Link>
+          </div>
         </article>
         <aside className="w-64 shrink-0">
           <TableOfContents toc={post.toc} />

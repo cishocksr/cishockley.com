@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { socialLinks } from '@/config/site';
-
-
+import { socialLinks } from '@/lib/config/social';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,11 +43,11 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="container mx-auto max-w-2xl px-4 py-12">
+    <div className="container-section max-w-2xl py-12">
       {/* Header */}
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold">Get In Touch</h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400">
+        <p className="text-lg text-muted-foreground">
           Have a question or want to work together? I'd love to hear from you.
         </p>
       </div>
@@ -65,60 +63,65 @@ export default function ContactPage() {
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-medium">
-            Name
+            Name <span className="text-destructive">*</span>
           </label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-zinc-100 dark:focus:ring-zinc-100"
-            placeholder="Your name"
+            aria-required="true"
+            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
+            placeholder="John Doe"
           />
         </div>
 
         {/* Email Field */}
         <div>
           <label htmlFor="email" className="mb-2 block text-sm font-medium">
-            Email
+            Email <span className="text-destructive">*</span>
           </label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-zinc-100 dark:focus:ring-zinc-100"
-            placeholder="your@email.com"
+            aria-required="true"
+            autoComplete="email"
+            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
+            placeholder="john.doe@example.com"
           />
         </div>
 
         {/* Subject Field */}
         <div>
           <label htmlFor="subject" className="mb-2 block text-sm font-medium">
-            Subject
+            Subject <span className="text-destructive">*</span>
           </label>
           <input
             type="text"
             id="subject"
             name="subject"
             required
-            className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-zinc-100 dark:focus:ring-zinc-100"
-            placeholder="What's this about?"
+            aria-required="true"
+            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
+            placeholder="Project inquiry"
           />
         </div>
 
         {/* Message Field */}
         <div>
           <label htmlFor="message" className="mb-2 block text-sm font-medium">
-            Message
+            Message <span className="text-destructive">*</span>
           </label>
           <textarea
             id="message"
             name="message"
             required
+            aria-required="true"
             rows={6}
-            className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-zinc-100 dark:focus:ring-zinc-100"
-            placeholder="Your message..."
+            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
+            placeholder="Tell me about your project or question..."
           />
         </div>
 
@@ -168,11 +171,11 @@ export default function ContactPage() {
       {/* Divider */}
       <div className="relative mb-12">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-zinc-300 dark:border-zinc-700" />
+          <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="bg-white px-4 text-zinc-500 dark:bg-zinc-950 dark:text-zinc-400">
-            Connect on Social Media
+          <span className="bg-background px-4 text-muted-foreground">
+            Or reach out directly
           </span>
         </div>
       </div>

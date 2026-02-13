@@ -3,8 +3,8 @@ import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { blog, projects } from '@/.velite';
 import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
-import Typewriter from '@/components/typewriter';
 import { socialLinks } from '@/config/site';
+import Typewriter from '@/components/typewriter';
 
 export default function HomePage() {
   // Get featured projects
@@ -19,30 +19,33 @@ export default function HomePage() {
     .slice(0, 3);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" role="main">
       {/* Hero Section */}
-      <section className="container mx-auto flex min-h-[80vh] max-w-6xl flex-col items-center justify-center px-4 py-20 text-center">
+      <section className="container-section flex min-h-[80vh] max-w-6xl flex-col items-center justify-center py-20 text-center">
         <div className="mb-6">
-          <h1 className="mb-4 bg-linear-to-r from-zinc-900 via-zinc-700 to-zinc-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-100">
+
+
+          <h1 className="mb-4 bg-linear-to-r from-blue-900 via-blue-600 to-blue-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl dark:from-blue-100 dark:via-blue-300 dark:to-blue-100">
             Hi, I'm Chris!
           </h1>
           <Typewriter
             phrases={['Software Developer', 'Problem Solver', 'Tech Enthusiast']}
-            className="mb-2 h-[2.25rem] text-2xl font-semibold text-zinc-800 md:h-[2.5rem] md:text-3xl dark:text-zinc-200"
+            className="mb-2 h-[2.25rem] text-2xl font-semibold text-stone-800 md:h-[2.5rem] md:text-3xl dark:text-stone-200"
           />
-          <p className="mx-auto max-w-2xl text-lg text-zinc-600 md:text-xl dark:text-zinc-400">
-
+          <p className="mx-auto max-w-2xl text-lg text-stone-600 md:text-xl dark:text-stone-400">
+            Building modern web applications with a focus on user experience and clean code.
           </p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90"
+          >
             <Link href="/projects">
               View My Work
               <FiArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-          <Button size="lg" variant="outline" asChild>
+          <Button size="lg" variant="outline" asChild className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
             <Link href="/contact">Get In Touch</Link>
           </Button>
         </div>
@@ -55,13 +58,14 @@ export default function HomePage() {
               <a
                 key={link.name}
                 href={link.url}
+                target={link.name === 'Email' ? undefined : '_blank'}
+                rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
                 aria-label={link.label}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                className="text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
               >
                 <Icon className="h-6 w-6" />
-              </a>)
+              </a>
+            );
 
           })}
 
@@ -70,13 +74,13 @@ export default function HomePage() {
 
       {/* Featured Projects Section */}
       {featuredProjects.length > 0 && (
-        <section className="border-t border-zinc-200 bg-zinc-50 py-20 dark:border-zinc-800 dark:bg-zinc-900/50">
-          <div className="container mx-auto max-w-7xl px-4">
+        <section className="border-t border-border bg-muted/50 py-20">
+          <div className="container-section max-w-7xl">
             <div className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">
                 Featured Projects
               </h2>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400">
+              <p className="text-lg text-muted-foreground">
                 Some of my recent work
               </p>
             </div>
@@ -98,79 +102,84 @@ export default function HomePage() {
             </div>
 
             <div className="mt-12 text-center">
-              <Button variant="outline" asChild>
+              <Button variant="outline" asChild className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
                 <Link href="/projects">
                   View All Projects
                   <FiArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
-          </div>
-        </section>
-      )}
+          </div >
+        </section >
+      )
+      }
 
       {/* Recent Blog Posts Section */}
-      {recentPosts.length > 0 && (
-        <section className="py-20">
-          <div className="container mx-auto max-w-7xl px-4">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Latest Posts
-              </h2>
-              <p className="text-lg text-zinc-600 dark:text-zinc-400">
-                Thoughts on development, learning, and more
-              </p>
-            </div>
+      {
+        recentPosts.length > 0 && (
+          <section className="py-20">
+            <div className="container-section max-w-7xl">
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                  Latest Posts
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Thoughts on development, learning, and more
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {recentPosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={post.permalink}
-                  className="group rounded-lg border border-zinc-200 p-6 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700"
-                >
-                  <h3 className="mb-2 text-xl font-semibold group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
-                    {post.title}
-                  </h3>
-                  {post.description && (
-                    <p className="mb-4 text-zinc-600 dark:text-zinc-400">
-                      {post.description}
-                    </p>
-                  )}
-                  <div className="flex items-center justify-between text-sm text-zinc-500">
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      })}
-                    </time>
-                    <span className="transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {recentPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={post.permalink}
+                    className="group rounded-lg border border-border p-6 transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    aria-label={`Read article: ${post.title}`}
+                  >
+                    <h3 className="mb-2 text-xl font-semibold group-hover:text-primary transition-colors">
+                      {post.title}
+                    </h3>
+                    {post.description && (
+                      <p className="mb-4 text-muted-foreground">
+                        {post.description}
+                      </p>
+                    )}
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <time dateTime={post.date}>
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </time>
+                      <span className="transition-transform group-hover:translate-x-1">
+                        →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
 
-            <div className="mt-12 text-center">
-              <Button variant="outline" asChild>
-                <Link href="/blog">
-                  View All Posts
-                  <FiArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-      )}
+              <div className="mt-12 text-center">
+                <Button variant="outline" asChild>
+                  <Link href="/blog">
+                    View All Posts
+                    <FiArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div >
+          </section >
+        )
+      }
 
       {/* Tech Stack Section */}
-      <section className="border-t border-zinc-200 bg-zinc-50 py-20 dark:border-zinc-800 dark:bg-zinc-900/50">
-        <div className="container mx-auto max-w-6xl px-4">
+      <section className="border-t border-border bg-muted/50 py-20">
+        <div className="container-section max-w-6xl">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Tech Stack</h2>
-            <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            <p className="text-lg text-muted-foreground">
               Technologies I work with
             </p>
           </div>
@@ -188,7 +197,7 @@ export default function HomePage() {
             ].map((tech) => (
               <div
                 key={tech}
-                className="flex items-center justify-center rounded-lg border border-zinc-200 bg-white p-6 text-center font-semibold dark:border-zinc-800 dark:bg-zinc-900"
+                className="flex items-center justify-center rounded-lg border border-border bg-card p-6 text-center font-semibold text-card-foreground"
               >
                 {tech}
               </div>
@@ -199,11 +208,11 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="py-20">
-        <div className="container mx-auto max-w-4xl px-4 text-center">
+        <div className="container-section max-w-4xl text-center">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Let's Work Together
           </h2>
-          <p className="mb-8 text-lg text-zinc-600 dark:text-zinc-400">
+          <p className="mb-8 text-lg text-muted-foreground">
             I'm always open to discussing new projects, opportunities, or how I
             can help bring your ideas to life.
           </p>

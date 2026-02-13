@@ -1,8 +1,9 @@
-import { socialLinks } from "@/config/site";
+import { socialLinks } from '@/lib/config/social';
+
 export default function Footer() {
   return (
-    <footer className="border-t bg-zinc-950 dark:bg-zinc-950">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="border-t border-border bg-muted/50">
+      <div className="container-section py-8">
         <div className="flex justify-center gap-6">
           {
             socialLinks.map((link) => {
@@ -24,7 +25,7 @@ export default function Footer() {
           }
         </div>
 
-        <div className="text-center text-sm text-zinc-600 dark:text-zinc-400">
+        <div className="mt-4 text-center text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} Chris Shockley. All rights reserved.
         </div>
       </div>
