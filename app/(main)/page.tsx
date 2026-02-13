@@ -3,7 +3,7 @@ import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { blog, projects } from '@/.velite';
 import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
-import { socialLinks } from '@/config/site';
+import { socialLinks } from '@/config/social';
 import Typewriter from '@/components/typewriter';
 
 export default function HomePage() {

@@ -1,4 +1,4 @@
-import { socialLinks } from '@/lib/config/social';
+import { socialLinks } from '@/config/social';
 
 export default function Footer() {
   return (

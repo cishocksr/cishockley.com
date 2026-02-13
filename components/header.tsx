@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { siteConfig } from '@/lib/config/site';
+import { siteConfig } from '@/config/site';
 import { ThemeToggle } from './theme-toggle';
 
 export default function Header() {

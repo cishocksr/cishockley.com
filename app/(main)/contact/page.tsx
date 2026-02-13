@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { socialLinks } from '@/lib/config/social';
+import { socialLinks } from '@/config/social';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);

@@ -1,17 +1,6 @@
 import Link from 'next/link';
 import { blog } from '@/.velite';
 
-export const metadata = {
-  title: 'Blog',
-  description:
-    'Collection of thoughts, and writing in the world of technology. Part of my attempt tot learn in public',
-};
-
-export const metadata = {
-  title: 'Blog',
-  description:
-    'Collection of thoughts, and writing in the world of technology. Part of my attempt tot learn in public',
-};
 
 export default function BlogPage() {
   const posts = blog
