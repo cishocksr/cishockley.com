@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { blog, projects } from '@/.velite';
@@ -5,6 +7,7 @@ import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/config/social';
 import Typewriter from '@/components/typewriter';
+import { SkillsSection } from '@/components/skills';
 
 export default function HomePage() {
   // Get featured projects
@@ -71,6 +74,8 @@ export default function HomePage() {
 
         </div>
       </section>
+
+
 
       {/* Featured Projects Section */}
       {featuredProjects.length > 0 && (
@@ -175,36 +180,12 @@ export default function HomePage() {
       }
 
       {/* Tech Stack Section */}
-      <section className="border-t border-border bg-muted/50 py-20">
-        <div className="container-section max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Tech Stack</h2>
-            <p className="text-lg text-muted-foreground">
-              Technologies I work with
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {[
-              'React',
-              'TypeScript',
-              'Next.js',
-              'Tailwind CSS',
-              'Java',
-              'Spring Boot',
-              'PostgreSQL',
-              'Git',
-            ].map((tech) => (
-              <div
-                key={tech}
-                className="flex items-center justify-center rounded-lg border border-border bg-card p-6 text-center font-semibold text-card-foreground"
-              >
-                {tech}
-              </div>
-            ))}
-          </div>
+      <section className='py-20'>
+        <div className='container-section max-w-5xl text-center'>
+          <SkillsSection />
         </div>
       </section>
+
 
       {/* CTA Section */}
       <section className="py-20">
