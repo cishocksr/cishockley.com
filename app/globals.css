@@ -84,6 +84,19 @@
   --sidebar-accent-foreground: oklch(0.215 0.016 60);
   --sidebar-border: oklch(0.925 0.005 70);
   --sidebar-ring: oklch(0.65 0.15 55);
+
+  /* Blues */
+  --skill-blue-deep: 0.30 0.16 245;
+  --skill-blue-mid: 0.45 0.15 240;
+  --skill-blue-light: 0.65 0.15 240;
+
+  --skill-teal-mid: 0.45 0.14 220;
+  --skill-teal-light: 0.62 0.14 220;
+
+  /* Burgundy/Reds */
+  --skill-red-deep: 0.38 0.20 5;
+  --skill-red-mid: 0.50 0.18 15;
+  --skill-red-light: 0.65 0.18 15;
 }
 
 .dark {
@@ -123,6 +136,19 @@
   --sidebar-accent-foreground: oklch(0.985 0.003 70);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.6 0.13 60);
+
+  /* Blues */
+  --skill-blue-deep: 0.55 0.16 245;
+  --skill-blue-mid: 0.65 0.15 240;
+  --skill-blue-light: 0.80 0.15 240;
+
+  --skill-teal-mid: 0.70 0.14 220;
+  --skill-teal-light: 0.87 0.14 220;
+
+  /* Burgundy/Reds */
+  --skill-red-deep: 0.63 0.20 5;
+  --skill-red-mid: 0.75 0.18 15;
+  --skill-red-light: 0.90 0.18 15;
 }
 
 @layer base {

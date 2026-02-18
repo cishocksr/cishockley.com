@@ -44,21 +44,17 @@ const currentlyLearning = [
 
 // Gradient styles for different categories
 const categoryGradients = {
-    frontend: 'from-blue-500 to-cyan-500',
-    backend: 'from-purple-500 to-pink-500',
-    database: 'from-green-500 to-emerald-500',
-    tools: 'from-orange-500 to-red-500',
+    frontend: 'from-[oklch(var(--skill-royal-from))]   to-[oklch(var(--skill-royal-to))]',
+    backend: 'from-[oklch(var(--skill-burgundy-from))] to-[oklch(var(--skill-burgundy-to))]',
+    database: 'from-[oklch(var(--skill-crimson-from))]  to-[oklch(var(--skill-crimson-to))]',
+    tools: 'from-[oklch(var(--skill-steel-from))]    to-[oklch(var(--skill-steel-to))]',
 }
 
 const categoryColors = {
-    frontend:
-        'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20',
-    backend:
-        'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/20',
-    database:
-        'bg-green-500/10 text-green-700 dark:text-green-300 border-green-500/20',
-    tools:
-        'bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/20',
+    frontend: 'bg-[oklch(var(--skill-royal-from)/0.12)]    text-[oklch(var(--skill-royal-to))]    border-[oklch(var(--skill-royal-from)/0.25)]',
+    backend: 'bg-[oklch(var(--skill-burgundy-from)/0.12)] text-[oklch(var(--skill-burgundy-to))] border-[oklch(var(--skill-burgundy-from)/0.25)]',
+    database: 'bg-[oklch(var(--skill-crimson-from)/0.12)]  text-[oklch(var(--skill-crimson-to))]  border-[oklch(var(--skill-crimson-from)/0.25)]',
+    tools: 'bg-[oklch(var(--skill-steel-from)/0.12)]    text-[oklch(var(--skill-steel-to))]    border-[oklch(var(--skill-steel-from)/0.25)]',
 }
 
 export function SkillsSection() {
@@ -110,25 +106,29 @@ export function SkillsSection() {
             {/* Category Legend */}
             <div className="flex flex-wrap justify-center gap-4 pt-4 sm:justify-start">
                 <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
+                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-royal-from))] to-[oklch(var(--skill-royal-to))]" />
+
                     <span className="text-sm text-zinc-600 dark:text-zinc-400">
                         Frontend
                     </span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" />
+                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-burgundy-from))] to-[oklch(var(--skill-burgundy-to))]" />
+
                     <span className="text-sm text-zinc-600 dark:text-zinc-400">
                         Backend
                     </span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500" />
+                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-burgundy-from))] to-[oklch(var(--skill-burgundy-to))]" />
+
                     <span className="text-sm text-zinc-600 dark:text-zinc-400">
                         Database
                     </span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-orange-500 to-red-500" />
+                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-steel-from))] to-[oklch(var(--skill-steel-to))]" />
+
                     <span className="text-sm text-zinc-600 dark:text-zinc-400">
                         Tools & Practices
                     </span>
@@ -140,7 +140,7 @@ export function SkillsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="relative overflow-hidden rounded-2xl border-2 border-dashed border-purple-300/50 bg-gradient-to-br from-purple-50 to-pink-50 p-6 dark:border-purple-700/50 dark:from-purple-950/20 dark:to-pink-950/20"
+                className="relative overflow-hidden rounded-2xl border-2 border-dashed border-accent/30 bg-accent/5 p-6"
             >
                 <div className="absolute -top-8 -right-8 text-8xl opacity-10">📚</div>
                 <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -154,7 +154,7 @@ export function SkillsSection() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
-                            className="inline-block rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-2 text-sm font-medium text-white shadow-md"
+                            className="inline-block rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow-md"
                         >
                             {item}
                         </motion.span>
