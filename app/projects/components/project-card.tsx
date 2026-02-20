@@ -26,9 +26,9 @@ export type ProjectCardProps = {
 
 export default function ProjectCard(props: ProjectCardProps) {
   return (
-    <Card className="flex h-full flex-col overflow-hidden py-0">
+    <Card className="flex h-full flex-col overflow-hidden py-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       {/* Fixed aspect-ratio image area at the top */}
-      <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+      <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-muted">
         {props.image ? (
           <Image
             src={props.image}
@@ -39,12 +39,12 @@ export default function ProjectCard(props: ProjectCardProps) {
           />
         ) : (
           <div
-            className="flex h-full w-full items-center justify-center"
+            className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20"
             role="img"
-            aria-label="No image available"
+            aria-label={props.title}
           >
-            <span className="text-sm text-zinc-400 dark:text-zinc-500">
-              No Image
+            <span className="text-5xl font-bold text-primary/40">
+              {props.title.charAt(0)}
             </span>
           </div>
         )}

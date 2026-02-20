@@ -1,0 +1,54 @@
+---
+title: Pathfinder Visualizer
+slug: pathfinder-visualizer
+description: "An educational tool that demonstrates how Breadth-First Search and Depth-First Search algorithms navigate through a grid-based maze with real-time visualization."
+projectUrl: https://algo-pathfinder.vercel.app/
+githubLink: https://github.com/cishocksr/pathfinder-visualizer
+date: 2024-09-20
+image: /images/projects/pathfinder.jpg
+tags: ["React", "TypeScript", "Algorithms", "Visualization", "Education"]
+status: completed
+featured: true
+---
+
+# Pathfinder Visualizer: Making Algorithms Visible
+
+Understanding pathfinding algorithms through textbook descriptions alone can be abstract and difficult. I wanted to create an interactive tool that makes BFS and DFS tangible and accessible for learners.
+
+## The Problem with Learning Algorithms
+
+Pathfinding algorithms are fundamental to computer science, but they're typically taught through:
+
+- Static diagrams that don't show progression
+- Pseudocode that's hard to map to real behavior
+- Examples too simple to reveal nuances
+
+I wanted to bridge this gap with an interactive tool that lets users experiment and learn through play.
+
+## Building for Understanding
+
+The visualizer uses a 20x20 grid where users can draw walls, set start and end points, and watch algorithms find paths in real-time. Color-coded cells show visited nodes, the current frontier, and the final path.
+
+### The Animation Challenge
+
+The biggest technical hurdle was rendering hundreds of state changes smoothly. My initial implementation updated the UI immediately after each algorithm step, which caused severe jank on slower devices.
+
+The solution was a render queue that batches updates and uses `requestAnimationFrame` to synchronize with the browser's refresh rate. This achieved consistent 60fps animations while keeping the algorithm logic clean and separate from the rendering logic.
+
+### Design for Learning
+
+Color choices weren't arbitrary - I researched data visualization best practices to ensure high contrast and accessibility. The palette makes it easy to distinguish between:
+
+- Unexplored cells (white)
+- Frontier cells being considered (light blue)
+- Visited cells already explored (darker blue)
+- The final path (yellow)
+
+## Side-by-Side Comparison
+
+The comparison mode lets users run BFS and DFS simultaneously on the same maze. This visual comparison makes the algorithms' differences immediately obvious:
+
+- BFS explores level-by-level (finds shortest path)
+- DFS dives deep before backtracking (may not find shortest path)
+
+Seeing this play out in real-time is far more intuitive than reading about it.

@@ -4,6 +4,10 @@ import { blog } from '@/.velite';
 import TableOfContents from '@/app/blog/components/toc';
 import { Metadata } from 'next';
 
+export function generateStaticParams() {
+  return blog.map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -109,7 +113,7 @@ export default async function BlogPostPage({
             </Link>
           </div>
         </article>
-        <aside className="w-64 shrink-0">
+        <aside className="hidden w-64 shrink-0 lg:block">
           <TableOfContents toc={post.toc} />
         </aside>
       </div>

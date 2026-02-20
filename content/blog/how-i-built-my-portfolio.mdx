@@ -1,0 +1,205 @@
+---
+title: "How I Built My Portfolio (and Myself Along the Way)"
+slug: how-i-built-portfolio
+description: "A behind-the-scenes story of rebuilding my site with Next.js 15, Tailwind v4, MDX, Supabase, and Framer Motion — what I wanted, what broke, and what I learned."
+date: 2025-08-24
+tags: ["Journey", "Portfolio", "Next.js", "Tailwind", "Framer Motion", "Supabase"]
+---
+
+# How I Built My Portfolio (and Myself Along the Way)
+
+> **TL;DR:** Minimal, fast, and a little bit animated. Next.js 15 + Tailwind v4 + MDX for writing, Supabase for auth/guestbook, Framer Motion for subtle flourishes. I broke a few things; I fixed them; I wrote down the fixes so Future Me doesn’t repeat them.
+
+They say your portfolio is your developer résumé. Mine’s also my workbench. I’ve chased “perfect” before; this time I shipped something simple that helps me show work, publish what I learn, and keep growing.
+
+---
+
+## Tech Stack
+
+- **Next.js 15** — React, RSC, and a batteries-included DX for a full-stack site.
+- **Tailwind CSS v4** — Utility-first styling with zero-runtime, smaller builds, and design tokens that keep me honest.
+- **MDX** — Markdown first, React when I need it. Each post exports a typed `metadata` object.
+- **Framer Motion** — Small, focused primitives for “you notice it later” motion.
+- **Supabase** — OAuth (GitHub/Google), Postgres, and RLS for a friendly, safe guestbook.
+
+---
+
+## Starting without starting from scratch
+
+I kept it minimal, then borrowed thoughtfully. Shout-outs to **@ibelick** for Motion Primitives inspiration, as well as basic design and **@leerob** for the guestbook spark. Tiny touches > loud UI.
+
+---
+
+## Making the UI feel alive (without shouting)
+
+I like motion you _notice later_: a sliding highlight under nav items, a magnetic nudge on icons, a word morphing in the hero. I built single-purpose parts — `AnimatedBackground`, `Magnetic`, `TextEffect` — and set them to about 7/10.
+
+> Note to self: _motion should point, not peacock._ If it doesn’t help someone understand where to look next, it’s probably too much.
+
+When `prefers-reduced-motion` is on, the site steps aside. Accessibility isn’t a toggle; it’s a tone.
+
+---
+
+## A writing flow I’ll actually use
+
+I draft in **Obsidian**, then drop a file into `content/posts/*.mdx`. Each post exports `metadata` that’s validated with **Zod**. The blog index reads those, calculates reading time, sorts by `updated` when present, and hides drafts. Just enough structure to publish without friction.
+
+---
+
+## The guestbook (small feature, real constraints)
+
+I wanted a friendly way to say hi. **Supabase** gives me OAuth, a Postgres table, and **RLS**. The UI is simple: one `AuthButton`, one `GuestbookClient`, and a list of entries. There’s a modest admin layer for visibility/flags and soft delete.
+
+---
+
+## A short list of things I broke (and how I fixed them)
+
+- **OAuth redirect purgatory.** I forgot to register both  
+  `http://localhost:3000/auth/callback` **and** `https://www.cishockley.com/auth/callback`.  
+  **Fix:** register both; build `redirectTo` from `new URL('/auth/callback', origin)`.
+
+- **Images blocked by `next/image`.** Google avatars (`lh3.googleusercontent.com`) weren’t whitelisted.  
+  **Fix:** add a `remotePatterns` entry in `next.config`.
+
+<details>
+  <summary>Show <code>next.config.mjs</code> change</summary>
+
+```js
+// next.config.mjs
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
+      { protocol: 'https', hostname: 'avatars.githubusercontent.com' },
+    ],
+  },
+}
+
+export default nextConfig
+```
+
+</details>
+
+- **Underline everywhere.** Blog titles were always underlined.  
+  **Fix:** move to `hover:underline` and keep the base clean.
+
+- **Framer Motion “but the option exists…”.** I passed an undocumented prop to `useScroll`. Types yelled.  
+  **Fix:** delete the prop; use the public API.
+
+- **Guestbook admin imports.** I referenced `adminSetFlag` / `adminSoftDelete` before exporting them.  
+  **Fix:** export from `app/guestbook/actions.ts` and re-run type checks.
+
+Writing these down keeps me from relearning the same lesson next refactor.
+
+---
+
+## Invisible work that matters
+
+- **Canonical “www”.** I enforce a single host in `middleware.ts`. Analytics are cleaner and SEO stops splitting variants.
+
+<details>
+  <summary>Show <code>middleware.ts</code></summary>
+
+```ts
+import { NextResponse, type NextRequest } from 'next/server'
+
+const WWW = 'www.cishockley.com'
+
+export function middleware(req: NextRequest) {
+  const url = new URL(req.url)
+  if (url.hostname === 'cishockley.com') {
+    url.hostname = WWW
+    return NextResponse.redirect(url, 308)
+  }
+  return NextResponse.next()
+}
+```
+
+</details>
+
+- **Environment validation.** Missing Supabase keys fail the build loudly.
+
+<details>
+  <summary>Show env validation</summary>
+
+```ts
+// lib/env.ts
+import { z } from 'zod'
+
+const Env = z.object({
+  NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(20),
+  // Add server-only keys here if needed:
+  // SUPABASE_SERVICE_ROLE_KEY: z.string().min(20),
+})
+
+Env.parse(process.env)
+export type Env = z.infer<typeof Env>
+```
+
+</details>
+
+- **Fonts via `next/font`.** No layout shift; less guessing by the browser.
+- **Smaller bundles.** Keep `layout` light, lazy-load what can wait, and let RSC do its thing.
+
+When I have the numbers, I’ll drop Lighthouse scores for Home, Blog, Post, and Guestbook. Goal: green bars. If not, I’ll tune until they are.
+
+---
+
+## Design choices that make me smile
+
+- **Back link as a link, not a button.** Tiny change, big calm. Matches the project detail page.
+- **Animated background on desktop nav.** A small reward for intentional mouse movement.
+- **Subtle section reveals.** Short `y` offset and a small fade: content arrives; it doesn’t tumble in.
+
+---
+
+## Deployment (one clean lap)
+
+Deployed to **Vercel**. I set Supabase env vars, added the custom domain, and pointed canonical middleware to `www.cishockley.com`. **Vercel Analytics** and **Speed Insights** are wired in `layout.tsx` and easy to remove.
+
+<details>
+  <summary>Show analytics wiring</summary>
+
+```tsx
+// app/layout.tsx
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
+    </html>
+  )
+}
+```
+
+</details>
+
+---
+
+## What’s next
+
+- Keyboard focus rings I actually love
+- Blog search + tags
+- Auto OG images from post metadata
+- Playwright smoke tests (nav, guestbook auth, RSS)
+- Deeper case studies (reusable MDX blocks)
+
+---
+
+## Why this matters
+
+This site is where I practice in public, try ideas, and welcome feedback. It isn’t a trophy case; it’s my workbench.
+
+If you’ve got a minute, **sign the guestbook** and tell me what worked, what didn’t, or what you want to see next. Thanks for stopping by my corner of the internet.

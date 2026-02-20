@@ -1,0 +1,36 @@
+---
+title: GitHub Profile Analyzer
+slug: github-analyzer
+description: "A full-stack analytics dashboard that provides comprehensive insights into GitHub profiles, including repository stats, language distribution, activity timelines, and an interactive Year in Review."
+date: 2024-10-23
+image: /images/projects/github-analyzer.png
+tags: ["Next.js", "TypeScript", "Tailwind CSS", "GitHub API", "NextAuth", "Recharts", "OAuth"]
+status: completed
+featured: true
+projectUrl: https://github-analyzer.vercel.app
+githubLink: https://github.com/cishocksr/github-analyzer
+---
+
+# GitHub Profile Analyzer: Making Code Stories Visual
+
+GitHub's native analytics provide basic statistics, but developers lack a comprehensive way to understand their coding patterns, language preferences, and contribution trends. I wanted to create a tool that transforms GitHub data into beautiful, shareable insights.
+
+## The Vision
+
+As developers, our GitHub profiles tell a story - but that story is scattered across dozens of repositories, thousands of commits, and years of contributions. This project aggregates that data into a cohesive narrative with intuitive visualizations.
+
+## Technical Architecture
+
+Built on Next.js 15 with the GitHub REST API, the application uses OAuth for secure authentication and implements a sophisticated caching layer to work within GitHub's rate limits. The frontend leverages Recharts for performant data visualization and Framer Motion for smooth animations.
+
+### Key Technical Decisions
+
+**NextAuth.js for OAuth**: Rather than implementing OAuth flows manually, I chose NextAuth.js to handle the complexity of token management, session storage, and refresh logic.
+
+**In-Memory Caching**: A 5-minute TTL cache dramatically reduces API calls for returning users while keeping data fresh enough for meaningful updates.
+
+**Server Components**: Next.js 15's Server Components handle initial data fetching, reducing client-side JavaScript and improving time-to-interactive.
+
+## The Year in Review Feature
+
+The standout feature is an interactive "Year in Review" that presents a developer's statistics in a story-style format with keyboard navigation. It aggregates commits, languages, repositories, and contributions into a shareable celebration of their work.

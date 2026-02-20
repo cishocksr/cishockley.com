@@ -7,6 +7,10 @@ import { Button } from '@/components/ui/button';
 import { getStatusBadge } from '@/lib/project-utils';
 import { Metadata } from 'next';
 
+export function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {

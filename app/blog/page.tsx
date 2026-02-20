@@ -1,5 +1,8 @@
+"use client";
 import Link from 'next/link';
 import { blog } from '@/.velite';
+import { motion } from 'motion/react';
+import { VARIANTS_CONTAINER, VARIANTS_SECTION } from '@/components/motion'
 
 
 export default function BlogPage() {
@@ -16,11 +19,20 @@ export default function BlogPage() {
           Thoughts, tutorials, and updates
         </p>
       </div>
-      <div className="space-y-8">
+      <motion.div
+        className="space-y-8"
+        variants={VARIANTS_CONTAINER}
+        initial="hidden"
+        animate="visible"
+        transition={{
+          staggerChildren: 0.08,
+          delayChildren: 0.1
+        }}>
         {posts.map((post) => (
-          <article
+          <motion.article
             key={post.slug}
             className="group border-border border-b pb-8 last:border-0"
+            variants={VARIANTS_SECTION}
           >
             {/* Post Title */}
             <Link href={post.permalink} className="block">
@@ -44,10 +56,10 @@ export default function BlogPage() {
               <span>•</span>
               {/* Reading Time */}
               <span>{post.metadata.readingTime} min read</span>
-              <span>•</span>
-
               {/* Tags */}
               {post.tags && post.tags.length > 0 && (
+                <>
+                <span>•</span>
                 <div className="flex gap-2">
                   {post.tags.map((tag) => (
                     <span
@@ -58,6 +70,7 @@ export default function BlogPage() {
                     </span>
                   ))}
                 </div>
+                </>
               )}
             </div>
 
@@ -75,9 +88,9 @@ export default function BlogPage() {
             >
               Read more →
             </Link>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/config/social';
+import { VARIANTS_HERO_CONTAINER, VARIANTS_HERO_ITEM } from '@/components/motion';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,17 +45,22 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="container-section max-w-2xl py-12">
+    <motion.div
+      className="container-section max-w-2xl py-12"
+      variants={VARIANTS_HERO_CONTAINER}
+      initial="hidden"
+      animate="visible"
+    >
       {/* Header */}
-      <div className="mb-12 text-center">
+      <motion.div variants={VARIANTS_HERO_ITEM} className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold">Get In Touch</h1>
         <p className="text-lg text-muted-foreground">
           Have a question or want to work together? I'd love to hear from you.
         </p>
-      </div>
+      </motion.div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="mb-12 space-y-6">
+      <motion.form variants={VARIANTS_HERO_ITEM} onSubmit={handleSubmit} className="mb-12 space-y-6">
         <input
           type="hidden"
           name="access_key"
@@ -142,9 +149,9 @@ export default function ContactPage() {
             ✗ Something went wrong. Please try again or email me directly.
           </div>
         )}
-      </form>
+      </motion.form>
 
-      <div className="flex flex-col items-center gap-4">
+      <motion.div variants={VARIANTS_HERO_ITEM} className="flex flex-col items-center gap-4">
         {socialLinks
           .filter(link => link.name === 'Email')
           .map((link) => {
@@ -157,7 +164,6 @@ export default function ContactPage() {
                 key={link.name}
                 href={link.url}
                 aria-label={link.label}
-                target='_blank'
                 rel='noopener noreferrer'
                 className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
               >
@@ -166,10 +172,10 @@ export default function ContactPage() {
               </a>
             );
           })}
-      </div>
+      </motion.div>
 
       {/* Divider */}
-      <div className="relative mb-12">
+      <motion.div variants={VARIANTS_HERO_ITEM} className="relative mb-12">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-border" />
         </div>
@@ -178,10 +184,10 @@ export default function ContactPage() {
             Or reach out directly
           </span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Contact Info */}
-      <div className="flex items-center gap-6 justify-center">
+      <motion.div variants={VARIANTS_HERO_ITEM} className="flex items-center gap-6 justify-center">
         {socialLinks
           .filter(link => link.name !== 'Email')
           .map((link) => {
@@ -201,7 +207,7 @@ export default function ContactPage() {
               </a>
             )
           })}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

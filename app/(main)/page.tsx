@@ -1,10 +1,15 @@
+"use client";
+
 import Link from 'next/link';
-import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
+import { motion } from 'motion/react';
 import { blog, projects } from '@/.velite';
 import ProjectCard from '@/app/projects/components/project-card';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/config/social';
 import Typewriter from '@/components/typewriter';
+import { SkillsSection } from '@/components/skills';
+import { AnimateIn, StaggerContainer, StaggerItem, VARIANTS_HERO_CONTAINER, VARIANTS_HERO_ITEM } from '@/components/motion';
 
 export default function HomePage() {
   // Get featured projects
@@ -22,24 +27,40 @@ export default function HomePage() {
     <div className="flex flex-col" role="main">
       {/* Hero Section */}
       <section className="container-section flex min-h-[80vh] max-w-6xl flex-col items-center justify-center py-20 text-center">
-        <div className="mb-6">
-
-
-          <h1 className="mb-4 bg-linear-to-r from-blue-900 via-blue-600 to-blue-900 bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl dark:from-blue-100 dark:via-blue-300 dark:to-blue-100">
-            Hi, I'm Chris!
-          </h1>
-          <Typewriter
-            phrases={['Software Developer', 'Problem Solver', 'Tech Enthusiast']}
-            className="mb-2 h-[2.25rem] text-2xl font-semibold text-stone-800 md:h-[2.5rem] md:text-3xl dark:text-stone-200"
-          />
-          <p className="mx-auto max-w-2xl text-lg text-stone-600 md:text-xl dark:text-stone-400">
-            Building modern web applications with a focus on user experience and clean code.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-4">
-          <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90"
+        <motion.div
+          className="mb-6"
+          variants={VARIANTS_HERO_CONTAINER}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1
+            variants={VARIANTS_HERO_ITEM}
+            className="mb-4 bg-linear-to-r from-primary-deep via-primary to-primary-deep bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl"
           >
+            Hi, I'm Chris!
+          </motion.h1>
+          <motion.div variants={VARIANTS_HERO_ITEM}>
+            <Typewriter
+              phrases={['Full-Stack Developer', 'Navy Veteran Turned Dev', 'Community Builder']}
+              className="mb-2 h-[2.25rem] text-2xl font-semibold text-foreground/80 md:h-[2.5rem] md:text-3xl"
+            />
+          </motion.div>
+          <motion.p
+            variants={VARIANTS_HERO_ITEM}
+            className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl"
+          >
+            Building modern web applications with a focus on user experience and clean code.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-wrap justify-center gap-4"
+          variants={VARIANTS_HERO_ITEM}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.5 }}
+        >
+          <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
             <Link href="/projects">
               View My Work
               <FiArrowRight className="ml-2 h-4 w-4" />
@@ -48,10 +69,15 @@ export default function HomePage() {
           <Button size="lg" variant="outline" asChild className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
             <Link href="/contact">Get In Touch</Link>
           </Button>
-        </div>
+        </motion.div>
 
         {/* Social Links */}
-        <div className="mt-8 flex gap-6">
+        <motion.div
+          className="mt-8 flex gap-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+        >
           {socialLinks.map((link) => {
             const Icon = link.icon;
             return (
@@ -66,84 +92,94 @@ export default function HomePage() {
                 <Icon className="h-6 w-6" />
               </a>
             );
-
           })}
-
-        </div>
+        </motion.div>
       </section>
+
+
 
       {/* Featured Projects Section */}
       {featuredProjects.length > 0 && (
         <section className="border-t border-border bg-muted/50 py-20">
           <div className="container-section max-w-7xl">
-            <div className="mb-12 text-center">
+            <AnimateIn className="mb-12 text-center">
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">
                 Featured Projects
               </h2>
               <p className="text-lg text-muted-foreground">
                 Some of my recent work
               </p>
-            </div>
+            </AnimateIn>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <StaggerContainer className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {featuredProjects.map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  title={project.title}
-                  description={project.description}
-                  tags={project.tags}
-                  status={project.status}
-                  githubLink={project.githubLink}
-                  projectUrl={project.projectUrl}
-                  image={project.image?.src}
-                  slug={project.slug}
-                />
+                <StaggerItem key={project.slug}>
+                  <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    tags={project.tags}
+                    status={project.status}
+                    githubLink={project.githubLink}
+                    projectUrl={project.projectUrl}
+                    image={project.image?.src}
+                    slug={project.slug}
+                  />
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
 
-            <div className="mt-12 text-center">
-              <Button variant="outline" asChild className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
+            <AnimateIn className="mt-12 text-center" delay={0.3}>
+              <Button variant="outline" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
                 <Link href="/projects">
                   View All Projects
                   <FiArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-            </div>
-          </div >
-        </section >
-      )
-      }
+            </AnimateIn>
+          </div>
+        </section>
+      )}
 
       {/* Recent Blog Posts Section */}
-      {
-        recentPosts.length > 0 && (
-          <section className="py-20">
-            <div className="container-section max-w-7xl">
-              <div className="mb-12 text-center">
-                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                  Latest Posts
-                </h2>
-                <p className="text-lg text-muted-foreground">
-                  Thoughts on development, learning, and more
-                </p>
-              </div>
+      {recentPosts.length > 0 && (
+        <section className="border-t border-border py-20">
+          <div className="container-section max-w-7xl">
+            <AnimateIn className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Latest Posts
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Thoughts on development, learning, and more
+              </p>
+            </AnimateIn>
 
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {recentPosts.map((post) => (
+            <StaggerContainer className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {recentPosts.map((post) => (
+                <StaggerItem key={post.slug}>
                   <Link
-                    key={post.slug}
                     href={post.permalink}
-                    className="group rounded-lg border border-border p-6 transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    className="group block rounded-lg border-l-4 border-l-primary border border-border p-6 transition-all hover:border-l-accent hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     aria-label={`Read article: ${post.title}`}
                   >
                     <h3 className="mb-2 text-xl font-semibold group-hover:text-primary transition-colors">
                       {post.title}
                     </h3>
                     {post.description && (
-                      <p className="mb-4 text-muted-foreground">
+                      <p className="mb-3 text-muted-foreground">
                         {post.description}
                       </p>
+                    )}
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="mb-3 flex flex-wrap gap-1.5">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     )}
                     <div className="flex items-center justify-between text-sm text-muted-foreground">
                       <time dateTime={post.date}>
@@ -158,71 +194,46 @@ export default function HomePage() {
                       </span>
                     </div>
                   </Link>
-                ))}
-              </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
 
-              <div className="mt-12 text-center">
-                <Button variant="outline" asChild>
-                  <Link href="/blog">
-                    View All Posts
-                    <FiArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div >
-          </section >
-        )
-      }
+            <AnimateIn className="mt-12 text-center" delay={0.3}>
+              <Button variant="outline" asChild>
+                <Link href="/blog">
+                  View All Posts
+                  <FiArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </AnimateIn>
+          </div>
+        </section>
+      )}
 
       {/* Tech Stack Section */}
-      <section className="border-t border-border bg-muted/50 py-20">
-        <div className="container-section max-w-6xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Tech Stack</h2>
-            <p className="text-lg text-muted-foreground">
-              Technologies I work with
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {[
-              'React',
-              'TypeScript',
-              'Next.js',
-              'Tailwind CSS',
-              'Java',
-              'Spring Boot',
-              'PostgreSQL',
-              'Git',
-            ].map((tech) => (
-              <div
-                key={tech}
-                className="flex items-center justify-center rounded-lg border border-border bg-card p-6 text-center font-semibold text-card-foreground"
-              >
-                {tech}
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="border-t border-border bg-muted/30 py-20">
+        <AnimateIn className="container-section max-w-5xl text-center">
+          <SkillsSection />
+        </AnimateIn>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="container-section max-w-4xl text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Let's Work Together
+      <section className="bg-gradient-to-br from-primary to-accent py-20">
+        <AnimateIn className="container-section max-w-4xl text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+            Let&apos;s Work Together
           </h2>
-          <p className="mb-8 text-lg text-muted-foreground">
-            I'm always open to discussing new projects, opportunities, or how I
+          <p className="mb-8 text-lg text-white/80">
+            I&apos;m always open to discussing new projects, opportunities, or how I
             can help bring your ideas to life.
           </p>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="bg-white text-primary hover:bg-white/90">
             <Link href="/contact">
               Get In Touch
               <FiArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </div>
+        </AnimateIn>
       </section>
     </div>
   );
