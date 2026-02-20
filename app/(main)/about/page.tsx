@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export default function AboutPageClient() {
   return (
-    <section className="container max-w-5xl space-y-20 py-12 md:py-20">
+    <section className="mx-auto max-w-5xl space-y-20 px-4 py-12 md:py-20">
       {/* Hero Section with Photo */}
       <div className="grid items-start gap-12 md:grid-cols-[2fr_1fr]">
         <motion.div
@@ -16,11 +16,11 @@ export default function AboutPageClient() {
           transition={{ duration: 0.6 }}
           className="space-y-6"
         >
-          <h1 className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text font-serif text-4xl font-bold text-transparent md:text-5xl">
+          <h1 className="bg-gradient-to-r from-primary-deep via-primary to-primary-deep bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
             About Me
           </h1>
 
-          <div className="space-y-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          <div className="space-y-4 text-lg leading-relaxed text-foreground/80">
             <p>
               I&apos;m <strong>Chris Shockley</strong>, a U.S. Navy veteran
               turned software developer with a passion for creating meaningful
@@ -53,8 +53,8 @@ export default function AboutPageClient() {
           className="mx-auto"
         >
           <div className="relative">
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 opacity-50 blur-2xl" />
-            <div className="relative overflow-hidden rounded-2xl border-4 border-white shadow-2xl dark:border-zinc-800">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-accent to-primary opacity-50 blur-2xl" />
+            <div className="relative overflow-hidden rounded-2xl border-4 border-background shadow-2xl">
               <Image
                 src="/images/profile.jpeg"
                 alt="Chris Shockley"
@@ -74,11 +74,11 @@ export default function AboutPageClient() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="space-y-6 rounded-2xl border border-zinc-200/50 bg-gradient-to-br from-blue-50 to-purple-50 p-8 shadow-lg dark:border-zinc-800/50 dark:from-blue-950/20 dark:to-purple-950/20"
+        className="space-y-6 rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-accent/5 p-8 shadow-lg"
       >
         <h2 className="text-3xl font-bold">My Philosophy</h2>
 
-        <div className="space-y-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+        <div className="space-y-4 text-lg leading-relaxed text-foreground/80">
           <p>
             I believe the best software is <strong>invisible</strong>—it just
             works, feels natural, and gets out of the way so users can focus on
@@ -102,33 +102,33 @@ export default function AboutPageClient() {
         <h2 className="text-3xl font-bold">What I&apos;m About</h2>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          <div className="rounded-xl border border-zinc-200/50 bg-white p-6 shadow-lg dark:border-zinc-800/50 dark:bg-zinc-900">
+          <div className="rounded-xl border border-border bg-card p-6 shadow-lg">
             <h3 className="mb-3 text-xl font-semibold">🚀 Continuous Growth</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Every day is a chance to learn something new. I actively seek out
               challenges that push me beyond my comfort zone.
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200/50 bg-white p-6 shadow-lg dark:border-zinc-800/50 dark:bg-zinc-900">
+          <div className="rounded-xl border border-border bg-card p-6 shadow-lg">
             <h3 className="mb-3 text-xl font-semibold">🤝 Collaboration</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               The best solutions come from diverse perspectives. I thrive in
               environments where ideas are freely shared and built upon.
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200/50 bg-white p-6 shadow-lg dark:border-zinc-800/50 dark:bg-zinc-900">
+          <div className="rounded-xl border border-border bg-card p-6 shadow-lg">
             <h3 className="mb-3 text-xl font-semibold">🌱 Purpose-Driven</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Technology is a tool for positive change. I&apos;m drawn to
               projects that make a meaningful difference in people&apos;s lives.
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200/50 bg-white p-6 shadow-lg dark:border-zinc-800/50 dark:bg-zinc-900">
+          <div className="rounded-xl border border-border bg-card p-6 shadow-lg">
             <h3 className="mb-3 text-xl font-semibold">🎨 Design Thinking</h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Fascinated by the intersection of design and engineering. Good UX
               isn&apos;t just about looks—it&apos;s about understanding human
               behavior.
@@ -142,17 +142,17 @@ export default function AboutPageClient() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="rounded-2xl border-2 border-blue-600/50 bg-gradient-to-br from-blue-50 to-cyan-50 p-8 text-center shadow-lg dark:border-blue-400/50 dark:from-blue-950/30 dark:to-cyan-950/30"
+        className="rounded-2xl border-2 border-primary/50 bg-gradient-to-br from-primary/5 to-accent/5 p-8 text-center shadow-lg"
       >
         <h2 className="mb-4 text-2xl font-bold">Let&apos;s Connect</h2>
-        <p className="mb-6 text-lg text-gray-700 dark:text-gray-300">
+        <p className="mb-6 text-lg text-foreground/80">
           I&apos;m always open to interesting conversations and opportunities.
         </p>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
-            href="/hire-me"
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-medium text-white shadow-lg transition hover:scale-105 hover:shadow-xl"
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 font-medium text-primary-foreground shadow-lg transition hover:scale-105 hover:shadow-xl"
           >
             <Mail className="h-5 w-5" />
             Get in Touch
@@ -160,7 +160,7 @@ export default function AboutPageClient() {
 
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg border-2 border-zinc-300 bg-white px-6 py-3 font-medium text-zinc-700 shadow-lg transition hover:scale-105 hover:bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            className="inline-flex items-center gap-2 rounded-lg border-2 border-border bg-card px-6 py-3 font-medium text-foreground shadow-lg transition hover:scale-105 hover:bg-muted"
           >
             View My Work
           </Link>

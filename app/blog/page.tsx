@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { blog } from '@/.velite';
 import { motion } from 'motion/react';
-import { VARIANTS_CONTAINER, VARIANTS_SECTION } from '@/lib/motion'
+import { VARIANTS_CONTAINER, VARIANTS_SECTION } from '@/components/motion'
 
 
 export default function BlogPage() {
@@ -56,10 +56,10 @@ export default function BlogPage() {
               <span>•</span>
               {/* Reading Time */}
               <span>{post.metadata.readingTime} min read</span>
-              <span>•</span>
-
               {/* Tags */}
               {post.tags && post.tags.length > 0 && (
+                <>
+                <span>•</span>
                 <div className="flex gap-2">
                   {post.tags.map((tag) => (
                     <span
@@ -70,6 +70,7 @@ export default function BlogPage() {
                     </span>
                   ))}
                 </div>
+                </>
               )}
             </div>
 

@@ -1,68 +1,15 @@
-export const metadata = {
-  title: 'GitHub Profile Analyzer',
-  slug: 'github-analyzer',
-  tagline: 'Deep insights into your GitHub activity and coding patterns',
-  description: 'A full-stack analytics dashboard that provides comprehensive insights into GitHub profiles, including repository stats, language distribution, activity timelines, and an interactive Year in Review.',
-  timeline: 'Personal Project - 2024',
-  role: 'Solo Full-Stack Developer',
-  date: '2024-10-23',
-  image: '/images/projects/github-analyzer.png',
-  tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'GitHub API', 'NextAuth', 'Recharts', 'OAuth'],
-  featured: true,
-
-liveUrl: 'https://github-analyzer.vercel.app',
-githubUrl: 'https://github.com/cishocksr/github-analyzer',
-
-technologies: [
-{ name: 'Next.js 15' },
-{ name: 'TypeScript' },
-{ name: 'Tailwind CSS 4' },
-{ name: 'NextAuth.js 5' },
-{ name: '@octokit/rest' },
-{ name: 'Recharts' },
-{ name: 'Framer Motion' },
-{ name: 'Biome' },
-],
-
-features: [
-'OAuth authentication with secure GitHub integration',
-'Visual analytics including language distribution, activity timelines, and contribution heatmaps',
-'Interactive Year in Review with story-style presentation',
-'Smart caching system with 5-minute TTL to optimize API rate limits',
-],
-
-challenges: [
-{
-title: 'GitHub API Rate Limiting',
-description: 'GitHub\'s REST API has strict rate limits (5,000 requests/hour). Fetching data for users with hundreds of repositories and analyzing language statistics would quickly exhaust the limit.',
-solution: 'Implemented an in-memory caching strategy with 5-minute TTL that reduces API calls by 80% for returning users. Added batch processing for repository language analysis and a rate limit monitoring endpoint that displays current usage.',
-},
-{
-title: 'Data Visualization Performance',
-description: 'Rendering contribution heatmaps (365 data points) and complex charts caused performance issues on mobile devices, particularly during animations.',
-solution: 'Leveraged Recharts\' built-in optimizations, implemented progressive loading with React Suspense, and used Next.js Server Components for initial rendering. Added loading skeletons for better perceived performance. Achieved consistent 60fps animations.',
-},
-{
-title: 'OAuth Flow Complexity',
-description: 'Managing OAuth flows across development and production environments while handling edge cases (denied permissions, network errors, invalid tokens) was complex and error-prone.',
-solution: 'Integrated NextAuth.js 5 which handles OAuth flows, session management, and token refresh automatically. Created environment-specific configuration for callback URLs and implemented comprehensive error handling with user-friendly messages.',
-},
-],
-
-outcomes: [
-{ metric: 'API Efficiency', value: '80% reduction' },
-{ metric: 'Performance', value: '60fps animations' },
-{ metric: 'User Sessions', value: '500+ analyzed' },
-],
-
-learnings: [
-'Rate limiting isn\'t just about hitting limits - proactive caching improves UX even when under limits',
-'NextAuth.js is worth the learning curve - OAuth is complex and easy to get wrong',
-'Progressive loading and skeletons matter more than raw speed for perceived performance',
-'Server Components in Next.js 15 significantly reduce client-side JavaScript and improve initial load',
-'Visualization libraries like Recharts handle optimization better than custom D3 implementations',
-],
-}
+---
+title: GitHub Profile Analyzer
+slug: github-analyzer
+description: "A full-stack analytics dashboard that provides comprehensive insights into GitHub profiles, including repository stats, language distribution, activity timelines, and an interactive Year in Review."
+date: 2024-10-23
+image: /images/projects/github-analyzer.png
+tags: ["Next.js", "TypeScript", "Tailwind CSS", "GitHub API", "NextAuth", "Recharts", "OAuth"]
+status: completed
+featured: true
+projectUrl: https://github-analyzer.vercel.app
+githubLink: https://github.com/cishocksr/github-analyzer
+---
 
 # GitHub Profile Analyzer: Making Code Stories Visual
 

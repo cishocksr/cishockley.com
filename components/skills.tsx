@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { VARIANTS_SECTION, TRANSITION_SECTION } from '@/lib/motion'
+import { VARIANTS_SECTION, TRANSITION_SECTION } from '@/components/motion'
 
 const skills = [
     // Frontend
@@ -120,7 +120,7 @@ export function SkillsSection() {
                     </span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-burgundy-from))] to-[oklch(var(--skill-burgundy-to))]" />
+                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-crimson-from))] to-[oklch(var(--skill-crimson-to))]" />
 
                     <span className="text-sm text-zinc-600 dark:text-zinc-400">
                         Database

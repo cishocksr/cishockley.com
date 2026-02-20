@@ -1,65 +1,15 @@
-export const metadata = {
-  title: 'Pathfinder Visualizer',
-  slug: 'pathfinder-visualizer',
-  tagline: 'Interactive visualization of BFS and DFS pathfinding algorithms',
-  description: 'An educational tool that demonstrates how Breadth-First Search and Depth-First Search algorithms navigate through a grid-based maze with real-time visualization.',
-  timeline: 'Personal Project - 2024',
-  role: 'Solo Developer',
-  date: '2024-09-20',
-  image: '/images/projects/pathfinder.jpg',
-  tags: ['React', 'TypeScript', 'Algorithms', 'Visualization', 'Education'],
-  featured: true,
-
-liveUrl: 'https://algo-pathfinder.vercel.app/',
-githubUrl: 'https://github.com/cishocksr/pathfinder-visualizer',
-
-technologies: [
-{ name: 'React' },
-{ name: 'TypeScript' },
-{ name: 'Next.js' },
-{ name: 'Tailwind CSS' },
-{ name: 'Vercel' },
-],
-
-features: [
-'Interactive 20x20 grid with click-and-drag wall placement',
-'Real-time algorithm visualization with adjustable speed controls',
-'Side-by-side comparison mode for BFS vs DFS',
-'Statistics tracking nodes visited, path length, and execution time',
-],
-
-challenges: [
-{
-title: 'Animation Performance',
-description: 'Animating hundreds of cell state changes in real-time caused performance issues and jank, especially on slower devices. Users couldn\'t see the algorithm behavior smoothly.',
-solution: 'Implemented a render queue system that batches state updates and uses requestAnimationFrame for smooth 60fps animations. Added speed controls so users can adjust visualization speed based on their device capabilities.',
-},
-{
-title: 'Algorithm Visualization Clarity',
-description: 'The initial color scheme made it difficult to distinguish between nodes being explored, nodes in the frontier, and the final path. Users were confused about what they were watching.',
-solution: 'Researched data visualization best practices and chose a high-contrast, accessible color palette. Added a legend and multiple visualization styles that users can toggle between for different learning preferences.',
-},
-{
-title: 'State Management Complexity',
-description: 'Managing grid state, algorithm execution state, and UI state became unwieldy as features were added. Bugs were hard to track and the codebase was becoming difficult to maintain.',
-solution: 'Refactored to use a state machine pattern with clear transitions between states (idle, running, paused, complete). This made the code more maintainable and made bugs easier to identify and fix.',
-},
-],
-
-outcomes: [
-{ metric: 'GitHub Stars', value: '45+' },
-{ metric: 'Active Users', value: '200+' },
-{ metric: 'Algorithm Accuracy', value: '100%' },
-],
-
-learnings: [
-'Visualization is a powerful teaching tool - seeing algorithms in action makes abstract concepts concrete',
-'Performance matters for user experience - smooth animations are crucial for understanding algorithm behavior',
-'Accessibility includes cognitive load - clear visual hierarchy and legends help users understand what they\'re seeing',
-'State management patterns scale - investing time in proper architecture pays dividends as complexity grows',
-'User testing reveals blindspots - assumptions about what\'s "obvious" often aren\'t until someone else tries the tool',
-],
-}
+---
+title: Pathfinder Visualizer
+slug: pathfinder-visualizer
+description: "An educational tool that demonstrates how Breadth-First Search and Depth-First Search algorithms navigate through a grid-based maze with real-time visualization."
+projectUrl: https://algo-pathfinder.vercel.app/
+githubLink: https://github.com/cishocksr/pathfinder-visualizer
+date: 2024-09-20
+image: /images/projects/pathfinder.jpg
+tags: ["React", "TypeScript", "Algorithms", "Visualization", "Education"]
+status: completed
+featured: true
+---
 
 # Pathfinder Visualizer: Making Algorithms Visible
 
