@@ -1,8 +1,8 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { blog } from '@/.velite';
 import TableOfContents from '@/app/blog/components/toc';
-import { Metadata } from 'next';
 
 export function generateStaticParams() {
   return blog.map((post) => ({ slug: post.slug }));
@@ -42,15 +42,15 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="container-section max-w-7xl py-8">
-      <div className="flex gap-8">
-        <article className="max-w-3xl flex-1">
+    <div className='container-section max-w-7xl py-8'>
+      <div className='flex gap-8'>
+        <article className='max-w-3xl flex-1'>
           {/* Post Header */}
-          <header className="mb-8">
-            <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
+          <header className='mb-8'>
+            <h1 className='mb-4 text-4xl font-bold'>{post.title}</h1>
 
             {/* Metadata */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+            <div className='flex flex-wrap items-center gap-4 text-sm text-muted-foreground'>
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -80,11 +80,11 @@ export default async function BlogPostPage({
               {post.tags && post.tags.length > 0 && (
                 <>
                   <span>•</span>
-                  <div className="flex gap-2">
+                  <div className='flex gap-2'>
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="bg-muted rounded-full px-2 py-1 text-xs"
+                        className='bg-muted rounded-full px-2 py-1 text-xs'
                       >
                         {tag}
                       </span>
@@ -98,22 +98,22 @@ export default async function BlogPostPage({
           {/* Content */}
 
           <div
-            className="prose prose-zinc dark:prose-invert max-w-none"
+            className='prose prose-zinc dark:prose-invert max-w-none'
             // biome-ignore lint/security/noDangerouslySetInnerHtml: content from our own MDX files
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
 
           {/* Footer */}
-          <div className="mt-12 border-t border-border pt-8">
+          <div className='mt-12 border-t border-border pt-8'>
             <Link
-              href="/blog"
-              className="text-primary hover:underline inline-flex items-center gap-2"
+              href='/blog'
+              className='text-primary hover:underline inline-flex items-center gap-2'
             >
               ← Back to Blog
             </Link>
           </div>
         </article>
-        <aside className="hidden w-64 shrink-0 lg:block">
+        <aside className='hidden w-64 shrink-0 lg:block'>
           <TableOfContents toc={post.toc} />
         </aside>
       </div>

@@ -27,24 +27,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
+          attribute='class'
+          defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
           <a
-            href="#main-content"
-            className="sr-only focus:static focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:mt-4 focus:ml-4 focus:inline-block"
+            href='#main-content'
+            className='sr-only focus:static focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:mt-4 focus:ml-4 focus:inline-block'
           >
             Skip to main content
           </a>
           <Header />
-          <main id="main-content">{children}</main>
+          <main id='main-content'>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

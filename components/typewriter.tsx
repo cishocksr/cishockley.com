@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 type Phase = 'typing' | 'paused' | 'deleting' | 'waiting';
 
@@ -79,11 +79,11 @@ export default function Typewriter({
   ]);
 
   return (
-    <p className={className} aria-label={currentPhrase}>
+    <output className={className} aria-label={currentPhrase}>
       {displayText}
-      <span className="animate-blink ml-0.5 inline-block w-[2px] translate-y-[1px] self-stretch bg-current">
+      <span className='animate-blink ml-0.5 inline-block w-[2px] translate-y-[1px] self-stretch bg-current'>
         &nbsp;
       </span>
-    </p>
+    </output>
   );
 }

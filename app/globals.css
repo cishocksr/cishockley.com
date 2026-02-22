@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-@plugin '@tailwindcss/typography';
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -64,14 +64,14 @@
   --secondary-foreground: oklch(0.215 0.016 60);
   --muted: oklch(0.965 0.004 70);
   --muted-foreground: oklch(0.555 0.014 60);
-  --accent: oklch(0.50 0.18 15);
+  --accent: oklch(0.5 0.18 15);
   /* Burgundy */
   --accent-foreground: oklch(0.98 0 0);
   /* White text on burgundy */
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.925 0.005 70);
   --input: oklch(0.925 0.005 70);
-  --ring: oklch(0.50 0.15 240);
+  --ring: oklch(0.5 0.15 240);
   /* Blue focus ring */
   --chart-1: oklch(0.65 0.18 55);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -88,10 +88,10 @@
   --sidebar-ring: oklch(0.65 0.15 55);
 
   /* Skill badge gradients */
-  --skill-royal-from: 0.30 0.16 245;
+  --skill-royal-from: 0.3 0.16 245;
   --skill-royal-to: 0.65 0.15 240;
 
-  --skill-burgundy-from: 0.38 0.20 5;
+  --skill-burgundy-from: 0.38 0.2 5;
   --skill-burgundy-to: 0.65 0.18 15;
 
   --skill-crimson-from: 0.45 0.14 220;
@@ -109,7 +109,7 @@
   --popover: oklch(0.205 0.016 60);
   --popover-foreground: oklch(0.985 0.003 70);
   --primary: oklch(0.65 0.18 240);
-  --primary-deep: oklch(0.85 0.10 240);
+  --primary-deep: oklch(0.85 0.1 240);
   /* Lighter blue for dark mode */
   --primary-foreground: oklch(0.13 0.028 261.692);
   /* Dark text on blue */
@@ -117,7 +117,7 @@
   --secondary-foreground: oklch(0.985 0.003 70);
   --muted: oklch(0.27 0.015 60);
   --muted-foreground: oklch(0.71 0.014 60);
-  --accent: oklch(0.60 0.20 15);
+  --accent: oklch(0.6 0.2 15);
   /* Lighter burgundy for dark mode */
   --accent-foreground: oklch(0.98 0 0);
   /* White text on burgundy */
@@ -142,16 +142,16 @@
 
   /* Skill badge gradients */
   --skill-royal-from: 0.55 0.16 245;
-  --skill-royal-to: 0.80 0.15 240;
+  --skill-royal-to: 0.8 0.15 240;
 
-  --skill-burgundy-from: 0.63 0.20 5;
-  --skill-burgundy-to: 0.90 0.18 15;
+  --skill-burgundy-from: 0.63 0.2 5;
+  --skill-burgundy-to: 0.9 0.18 15;
 
-  --skill-crimson-from: 0.70 0.14 220;
+  --skill-crimson-from: 0.7 0.14 220;
   --skill-crimson-to: 0.87 0.14 220;
 
-  --skill-steel-from: 0.60 0.015 60;
-  --skill-steel-to: 0.80 0.015 60;
+  --skill-steel-from: 0.6 0.015 60;
+  --skill-steel-to: 0.8 0.015 60;
 }
 
 @layer base {
@@ -201,7 +201,6 @@
   }
 
   @keyframes blink {
-
     0%,
     100% {
       opacity: 1;

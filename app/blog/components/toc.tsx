@@ -25,7 +25,7 @@ const renderTOCItems = (
   items: TOCItem[],
   activeId: string,
   isFirstLevel = true,
-  onClose?: () => void
+  onClose?: () => void,
 ) => {
   return (
     <ul
@@ -65,7 +65,7 @@ export default function TableOfContents({ toc }: TOCProps) {
 
   useEffect(() => {
     const headings = document.querySelectorAll(
-      'article h1, article h2, article h3, article h4, article h5, article h6'
+      'article h1, article h2, article h3, article h4, article h5, article h6',
     );
 
     const observer = new IntersectionObserver(
@@ -79,7 +79,7 @@ export default function TableOfContents({ toc }: TOCProps) {
       {
         rootMargin: '-100px 0px -66%',
         threshold: 1.0,
-      }
+      },
     );
 
     headings.forEach((heading) => {
@@ -95,26 +95,26 @@ export default function TableOfContents({ toc }: TOCProps) {
   return (
     <>
       {/* Desktop: always visible sidebar */}
-      <nav className="sticky top-20 hidden h-fit w-64 lg:block">
-        <h2 className="mb-4 text-sm font-semibold">Table Of Contents</h2>
-        <ScrollArea className="h-[calc(100vh-8rem)]">
+      <nav className='sticky top-20 hidden h-fit w-64 lg:block'>
+        <h2 className='mb-4 text-sm font-semibold'>Table Of Contents</h2>
+        <ScrollArea className='h-[calc(100vh-8rem)]'>
           {renderTOCItems(toc, activeId)}
         </ScrollArea>
       </nav>
 
       {/* Mobile: button + drawer */}
-      <div className="fixed top-4 right-4 z-50 lg:hidden">
+      <div className='fixed top-4 right-4 z-50 lg:hidden'>
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild>
             <Button>
-              <Menu className="mr-2 h-4 w-4" />
+              <Menu className='mr-2 h-4 w-4' />
               TOC
             </Button>
           </DrawerTrigger>
 
           <DrawerContent>
             <DrawerTitle>Table of Contents</DrawerTitle>
-            <ScrollArea className="h-100 p-4">
+            <ScrollArea className='h-100 p-4'>
               {renderTOCItems(toc, activeId, true, () => setIsOpen(false))}
             </ScrollArea>
           </DrawerContent>

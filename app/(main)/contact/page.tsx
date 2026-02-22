@@ -1,10 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'motion/react';
+import { useState } from 'react';
+import {
+  VARIANTS_HERO_CONTAINER,
+  VARIANTS_HERO_ITEM,
+} from '@/components/motion';
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/config/social';
-import { VARIANTS_HERO_CONTAINER, VARIANTS_HERO_ITEM } from '@/components/motion';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,128 +49,134 @@ export default function ContactPage() {
 
   return (
     <motion.div
-      className="container-section max-w-2xl py-12"
+      className='container-section max-w-2xl py-12'
       variants={VARIANTS_HERO_CONTAINER}
-      initial="hidden"
-      animate="visible"
+      initial='hidden'
+      animate='visible'
     >
       {/* Header */}
-      <motion.div variants={VARIANTS_HERO_ITEM} className="mb-12 text-center">
-        <h1 className="mb-4 text-4xl font-bold">Get In Touch</h1>
-        <p className="text-lg text-muted-foreground">
+      <motion.div variants={VARIANTS_HERO_ITEM} className='mb-12 text-center'>
+        <h1 className='mb-4 text-4xl font-bold'>Get In Touch</h1>
+        <p className='text-lg text-muted-foreground'>
           Have a question or want to work together? I'd love to hear from you.
         </p>
       </motion.div>
 
       {/* Form */}
-      <motion.form variants={VARIANTS_HERO_ITEM} onSubmit={handleSubmit} className="mb-12 space-y-6">
+      <motion.form
+        variants={VARIANTS_HERO_ITEM}
+        onSubmit={handleSubmit}
+        className='mb-12 space-y-6'
+      >
         <input
-          type="hidden"
-          name="access_key"
+          type='hidden'
+          name='access_key'
           value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY}
         />
 
         {/* Name Field */}
         <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-medium">
-            Name <span className="text-destructive">*</span>
+          <label htmlFor='name' className='mb-2 block text-sm font-medium'>
+            Name <span className='text-destructive'>*</span>
           </label>
           <input
-            type="text"
-            id="name"
-            name="name"
+            type='text'
+            id='name'
+            name='name'
             required
-            aria-required="true"
-            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
-            placeholder="John Doe"
+            aria-required='true'
+            className='w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none'
+            placeholder='John Doe'
           />
         </div>
 
         {/* Email Field */}
         <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium">
-            Email <span className="text-destructive">*</span>
+          <label htmlFor='email' className='mb-2 block text-sm font-medium'>
+            Email <span className='text-destructive'>*</span>
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type='email'
+            id='email'
+            name='email'
             required
-            aria-required="true"
-            autoComplete="email"
-            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
-            placeholder="john.doe@example.com"
+            aria-required='true'
+            autoComplete='email'
+            className='w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none'
+            placeholder='john.doe@example.com'
           />
         </div>
 
         {/* Subject Field */}
         <div>
-          <label htmlFor="subject" className="mb-2 block text-sm font-medium">
-            Subject <span className="text-destructive">*</span>
+          <label htmlFor='subject' className='mb-2 block text-sm font-medium'>
+            Subject <span className='text-destructive'>*</span>
           </label>
           <input
-            type="text"
-            id="subject"
-            name="subject"
+            type='text'
+            id='subject'
+            name='subject'
             required
-            aria-required="true"
-            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
-            placeholder="Project inquiry"
+            aria-required='true'
+            className='w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none'
+            placeholder='Project inquiry'
           />
         </div>
 
         {/* Message Field */}
         <div>
-          <label htmlFor="message" className="mb-2 block text-sm font-medium">
-            Message <span className="text-destructive">*</span>
+          <label htmlFor='message' className='mb-2 block text-sm font-medium'>
+            Message <span className='text-destructive'>*</span>
           </label>
           <textarea
-            id="message"
-            name="message"
+            id='message'
+            name='message'
             required
-            aria-required="true"
+            aria-required='true'
             rows={6}
-            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none"
-            placeholder="Tell me about your project or question..."
+            className='w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-2 focus:ring-ring focus:outline-none'
+            placeholder='Tell me about your project or question...'
           />
         </div>
 
         {/* Submit Button */}
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
+        <Button type='submit' className='w-full' disabled={isSubmitting}>
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
 
         {/* Success/Error Messages */}
         {submitStatus === 'success' && (
-          <div className="rounded-lg bg-green-50 p-4 text-green-800 dark:bg-green-900/20 dark:text-green-200">
+          <div className='rounded-lg bg-green-50 p-4 text-green-800 dark:bg-green-900/20 dark:text-green-200'>
             ✓ Message sent successfully! I'll get back to you soon.
           </div>
         )}
 
         {submitStatus === 'error' && (
-          <div className="rounded-lg bg-red-50 p-4 text-red-800 dark:bg-red-900/20 dark:text-red-200">
+          <div className='rounded-lg bg-red-50 p-4 text-red-800 dark:bg-red-900/20 dark:text-red-200'>
             ✗ Something went wrong. Please try again or email me directly.
           </div>
         )}
       </motion.form>
 
-      <motion.div variants={VARIANTS_HERO_ITEM} className="flex flex-col items-center gap-4">
+      <motion.div
+        variants={VARIANTS_HERO_ITEM}
+        className='flex flex-col items-center gap-4'
+      >
         {socialLinks
-          .filter(link => link.name === 'Email')
+          .filter((link) => link.name === 'Email')
           .map((link) => {
             const Icon = link.icon;
-            const emailText = link.name === 'Email'
-              ? link.url.slice(7)
-              : link.url;
+            const emailText =
+              link.name === 'Email' ? link.url.slice(7) : link.url;
             return (
               <a
                 key={link.name}
                 href={link.url}
                 aria-label={link.label}
                 rel='noopener noreferrer'
-                className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                className='flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
               >
-                <Icon className="h-5 w-5" />
+                <Icon className='h-5 w-5' />
                 <span>{emailText}</span>
               </a>
             );
@@ -175,21 +184,24 @@ export default function ContactPage() {
       </motion.div>
 
       {/* Divider */}
-      <motion.div variants={VARIANTS_HERO_ITEM} className="relative mb-12">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-border" />
+      <motion.div variants={VARIANTS_HERO_ITEM} className='relative mb-12'>
+        <div className='absolute inset-0 flex items-center'>
+          <div className='w-full border-t border-border' />
         </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="bg-background px-4 text-muted-foreground">
+        <div className='relative flex justify-center text-sm'>
+          <span className='bg-background px-4 text-muted-foreground'>
             Or reach out directly
           </span>
         </div>
       </motion.div>
 
       {/* Contact Info */}
-      <motion.div variants={VARIANTS_HERO_ITEM} className="flex items-center gap-6 justify-center">
+      <motion.div
+        variants={VARIANTS_HERO_ITEM}
+        className='flex items-center gap-6 justify-center'
+      >
         {socialLinks
-          .filter(link => link.name !== 'Email')
+          .filter((link) => link.name !== 'Email')
           .map((link) => {
             const Icon = link.icon;
 
@@ -200,12 +212,11 @@ export default function ContactPage() {
                 aria-label={link.label}
                 target='_blank'
                 rel='noopener noreferrer'
-                className="flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+                className='flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
               >
-                <Icon className="h-5 w-5" />
-                {/* <span>{link.name}</span> */}
+                <Icon className='h-5 w-5' />
               </a>
-            )
+            );
           })}
       </motion.div>
     </motion.div>

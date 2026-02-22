@@ -71,6 +71,6 @@ export default defineConfig({
 
   mdx: {
     remarkPlugins: [],
-    rehypePlugins: [rehypeSlug],
+    rehypePlugins: [],
   },
 });
