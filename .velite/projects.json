@@ -1,5 +1,183 @@
 [
   {
+    "title": "Cleveland GiveCamp",
+    "slug": "cleveland-givecamp",
+    "date": "2024-10-15T00:00:00.000Z",
+    "description": "A 48-hour hackathon where tech professionals volunteer to build technology solutions for local nonprofits.",
+    "image": {
+      "src": "/images/projects/clevelandgivecamp.jpg",
+      "height": 630,
+      "width": 1200,
+      "blurDataURL": "data:image/webp;base64,UklGRi4AAABXRUJQVlA4ICIAAABwAQCdASoIAAQADMDOJaACdAFAAAD8yvI7CG7DljCaSOwA",
+      "blurWidth": 8,
+      "blurHeight": 4
+    },
+    "projectUrl": "https://clevelandgivecamp.org/",
+    "tags": [
+      "Squarespace",
+      "HTML",
+      "CSS",
+      "Nonprofit",
+      "Community"
+    ],
+    "status": "completed",
+    "featured": true,
+    "body": "<h1 id=\"cleveland-givecamp-building-for-good\">Cleveland GiveCamp: Building for Good</h1>\n<p>Cleveland GiveCamp's existing website didn't effectively showcase their 15-year legacy of connecting tech professionals with nonprofits. With an outdated design and limited content management capabilities, they needed a modern platform that would inspire volunteers and nonprofits alike while being maintainable by non-technical staff.</p>\n<h2 id=\"the-mission\">The Mission</h2>\n<p>Cleveland GiveCamp brings together developers, designers, and project managers for a 48-hour hackathon to build technology solutions for local nonprofits—completely free of charge. Over 15 years, they've helped 250+ nonprofits and contributed over $7.2 million in value to the community.</p>\n<h2 id=\"our-approach\">Our Approach</h2>\n<p>Working with a team of six volunteers, we redesigned and rebuilt their entire web presence over a single weekend. We chose Squarespace as our foundation to balance rapid development with long-term maintainability, then enhanced it with custom HTML/CSS components for unique features like the sponsor carousel.</p>\n<p>The result is a modern, mobile-responsive website that effectively communicates their mission, celebrates their impact, and makes it easy for both volunteers and nonprofits to get involved.</p>",
+    "excerpt": "Cleveland GiveCamp: Building for Good\nCleveland GiveCamp's existing website didn't effectively showcase their 15-year legacy of connecting tech professionals with nonprofits. With an outdated design and limited content management capabilities, they needed a mo",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 167
+    },
+    "toc": [
+      {
+        "title": "Cleveland GiveCamp: Building for Good",
+        "url": "#cleveland-givecamp-building-for-good",
+        "items": [
+          {
+            "title": "The Mission",
+            "url": "#the-mission",
+            "items": []
+          },
+          {
+            "title": "Our Approach",
+            "url": "#our-approach",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "permalink": "/projects/cleveland-givecamp"
+  },
+  {
+    "title": "GitHub Profile Analyzer",
+    "slug": "github-analyzer",
+    "date": "2024-10-23T00:00:00.000Z",
+    "description": "A full-stack analytics dashboard that provides comprehensive insights into GitHub profiles, including repository stats, language distribution, activity timelines, and an interactive Year in Review.",
+    "image": {
+      "src": "/images/projects/github-analyzer.png",
+      "height": 630,
+      "width": 1200,
+      "blurDataURL": "data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoIAAQADMDOJZwAA3AA/ueJgEAAAA==",
+      "blurWidth": 8,
+      "blurHeight": 4
+    },
+    "projectUrl": "https://github-analyzer.vercel.app",
+    "githubLink": "https://github.com/cishocksr/github-analyzer",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "GitHub API",
+      "NextAuth",
+      "Recharts",
+      "OAuth"
+    ],
+    "status": "completed",
+    "featured": true,
+    "body": "<h1 id=\"github-profile-analyzer-making-code-stories-visual\">GitHub Profile Analyzer: Making Code Stories Visual</h1>\n<p>GitHub's native analytics provide basic statistics, but developers lack a comprehensive way to understand their coding patterns, language preferences, and contribution trends. I wanted to create a tool that transforms GitHub data into beautiful, shareable insights.</p>\n<h2 id=\"the-vision\">The Vision</h2>\n<p>As developers, our GitHub profiles tell a story - but that story is scattered across dozens of repositories, thousands of commits, and years of contributions. This project aggregates that data into a cohesive narrative with intuitive visualizations.</p>\n<h2 id=\"technical-architecture\">Technical Architecture</h2>\n<p>Built on Next.js 15 with the GitHub REST API, the application uses OAuth for secure authentication and implements a sophisticated caching layer to work within GitHub's rate limits. The frontend leverages Recharts for performant data visualization and Framer Motion for smooth animations.</p>\n<h3 id=\"key-technical-decisions\">Key Technical Decisions</h3>\n<p><strong>NextAuth.js for OAuth</strong>: Rather than implementing OAuth flows manually, I chose NextAuth.js to handle the complexity of token management, session storage, and refresh logic.</p>\n<p><strong>In-Memory Caching</strong>: A 5-minute TTL cache dramatically reduces API calls for returning users while keeping data fresh enough for meaningful updates.</p>\n<p><strong>Server Components</strong>: Next.js 15's Server Components handle initial data fetching, reducing client-side JavaScript and improving time-to-interactive.</p>\n<h2 id=\"the-year-in-review-feature\">The Year in Review Feature</h2>\n<p>The standout feature is an interactive \"Year in Review\" that presents a developer's statistics in a story-style format with keyboard navigation. It aggregates commits, languages, repositories, and contributions into a shareable celebration of their work.</p>",
+    "excerpt": "GitHub Profile Analyzer: Making Code Stories Visual\nGitHub's native analytics provide basic statistics, but developers lack a comprehensive way to understand their coding patterns, language preferences, and contribution trends. I wanted to create a tool that t",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 237
+    },
+    "toc": [
+      {
+        "title": "GitHub Profile Analyzer: Making Code Stories Visual",
+        "url": "#github-profile-analyzer-making-code-stories-visual",
+        "items": [
+          {
+            "title": "The Vision",
+            "url": "#the-vision",
+            "items": []
+          },
+          {
+            "title": "Technical Architecture",
+            "url": "#technical-architecture",
+            "items": [
+              {
+                "title": "Key Technical Decisions",
+                "url": "#key-technical-decisions",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "The Year in Review Feature",
+            "url": "#the-year-in-review-feature",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "permalink": "/projects/github-analyzer"
+  },
+  {
+    "title": "Pathfinder Visualizer",
+    "slug": "pathfinder-visualizer",
+    "date": "2024-09-20T00:00:00.000Z",
+    "description": "An educational tool that demonstrates how Breadth-First Search and Depth-First Search algorithms navigate through a grid-based maze with real-time visualization.",
+    "image": {
+      "src": "/images/projects/pathfinder.jpg",
+      "height": 630,
+      "width": 1200,
+      "blurDataURL": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAABwAQCdASoIAAQADMDOJaACdAGgAAD+ExyOwhuw1z+AAA==",
+      "blurWidth": 8,
+      "blurHeight": 4
+    },
+    "projectUrl": "https://algo-pathfinder.vercel.app/",
+    "githubLink": "https://github.com/cishocksr/pathfinder-visualizer",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Algorithms",
+      "Visualization",
+      "Education"
+    ],
+    "status": "completed",
+    "featured": true,
+    "body": "<h1 id=\"pathfinder-visualizer-making-algorithms-visible\">Pathfinder Visualizer: Making Algorithms Visible</h1>\n<p>Understanding pathfinding algorithms through textbook descriptions alone can be abstract and difficult. I wanted to create an interactive tool that makes BFS and DFS tangible and accessible for learners.</p>\n<h2 id=\"the-problem-with-learning-algorithms\">The Problem with Learning Algorithms</h2>\n<p>Pathfinding algorithms are fundamental to computer science, but they're typically taught through:</p>\n<ul>\n<li>Static diagrams that don't show progression</li>\n<li>Pseudocode that's hard to map to real behavior</li>\n<li>Examples too simple to reveal nuances</li>\n</ul>\n<p>I wanted to bridge this gap with an interactive tool that lets users experiment and learn through play.</p>\n<h2 id=\"building-for-understanding\">Building for Understanding</h2>\n<p>The visualizer uses a 20x20 grid where users can draw walls, set start and end points, and watch algorithms find paths in real-time. Color-coded cells show visited nodes, the current frontier, and the final path.</p>\n<h3 id=\"the-animation-challenge\">The Animation Challenge</h3>\n<p>The biggest technical hurdle was rendering hundreds of state changes smoothly. My initial implementation updated the UI immediately after each algorithm step, which caused severe jank on slower devices.</p>\n<p>The solution was a render queue that batches updates and uses <code>requestAnimationFrame</code> to synchronize with the browser's refresh rate. This achieved consistent 60fps animations while keeping the algorithm logic clean and separate from the rendering logic.</p>\n<h3 id=\"design-for-learning\">Design for Learning</h3>\n<p>Color choices weren't arbitrary - I researched data visualization best practices to ensure high contrast and accessibility. The palette makes it easy to distinguish between:</p>\n<ul>\n<li>Unexplored cells (white)</li>\n<li>Frontier cells being considered (light blue)</li>\n<li>Visited cells already explored (darker blue)</li>\n<li>The final path (yellow)</li>\n</ul>\n<h2 id=\"side-by-side-comparison\">Side-by-Side Comparison</h2>\n<p>The comparison mode lets users run BFS and DFS simultaneously on the same maze. This visual comparison makes the algorithms' differences immediately obvious:</p>\n<ul>\n<li>BFS explores level-by-level (finds shortest path)</li>\n<li>DFS dives deep before backtracking (may not find shortest path)</li>\n</ul>\n<p>Seeing this play out in real-time is far more intuitive than reading about it.</p>",
+    "excerpt": "Pathfinder Visualizer: Making Algorithms Visible\nUnderstanding pathfinding algorithms through textbook descriptions alone can be abstract and difficult. I wanted to create an interactive tool that makes BFS and DFS tangible and accessible for learners.\nThe Pro",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 303
+    },
+    "toc": [
+      {
+        "title": "Pathfinder Visualizer: Making Algorithms Visible",
+        "url": "#pathfinder-visualizer-making-algorithms-visible",
+        "items": [
+          {
+            "title": "The Problem with Learning Algorithms",
+            "url": "#the-problem-with-learning-algorithms",
+            "items": []
+          },
+          {
+            "title": "Building for Understanding",
+            "url": "#building-for-understanding",
+            "items": [
+              {
+                "title": "The Animation Challenge",
+                "url": "#the-animation-challenge",
+                "items": []
+              },
+              {
+                "title": "Design for Learning",
+                "url": "#design-for-learning",
+                "items": []
+              }
+            ]
+          },
+          {
+            "title": "Side-by-Side Comparison",
+            "url": "#side-by-side-comparison",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "permalink": "/projects/pathfinder-visualizer"
+  },
+  {
     "title": "My Awesome Test Project",
     "slug": "test-project",
     "date": "2024-01-15T00:00:00.000Z",

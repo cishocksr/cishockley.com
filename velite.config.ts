@@ -35,7 +35,7 @@ const projects = defineCollection({
       slug: s.slug('projects'),
       date: s.isodate(),
       description: s.string().max(999).optional(),
-      image: s.image().optional(),
+      image: s.image({ absoluteRoot: 'public' }).optional(),
       projectUrl: s.string().url().optional(),
       githubLink: s.string().url().optional(),
       tags: s.array(s.string()).optional(),
