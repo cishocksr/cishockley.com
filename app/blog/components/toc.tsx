@@ -29,9 +29,8 @@ const renderTOCItems = (
 ) => {
   return (
     <ul
-      className={`space-y-2 pl-4 ${
-        isFirstLevel ? 'border-border border-l' : ''
-      }`}
+      className={`space-y-2 pl-4 ${isFirstLevel ? 'border-border border-l' : ''
+        }`}
     >
       {items.map((item) => {
         const headingId = item.url.replace('#', '');
@@ -42,11 +41,10 @@ const renderTOCItems = (
             <a
               href={item.url}
               onClick={() => onClose?.()}
-              className={`block py-1 text-sm transition-colors ${
-                isActive
-                  ? 'text-primary font-medium'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
+              className={`block py-1 text-sm transition-colors ${isActive
+                ? 'text-primary font-medium'
+                : 'text-muted-foreground hover:text-foreground'
+                }`}
             >
               {item.title}
             </a>
@@ -78,7 +76,7 @@ export default function TableOfContents({ toc }: TOCProps) {
       },
       {
         rootMargin: '-100px 0px -66%',
-        threshold: 1.0,
+        threshold: 0.1,
       },
     );
 
@@ -95,7 +93,7 @@ export default function TableOfContents({ toc }: TOCProps) {
   return (
     <>
       {/* Desktop: always visible sidebar */}
-      <nav className='sticky top-20 hidden h-fit w-64 lg:block'>
+      <nav className='sticky top-20 hidden h-fit w-64 shrink-0 lg:block'>
         <h2 className='mb-4 text-sm font-semibold'>Table Of Contents</h2>
         <ScrollArea className='h-[calc(100vh-8rem)]'>
           {renderTOCItems(toc, activeId)}

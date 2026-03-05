@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from 'motion/react';
 import { TRANSITION_SECTION, VARIANTS_SECTION } from '@/components/motion';
 

@@ -113,9 +113,7 @@ export default async function BlogPostPage({
             </Link>
           </div>
         </article>
-        <aside className='hidden w-64 shrink-0 lg:block'>
-          <TableOfContents toc={post.toc} />
-        </aside>
+        <TableOfContents toc={post.toc} />
       </div>
     </div>
   );

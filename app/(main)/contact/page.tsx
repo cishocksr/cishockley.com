@@ -71,7 +71,7 @@ export default function ContactPage() {
         <input
           type='hidden'
           name='access_key'
-          value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY}
+          value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ''}
         />
 
         {/* Name Field */}

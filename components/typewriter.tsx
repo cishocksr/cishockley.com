@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-type Phase = 'typing' | 'paused' | 'deleting' | 'waiting';
+type Phase = 'typing' | 'done-typing' | 'deleting' | 'waiting';
 
 interface TypewriterProps {
   phrases: string[];
@@ -41,11 +41,11 @@ export default function Typewriter({
             setDisplayText(currentPhrase.slice(0, displayText.length + 1));
           }, typingSpeed);
         } else {
-          timeout = setTimeout(() => setPhase('paused'), pauseDuration);
+          timeout = setTimeout(() => setPhase('done-typing'), pauseDuration);
         }
         break;
       }
-      case 'paused': {
+      case 'done-typing': {
         setPhase('deleting');
         break;
       }
