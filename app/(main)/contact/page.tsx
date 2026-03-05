@@ -7,7 +7,6 @@ import {
   VARIANTS_HERO_ITEM,
 } from '@/components/motion';
 import { Button } from '@/components/ui/button';
-import { socialLinks } from '@/config/social';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -158,67 +157,6 @@ export default function ContactPage() {
         )}
       </motion.form>
 
-      <motion.div
-        variants={VARIANTS_HERO_ITEM}
-        className='flex flex-col items-center gap-4'
-      >
-        {socialLinks
-          .filter((link) => link.name === 'Email')
-          .map((link) => {
-            const Icon = link.icon;
-            const emailText =
-              link.name === 'Email' ? link.url.slice(7) : link.url;
-            return (
-              <a
-                key={link.name}
-                href={link.url}
-                aria-label={link.label}
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
-              >
-                <Icon className='h-5 w-5' />
-                <span>{emailText}</span>
-              </a>
-            );
-          })}
-      </motion.div>
-
-      {/* Divider */}
-      <motion.div variants={VARIANTS_HERO_ITEM} className='relative mb-12'>
-        <div className='absolute inset-0 flex items-center'>
-          <div className='w-full border-t border-border' />
-        </div>
-        <div className='relative flex justify-center text-sm'>
-          <span className='bg-background px-4 text-muted-foreground'>
-            Or reach out directly
-          </span>
-        </div>
-      </motion.div>
-
-      {/* Contact Info */}
-      <motion.div
-        variants={VARIANTS_HERO_ITEM}
-        className='flex items-center gap-6 justify-center'
-      >
-        {socialLinks
-          .filter((link) => link.name !== 'Email')
-          .map((link) => {
-            const Icon = link.icon;
-
-            return (
-              <a
-                key={link.name}
-                href={link.url}
-                aria-label={link.label}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
-              >
-                <Icon className='h-5 w-5' />
-              </a>
-            );
-          })}
-      </motion.div>
     </motion.div>
   );
 }

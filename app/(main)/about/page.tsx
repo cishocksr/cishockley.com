@@ -16,7 +16,7 @@ export default function AboutPageClient() {
           transition={{ duration: 0.6 }}
           className='space-y-6'
         >
-          <h1 className='bg-gradient-to-r from-primary-deep via-primary to-primary-deep bg-clip-text text-4xl font-bold text-transparent md:text-5xl'>
+          <h1 className='bg-linear-to-r from-primary-deep via-primary to-primary-deep bg-clip-text text-4xl font-bold text-transparent md:text-5xl'>
             About Me
           </h1>
 
@@ -51,7 +51,7 @@ export default function AboutPageClient() {
           className='mx-auto'
         >
           <div className='relative'>
-            <div className='absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-accent to-primary opacity-50 blur-2xl' />
+            <div className='absolute inset-0 rounded-2xl bg-linear-to-br from-primary via-accent to-primary opacity-50 blur-2xl' />
             <div className='relative overflow-hidden rounded-2xl border-4 border-background shadow-2xl'>
               <Image
                 src='/images/profile.jpeg'
@@ -60,7 +60,6 @@ export default function AboutPageClient() {
                 height={500}
                 className='w-full max-w-sm object-cover'
                 priority
-                unoptimized
               />
             </div>
           </div>
@@ -72,7 +71,7 @@ export default function AboutPageClient() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className='space-y-6 rounded-2xl border border-border bg-gradient-to-br from-primary/5 to-accent/5 p-8 shadow-lg'
+        className='space-y-6 rounded-2xl border border-border bg-linear-to-br from-primary/5 to-accent/5 p-8 shadow-lg'
       >
         <h2 className='text-3xl font-bold'>My Philosophy</h2>
 
@@ -140,7 +139,7 @@ export default function AboutPageClient() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className='rounded-2xl border-2 border-primary/50 bg-gradient-to-br from-primary/5 to-accent/5 p-8 text-center shadow-lg'
+        className='rounded-2xl border-2 border-primary/50 bg-linear-to-br from-primary/5 to-accent/5 p-8 text-center shadow-lg'
       >
         <h2 className='mb-4 text-2xl font-bold'>Let&apos;s Connect</h2>
         <p className='mb-6 text-lg text-foreground/80'>
@@ -150,7 +149,7 @@ export default function AboutPageClient() {
         <div className='flex flex-col items-center gap-4 sm:flex-row sm:justify-center'>
           <Link
             href='/contact'
-            className='inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-accent px-6 py-3 font-medium text-primary-foreground shadow-lg transition hover:scale-105 hover:shadow-xl'
+            className='inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-primary to-accent px-6 py-3 font-medium text-primary-foreground shadow-lg transition hover:scale-105 hover:shadow-xl'
           >
             <Mail className='h-5 w-5' />
             Get in Touch

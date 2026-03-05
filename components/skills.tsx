@@ -104,7 +104,7 @@ export function SkillsSection() {
 
               {/* Hover glow effect */}
               <motion.div
-                className={`absolute inset-0 rounded-full bg-gradient-to-r ${categoryGradients[skill.category as keyof typeof categoryGradients]} opacity-0`}
+                className={`absolute inset-0 rounded-full bg-linear-to-r ${categoryGradients[skill.category as keyof typeof categoryGradients]} opacity-0`}
                 whileHover={{ opacity: 0.1 }}
                 transition={{ duration: 0.3 }}
               />
@@ -116,22 +116,22 @@ export function SkillsSection() {
       {/* Category Legend */}
       <div className='flex flex-wrap justify-center gap-4 pt-4 sm:justify-start'>
         <div className='flex items-center gap-2'>
-          <div className='h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-royal-from))] to-[oklch(var(--skill-royal-to))]' />
+          <div className='h-3 w-3 rounded-full bg-linear-to-r from-[oklch(var(--skill-royal-from))] to-[oklch(var(--skill-royal-to))]' />
 
           <span className='text-sm text-muted-foreground'>Frontend</span>
         </div>
         <div className='flex items-center gap-2'>
-          <div className='h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-burgundy-from))] to-[oklch(var(--skill-burgundy-to))]' />
+          <div className='h-3 w-3 rounded-full bg-linear-to-r from-[oklch(var(--skill-burgundy-from))] to-[oklch(var(--skill-burgundy-to))]' />
 
           <span className='text-sm text-muted-foreground'>Backend</span>
         </div>
         <div className='flex items-center gap-2'>
-          <div className='h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-crimson-from))] to-[oklch(var(--skill-crimson-to))]' />
+          <div className='h-3 w-3 rounded-full bg-linear-to-r from-[oklch(var(--skill-crimson-from))] to-[oklch(var(--skill-crimson-to))]' />
 
           <span className='text-sm text-muted-foreground'>Database</span>
         </div>
         <div className='flex items-center gap-2'>
-          <div className='h-3 w-3 rounded-full bg-gradient-to-r from-[oklch(var(--skill-steel-from))] to-[oklch(var(--skill-steel-to))]' />
+          <div className='h-3 w-3 rounded-full bg-linear-to-r from-[oklch(var(--skill-steel-from))] to-[oklch(var(--skill-steel-to))]' />
 
           <span className='text-sm text-muted-foreground'>
             Tools & Practices

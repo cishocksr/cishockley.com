@@ -1,4 +1,3 @@
-"use client";
 
 export function getStatusBadge(
   status: 'planning' | 'in-progress' | 'completed',

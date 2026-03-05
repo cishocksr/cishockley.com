@@ -11,8 +11,8 @@ export default function Footer() {
               <a
                 key={link.name}
                 href={link.url}
-                target='_blank'
-                rel='noopener noreferrer'
+                target={link.name === 'Email' ? undefined : '_blank'}
+                rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
                 aria-label={link.label}
                 className='text-muted-foreground transition-colors hover:text-foreground'
               >

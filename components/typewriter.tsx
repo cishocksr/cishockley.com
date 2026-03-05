@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-type Phase = 'typing' | 'done-typing' | 'deleting' | 'waiting';
+type Phase = 'typing' | 'deleting' | 'waiting';
 
 interface TypewriterProps {
   phrases: string[];
@@ -41,12 +41,8 @@ export default function Typewriter({
             setDisplayText(currentPhrase.slice(0, displayText.length + 1));
           }, typingSpeed);
         } else {
-          timeout = setTimeout(() => setPhase('done-typing'), pauseDuration);
+          timeout = setTimeout(() => setPhase('deleting'), pauseDuration);
         }
-        break;
-      }
-      case 'done-typing': {
-        setPhase('deleting');
         break;
       }
       case 'deleting': {
@@ -81,7 +77,7 @@ export default function Typewriter({
   return (
     <output className={className} aria-label={currentPhrase}>
       {displayText}
-      <span className='animate-blink ml-0.5 inline-block w-[2px] translate-y-[1px] self-stretch bg-current'>
+      <span className='animate-blink ml-0.5 inline-block w-0.5 translate-y-px self-stretch bg-current'>
         &nbsp;
       </span>
     </output>

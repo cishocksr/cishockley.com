@@ -39,7 +39,7 @@ export default function ProjectCard(props: ProjectCardProps) {
           />
         ) : (
           <div
-            className='flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/20 to-accent/20'
+            className='flex h-full w-full items-center justify-center bg-linear-to-br from-primary/20 to-accent/20'
             role='img'
             aria-label={props.title}
           >
@@ -79,14 +79,14 @@ export default function ProjectCard(props: ProjectCardProps) {
         <div className='flex gap-3'>
           {props.githubLink && (
             <Button variant='outline' size='icon-sm' asChild>
-              <Link href={props.githubLink} target='_blank'>
+              <Link href={props.githubLink} target='_blank' rel='noopener noreferrer'>
                 <FiGithub />
               </Link>
             </Button>
           )}
           {props.projectUrl && (
             <Button variant='outline' size='icon-sm' asChild>
-              <Link href={props.projectUrl} target='_blank'>
+              <Link href={props.projectUrl} target='_blank' rel='noopener noreferrer'>
                 <FiExternalLink />
               </Link>
             </Button>
