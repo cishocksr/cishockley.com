@@ -55,28 +55,32 @@ export default function HomeContent({
           initial='hidden'
           animate='visible'
         >
-          <motion.h1
+          <motion.p
             variants={VARIANTS_HERO_ITEM}
-            className='mb-4 bg-linear-to-r from-primary-deep via-primary to-primary-deep bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl'
+            className='mb-2 text-xl text-muted-foreground md:text-2xl'
           >
-            Hi, I'm Chris!
-          </motion.h1>
+            Hey, I&apos;m Chris &mdash;
+          </motion.p>
           <motion.div variants={VARIANTS_HERO_ITEM}>
             <Typewriter
               phrases={[
-                'Full-Stack Developer',
-                'Navy Veteran Turned Dev',
-                'Community Builder',
+                'I build modern web apps.',
+                'I served in the U.S. Navy.',
+                'I bring communities together.',
+                'I contribute to open source.',
+                'I craft great user experiences.',
               ]}
-              className='mb-2 h-[2.25rem] text-2xl font-semibold text-foreground/80 md:h-[2.5rem] md:text-3xl'
+              typingSpeed={70}
+              deletingSpeed={50}
+              pauseDuration={2500}
+              className='min-h-[2.75rem] text-4xl font-bold bg-linear-to-r from-primary-deep via-primary to-accent bg-clip-text text-transparent md:min-h-[4rem] md:text-5xl lg:text-6xl'
             />
           </motion.div>
           <motion.p
             variants={VARIANTS_HERO_ITEM}
-            className='mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl'
+            className='mx-auto mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl'
           >
-            Building modern web applications with a focus on user experience and
-            clean code.
+            Full-stack developer with a focus on user experience and clean code.
           </motion.p>
         </motion.div>
 
