@@ -14,7 +14,7 @@ import {
 import { SkillsSection } from '@/components/skills';
 import Typewriter from '@/components/typewriter';
 import { Button } from '@/components/ui/button';
-import { socialLinks } from '@/config/social';
+import { SocialLinks } from '@/components/social-links';
 
 type FeaturedProject = {
   slug: string;
@@ -82,54 +82,36 @@ export default function HomeContent({
           >
             Full-stack developer with a focus on user experience and clean code.
           </motion.p>
-        </motion.div>
 
-        <motion.div
-          className='flex flex-wrap justify-center gap-4'
-          variants={VARIANTS_HERO_ITEM}
-        >
-          <Button
-            size='lg'
-            asChild
-            className='bg-accent text-accent-foreground hover:bg-accent/90'
+          {/* CTA Buttons */}
+          <motion.div
+            variants={VARIANTS_HERO_ITEM}
+            className='mt-8 flex flex-wrap justify-center gap-4'
           >
-            <Link href='/projects'>
-              View My Work
-              <FiArrowRight className='ml-2 h-4 w-4' />
-            </Link>
-          </Button>
-          <Button
-            size='lg'
-            variant='outline'
-            asChild
-            className='border-accent text-accent hover:bg-accent hover:text-accent-foreground'
-          >
-            <Link href='/contact'>Get In Touch</Link>
-          </Button>
-        </motion.div>
+            <Button
+              size='lg'
+              asChild
+              className='bg-accent text-accent-foreground hover:bg-accent/90'
+            >
+              <Link href='/projects'>
+                View My Work
+                <FiArrowRight className='ml-2 h-4 w-4' />
+              </Link>
+            </Button>
+            <Button
+              size='lg'
+              variant='outline'
+              asChild
+              className='border-accent text-accent hover:bg-accent hover:text-accent-foreground'
+            >
+              <Link href='/contact'>Get In Touch</Link>
+            </Button>
+          </motion.div>
 
-        {/* Social Links */}
-        <motion.div
-          className='mt-8 flex gap-6'
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.5 }}
-        >
-          {socialLinks.map((link) => {
-            const Icon = link.icon;
-            return (
-              <a
-                key={link.name}
-                href={link.url}
-                target={link.name === 'Email' ? undefined : '_blank'}
-                rel={link.name === 'Email' ? undefined : 'noopener noreferrer'}
-                aria-label={link.label}
-                className='text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm'
-              >
-                <Icon className='h-6 w-6' />
-              </a>
-            );
-          })}
+          {/* Social Links */}
+          <motion.div variants={VARIANTS_HERO_ITEM} className='mt-8'>
+            <SocialLinks iconClassName='h-6 w-6' />
+          </motion.div>
         </motion.div>
       </section>
 
@@ -165,7 +147,6 @@ export default function HomeContent({
 
             <AnimateIn className='mt-12 text-center' delay={0.3}>
               <Button
-                variant='outline'
                 asChild
                 className='bg-accent text-accent-foreground hover:bg-accent/90'
               >
@@ -259,17 +240,17 @@ export default function HomeContent({
       {/* CTA Section */}
       <section className='bg-linear-to-br from-primary to-accent py-20'>
         <AnimateIn className='container-section max-w-4xl text-center'>
-          <h2 className='mb-4 text-3xl font-bold text-white md:text-4xl'>
+          <h2 className='mb-4 text-3xl font-bold text-primary-foreground md:text-4xl'>
             Let&apos;s Work Together
           </h2>
-          <p className='mb-8 text-lg text-white/80'>
+          <p className='mb-8 text-lg text-primary-foreground/80'>
             I&apos;m always open to discussing new projects, opportunities, or
             how I can help bring your ideas to life.
           </p>
           <Button
             size='lg'
             asChild
-            className='bg-white text-primary hover:bg-white/90'
+            className='bg-background text-primary hover:bg-background/90'
           >
             <Link href='/contact'>
               Get In Touch

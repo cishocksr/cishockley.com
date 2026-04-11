@@ -102,7 +102,7 @@ export default async function ProjectDetailPage({
             <div className='flex flex-wrap gap-3'>
               {project.githubLink && (
                 <Button variant='default' asChild>
-                  <Link href={project.githubLink} target='_blank'>
+                  <Link href={project.githubLink} target='_blank' rel='noopener noreferrer'>
                     <FiGithub className='mr-2 h-4 w-4' />
                     View Code
                   </Link>
@@ -111,7 +111,7 @@ export default async function ProjectDetailPage({
 
               {project.projectUrl && (
                 <Button variant='outline' asChild>
-                  <Link href={project.projectUrl} target='_blank'>
+                  <Link href={project.projectUrl} target='_blank' rel='noopener noreferrer'>
                     <FiExternalLink className='mr-2 h-4 w-4' />
                     Live Project
                   </Link>
@@ -123,7 +123,7 @@ export default async function ProjectDetailPage({
           {/* Body Content - Same as blog! */}
           {project.body && (
             <div
-              className='prose prose-zinc dark:prose-invert max-w-none'
+              className='prose-content'
               // biome-ignore lint/security/noDangerouslySetInnerHtml: content from our own MDX files
               dangerouslySetInnerHTML={{ __html: project.body }}
             />

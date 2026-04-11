@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { FiArrowLeft } from 'react-icons/fi';
 import { blog } from '@/.velite';
 import TableOfContents from '@/app/blog/components/toc';
+import { Button } from '@/components/ui/button';
 
 export function generateStaticParams() {
   return blog.map((post) => ({ slug: post.slug }));
@@ -45,6 +47,16 @@ export default async function BlogPostPage({
     <div className='container-section max-w-7xl py-8'>
       <div className='flex gap-8'>
         <article className='max-w-3xl flex-1'>
+          {/* Back button */}
+          <div className='mb-6'>
+            <Button variant='ghost' size='sm' asChild>
+              <Link href='/blog'>
+                <FiArrowLeft className='mr-2 h-4 w-4' />
+                Back to Blog
+              </Link>
+            </Button>
+          </div>
+
           {/* Post Header */}
           <header className='mb-8'>
             <h1 className='mb-4 text-4xl font-bold'>{post.title}</h1>
@@ -96,24 +108,28 @@ export default async function BlogPostPage({
           </header>
 
           {/* Content */}
-
           <div
-            className='prose prose-zinc dark:prose-invert max-w-none'
+            className='prose-content'
             // biome-ignore lint/security/noDangerouslySetInnerHtml: content from our own MDX files
             dangerouslySetInnerHTML={{ __html: post.body }}
           />
 
           {/* Footer */}
           <div className='mt-12 border-t border-border pt-8'>
-            <Link
-              href='/blog'
-              className='text-primary hover:underline inline-flex items-center gap-2'
-            >
-              ← Back to Blog
-            </Link>
+            <Button variant='ghost' size='sm' asChild>
+              <Link href='/blog'>
+                <FiArrowLeft className='mr-2 h-4 w-4' />
+                Back to Blog
+              </Link>
+            </Button>
           </div>
         </article>
-        <TableOfContents toc={post.toc} />
+
+        {post.toc.length > 0 && (
+          <aside className='w-64 shrink-0'>
+            <TableOfContents toc={post.toc} />
+          </aside>
+        )}
       </div>
     </div>
   );

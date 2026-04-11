@@ -48,7 +48,7 @@ export default function ContactPage() {
 
   return (
     <motion.div
-      className='container-section max-w-2xl py-12'
+      className='container-section max-w-2xl py-12 md:py-20'
       variants={VARIANTS_HERO_CONTAINER}
       initial='hidden'
       animate='visible'
@@ -145,13 +145,13 @@ export default function ContactPage() {
 
         {/* Success/Error Messages */}
         {submitStatus === 'success' && (
-          <div className='rounded-lg bg-green-50 p-4 text-green-800 dark:bg-green-900/20 dark:text-green-200'>
+          <div className='rounded-lg border border-success/20 bg-success p-4 text-success-foreground'>
             ✓ Message sent successfully! I'll get back to you soon.
           </div>
         )}
 
         {submitStatus === 'error' && (
-          <div className='rounded-lg bg-red-50 p-4 text-red-800 dark:bg-red-900/20 dark:text-red-200'>
+          <div className='rounded-lg border border-destructive/20 bg-destructive/10 p-4 text-destructive'>
             ✗ Something went wrong. Please try again or email me directly.
           </div>
         )}

@@ -11,13 +11,13 @@ export function getStatusBadge(
       );
     case 'in-progress':
       return (
-        <span className='inline-flex rounded-full bg-blue-500/10 px-3 py-1 text-xs text-blue-600 dark:text-blue-400'>
+        <span className='inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs text-primary'>
           In Progress
         </span>
       );
     case 'completed':
       return (
-        <span className='inline-flex rounded-full bg-green-500/10 px-3 py-1 text-xs text-green-600 dark:text-green-400'>
+        <span className='inline-flex rounded-full bg-success px-3 py-1 text-xs text-success-foreground'>
           Completed
         </span>
       );
