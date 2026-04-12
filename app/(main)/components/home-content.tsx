@@ -91,7 +91,7 @@ export default function HomeContent({
             <Button
               size='lg'
               asChild
-              className='bg-accent text-accent-foreground hover:bg-accent/90'
+              className='bg-accent text-accent-foreground hover:scale-105 hover:shadow-xl'
             >
               <Link href='/projects'>
                 View My Work
@@ -102,7 +102,7 @@ export default function HomeContent({
               size='lg'
               variant='outline'
               asChild
-              className='border-accent text-accent hover:bg-accent hover:text-accent-foreground'
+              className='border-accent text-accent hover:scale-105 hover:shadow-xl'
             >
               <Link href='/contact'>Get In Touch</Link>
             </Button>

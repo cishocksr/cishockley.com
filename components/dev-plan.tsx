@@ -96,7 +96,7 @@ const dailyRoutine = [
 
 export default function DevPlan() {
   const [activePhase, setActivePhase] = useState(0);
-  const [expandedDay, setExpandedDay] = useState(null);
+  const [expandedDay, setExpandedDay] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState("plan");
 
   const phase = phases[activePhase];

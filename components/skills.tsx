@@ -1,7 +1,11 @@
-"use client";
+'use client';
 
 import { motion } from 'motion/react';
-import { TRANSITION_SECTION, VARIANTS_SECTION } from '@/components/motion';
+import {
+  AnimateIn,
+  StaggerContainer,
+  VARIANTS_GRID_ITEM,
+} from '@/components/motion';
 
 const skills = [
   // Frontend
@@ -69,49 +73,38 @@ const categoryColors = {
 
 export function SkillsSection() {
   return (
-    <motion.section
-      variants={VARIANTS_SECTION}
-      transition={TRANSITION_SECTION}
-      className='space-y-8'
-    >
-      <div className='space-y-2'>
-        <h2 className='text-2xl font-bold tracking-tight'>Technical Skills</h2>
-        <p className='text-muted-foreground'>
-          Technologies I use to build modern, scalable web applications
-        </p>
-      </div>
-
-      {/* Gradient Badge Cloud */}
-      <div className='relative'>
-        <div className='flex flex-wrap justify-center gap-3 sm:justify-start'>
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.3,
-                delay: index * 0.02,
-                ease: 'easeOut',
-              }}
-              whileHover={{
-                scale: 1.1,
-                transition: { duration: 0.2 },
-              }}
-              className={`relative rounded-full border px-4 py-2.5 text-sm font-medium transition-all duration-300 hover:shadow-lg ${categoryColors[skill.category as keyof typeof categoryColors]} `}
-            >
-              <span className='relative z-10'>{skill.name}</span>
-
-              {/* Hover glow effect */}
-              <motion.div
-                className={`absolute inset-0 rounded-full bg-linear-to-r ${categoryGradients[skill.category as keyof typeof categoryGradients]} opacity-0`}
-                whileHover={{ opacity: 0.1 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-          ))}
+    <section className='space-y-8'>
+      <AnimateIn>
+        <div className='space-y-2'>
+          <h2 className='text-2xl font-bold tracking-tight'>Technical Skills</h2>
+          <p className='text-muted-foreground'>
+            Technologies I use to build modern, scalable web applications
+          </p>
         </div>
-      </div>
+      </AnimateIn>
+
+      {/* Gradient Badge Cloud — staggered when this row enters view */}
+      <StaggerContainer className='relative flex flex-wrap justify-center gap-3 sm:justify-start'>
+        {skills.map((skill) => (
+          <motion.div
+            key={skill.name}
+            variants={VARIANTS_GRID_ITEM}
+            whileHover={{
+              scale: 1.08,
+              transition: { duration: 0.2 },
+            }}
+            className={`relative rounded-full border px-4 py-2.5 text-sm font-medium transition-all duration-300 hover:shadow-lg ${categoryColors[skill.category as keyof typeof categoryColors]} `}
+          >
+            <span className='relative z-10'>{skill.name}</span>
+
+            <motion.div
+              className={`absolute inset-0 rounded-full bg-linear-to-r ${categoryGradients[skill.category as keyof typeof categoryGradients]} opacity-0`}
+              whileHover={{ opacity: 0.1 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
+        ))}
+      </StaggerContainer>
 
       {/* Category Legend */}
       <div className='flex flex-wrap justify-center gap-4 pt-4 sm:justify-start'>
@@ -139,32 +132,26 @@ export function SkillsSection() {
         </div>
       </div>
 
-      {/* Currently Learning */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className='relative overflow-hidden rounded-2xl border-2 border-dashed border-accent/30 bg-accent/5 p-6'
-      >
-        <div className='absolute -top-8 -right-8 text-8xl opacity-10'>📚</div>
-        <h3 className='mb-4 flex items-center gap-2 text-lg font-semibold text-foreground'>
-          <span className='text-2xl'>🌱</span>
-          Currently Learning
-        </h3>
-        <div className='flex flex-wrap gap-3'>
-          {currentlyLearning.map((item, index) => (
-            <motion.span
-              key={item}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
-              className='inline-block rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow-md'
-            >
-              {item}
-            </motion.span>
-          ))}
+      <AnimateIn>
+        <div className='relative overflow-hidden rounded-2xl border-2 border-dashed border-accent/30 bg-accent/5 p-6'>
+          <div className='absolute -top-8 -right-8 text-8xl opacity-10'>📚</div>
+          <h3 className='mb-4 flex items-center gap-2 text-lg font-semibold text-foreground'>
+            <span className='text-2xl'>🌱</span>
+            Currently Learning
+          </h3>
+          <StaggerContainer className='flex flex-wrap gap-3'>
+            {currentlyLearning.map((item) => (
+              <motion.div
+                key={item}
+                variants={VARIANTS_GRID_ITEM}
+                className='inline-block rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow-md'
+              >
+                {item}
+              </motion.div>
+            ))}
+          </StaggerContainer>
         </div>
-      </motion.div>
-    </motion.section>
+      </AnimateIn>
+    </section>
   );
 }

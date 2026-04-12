@@ -11,6 +11,7 @@ import {
   VARIANTS_HERO_CONTAINER,
   VARIANTS_HERO_ITEM,
 } from '@/components/motion';
+import { Button } from '@/components/ui/button';
 
 export default function AboutPageClient() {
   return (
@@ -136,20 +137,30 @@ export default function AboutPageClient() {
         </p>
 
         <div className='flex flex-col items-center gap-4 sm:flex-row sm:justify-center'>
-          <Link
-            href='/contact'
-            className='inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-primary to-accent px-6 py-3 font-medium text-primary-foreground shadow-lg transition hover:scale-105 hover:shadow-xl'
+          <Button
+          size='lg'
+          asChild
+          className='bg-accent text-accent-foreground hover:scale-105 hover:shadow-xl'
           >
-            <Mail className='h-5 w-5' />
-            Get in Touch
-          </Link>
-
-          <Link
-            href='/projects'
-            className='inline-flex items-center gap-2 rounded-lg border-2 border-border bg-card px-6 py-3 font-medium text-foreground shadow-lg transition hover:scale-105 hover:bg-muted'
+            <Link
+              href='/contact'
+            >
+              <Mail className='h-5 w-5' />
+              Get in Touch
+            </Link>
+          </Button>
+          <Button
+          size='lg'
+          asChild
+          variant='outline'
+          className='border-accent text-accent hover:scale-105 hover:shadow-xl'
           >
-            View My Work
-          </Link>
+            <Link
+              href='/projects'
+            >
+              View My Work
+            </Link>
+          </Button>
         </div>
       </AnimateIn>
     </section>
