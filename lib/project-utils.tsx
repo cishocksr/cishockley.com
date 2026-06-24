@@ -1,4 +1,3 @@
-
 export function getStatusBadge(
   status: 'planning' | 'in-progress' | 'completed',
 ) {
@@ -17,7 +16,7 @@ export function getStatusBadge(
       );
     case 'completed':
       return (
-        <span className='inline-flex rounded-full bg-success px-3 py-1 text-xs text-success-foreground'>
+        <span className='inline-flex rounded-full bg-[var(--success)] px-3 py-1 text-xs text-[var(--success-foreground)]'>
           Completed
         </span>
       );

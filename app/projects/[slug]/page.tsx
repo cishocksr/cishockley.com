@@ -102,7 +102,12 @@ export default async function ProjectDetailPage({
             <div className='flex flex-wrap gap-3'>
               {project.githubLink && (
                 <Button variant='default' asChild>
-                  <Link href={project.githubLink} target='_blank' rel='noopener noreferrer'>
+                  <Link
+                    href={project.githubLink}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={`View code for ${project.title} on GitHub`}
+                  >
                     <FiGithub className='mr-2 h-4 w-4' />
                     View Code
                   </Link>
@@ -111,7 +116,12 @@ export default async function ProjectDetailPage({
 
               {project.projectUrl && (
                 <Button variant='outline' asChild>
-                  <Link href={project.projectUrl} target='_blank' rel='noopener noreferrer'>
+                  <Link
+                    href={project.projectUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={`View live project for ${project.title}`}
+                  >
                     <FiExternalLink className='mr-2 h-4 w-4' />
                     Live Project
                   </Link>

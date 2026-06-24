@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const nextTheme = theme === 'dark' ? 'light' : 'dark';
 
   useEffect(() => {
     setMounted(true);
@@ -19,9 +20,9 @@ export function ThemeToggle() {
   return (
     <button
       type='button'
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(nextTheme)}
       className='hover:text-primary hover:bg-accent flex items-center rounded-md p-2 transition-colors'
-      aria-label='Toggle theme'
+      aria-label={`Switch to ${nextTheme} theme`}
     >
       {theme === 'dark' ? (
         <Sun className='h-5 w-5' />

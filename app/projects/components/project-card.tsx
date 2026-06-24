@@ -79,14 +79,24 @@ export default function ProjectCard(props: ProjectCardProps) {
         <div className='flex gap-3'>
           {props.githubLink && (
             <Button variant='outline' size='icon-sm' asChild>
-              <Link href={props.githubLink} target='_blank' rel='noopener noreferrer'>
+              <Link
+                href={props.githubLink}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label={`View ${props.title} source code on GitHub`}
+              >
                 <FiGithub />
               </Link>
             </Button>
           )}
           {props.projectUrl && (
             <Button variant='outline' size='icon-sm' asChild>
-              <Link href={props.projectUrl} target='_blank' rel='noopener noreferrer'>
+              <Link
+                href={props.projectUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label={`Open ${props.title} live project`}
+              >
                 <FiExternalLink />
               </Link>
             </Button>
@@ -94,7 +104,10 @@ export default function ProjectCard(props: ProjectCardProps) {
         </div>
 
         <Button variant='outline' size='icon-sm' asChild>
-          <Link href={`/projects/${props.slug}`}>
+          <Link
+            href={`/projects/${props.slug}`}
+            aria-label={`View details for ${props.title}`}
+          >
             <FiArrowRight />
           </Link>
         </Button>

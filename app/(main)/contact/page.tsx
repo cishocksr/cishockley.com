@@ -145,7 +145,7 @@ export default function ContactPage() {
 
         {/* Success/Error Messages */}
         {submitStatus === 'success' && (
-          <div className='rounded-lg border border-success/20 bg-success p-4 text-success-foreground'>
+          <div className='rounded-lg border border-[color-mix(in_oklch,var(--success)_20%,transparent)] bg-[var(--success)] p-4 text-[var(--success-foreground)]'>
             ✓ Message sent successfully! I'll get back to you soon.
           </div>
         )}
@@ -156,7 +156,6 @@ export default function ContactPage() {
           </div>
         )}
       </motion.form>
-
     </motion.div>
   );
 }
