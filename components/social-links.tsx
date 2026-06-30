@@ -1,5 +1,5 @@
+import { type SocialLink, socialLinks } from '@/config/social';
 import { cn } from '@/lib/utils';
-import { socialLinks, type SocialLink } from '@/config/social';
 
 export function isMailtoUrl(url: string) {
   return url.trimStart().toLowerCase().startsWith('mailto:');

@@ -45,7 +45,7 @@ export default async function BlogPostPage({
 
   return (
     <div className='container-section max-w-7xl py-8'>
-      <div className='flex gap-8'>
+      <div className='flex flex-col gap-8 lg:flex-row'>
         <article className='max-w-3xl flex-1'>
           {/* Back button */}
           <div className='mb-6'>
@@ -126,7 +126,7 @@ export default async function BlogPostPage({
         </article>
 
         {post.toc.length > 0 && (
-          <aside className='w-64 shrink-0'>
+          <aside className='lg:w-64 lg:shrink-0'>
             <TableOfContents toc={post.toc} />
           </aside>
         )}

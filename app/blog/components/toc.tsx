@@ -29,8 +29,9 @@ const renderTOCItems = (
 ) => {
   return (
     <ul
-      className={`space-y-2 pl-4 ${isFirstLevel ? 'border-border border-l' : ''
-        }`}
+      className={`space-y-2 pl-4 ${
+        isFirstLevel ? 'border-border border-l' : ''
+      }`}
     >
       {items.map((item) => {
         const headingId = item.url.replace('#', '');
@@ -41,10 +42,11 @@ const renderTOCItems = (
             <a
               href={item.url}
               onClick={() => onClose?.()}
-              className={`block py-1 text-sm transition-colors ${isActive
-                ? 'text-primary font-medium'
-                : 'text-muted-foreground hover:text-foreground'
-                }`}
+              className={`block py-1 text-sm transition-colors ${
+                isActive
+                  ? 'text-primary font-medium'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
             >
               {item.title}
             </a>

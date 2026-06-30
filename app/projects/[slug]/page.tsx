@@ -45,7 +45,7 @@ export default async function ProjectDetailPage({
 
   return (
     <div className='container-section max-w-7xl py-8'>
-      <div className='flex gap-8'>
+      <div className='flex flex-col gap-8 lg:flex-row'>
         {/* Main Content */}
         <article className='max-w-3xl flex-1'>
           {/* Back button */}
@@ -141,11 +141,11 @@ export default async function ProjectDetailPage({
         </article>
 
         {/* Sidebar with TOC - Same as blog! */}
-        <aside className='w-64 shrink-0'>
-          {project.toc && project.toc.length > 0 && (
+        {project.toc && project.toc.length > 0 && (
+          <aside className='lg:w-64 lg:shrink-0'>
             <TableOfContents toc={project.toc} />
-          )}
-        </aside>
+          </aside>
+        )}
       </div>
     </div>
   );

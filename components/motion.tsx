@@ -29,10 +29,6 @@ export const TRANSITION_SECTION: Transition = {
   ease: DEFAULT_EASE,
 };
 
-
-
-
-
 export const VARIANTS_STAGGER_GRID: Variants = {
   hidden: { opacity: 0 },
   visible: {

@@ -12,9 +12,9 @@ import {
   VARIANTS_HERO_ITEM,
 } from '@/components/motion';
 import { SkillsSection } from '@/components/skills';
+import { SocialLinks } from '@/components/social-links';
 import Typewriter from '@/components/typewriter';
 import { Button } from '@/components/ui/button';
-import { SocialLinks } from '@/components/social-links';
 
 type FeaturedProject = {
   slug: string;

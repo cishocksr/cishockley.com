@@ -138,28 +138,22 @@ export default function AboutPageClient() {
 
         <div className='flex flex-col items-center gap-4 sm:flex-row sm:justify-center'>
           <Button
-          size='lg'
-          asChild
-          className='bg-accent text-accent-foreground hover:scale-105 hover:shadow-xl'
+            size='lg'
+            asChild
+            className='bg-accent text-accent-foreground hover:scale-105 hover:shadow-xl'
           >
-            <Link
-              href='/contact'
-            >
+            <Link href='/contact'>
               <Mail className='h-5 w-5' />
               Get in Touch
             </Link>
           </Button>
           <Button
-          size='lg'
-          asChild
-          variant='outline'
-          className='border-accent text-accent hover:scale-105 hover:shadow-xl'
+            size='lg'
+            asChild
+            variant='outline'
+            className='border-accent text-accent hover:scale-105 hover:shadow-xl'
           >
-            <Link
-              href='/projects'
-            >
-              View My Work
-            </Link>
+            <Link href='/projects'>View My Work</Link>
           </Button>
         </div>
       </AnimateIn>

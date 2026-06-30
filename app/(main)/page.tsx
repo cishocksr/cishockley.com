@@ -29,5 +29,10 @@ export default function HomePage() {
       date: p.date,
     }));
 
-  return <HomeContent featuredProjects={featuredProjects} recentPosts={recentPosts} />;
+  return (
+    <HomeContent
+      featuredProjects={featuredProjects}
+      recentPosts={recentPosts}
+    />
+  );
 }
